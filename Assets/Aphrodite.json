@@ -1,0 +1,63 @@
+{
+	"name": "Aphrodite",
+	"checkpointDialogue": [
+    {
+      "checkpointNum": 1,
+      "dialogue": [
+        {
+          "id": 1,
+          "text": "Oh, hi there! I didn’t see you come in.",
+          "numOptions": 1, 
+          "options": [
+            {
+              "optionText": "Next",
+              "link": 2,
+              "affectionBonus": 0
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "text": "Are you the new social media manager?",
+          "numOptions": 2, 
+          "options": [
+            {
+              "optionText": "Who’s asking?",
+              "link": -1,
+              "affectionBonus": 0
+            },
+            {
+              "optionText": "Yeah, that’s me!",
+              "link": -1,
+              "affectionBonus": 5
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "conversationDialogue": [
+    {
+      "numDialogue": 0,
+      "dialoguePools": [ ]
+    }
+  ],
+  "greetDialogue": [
+    {
+      "numDialogue": 0,
+      "dialoguePools": [ ]
+    }
+  ],
+  "dateDialogue": [
+    {
+      "numDialogue": 0,
+      "dialoguePools": [ ]
+    }
+  ],
+  "postDialogue": [
+    {
+      "numDialogue": 0,
+      "dialoguePools": [ ]
+    }
+  ]
+}
