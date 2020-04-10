@@ -1075,7 +1075,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Aphrodite (find better font lol)
+  m_text: Aphrodite
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 2cc8379fd07b0451f9a4d5de96ccfce7, type: 2}
   m_sharedMaterial: {fileID: -8515710121473664935, guid: 2cc8379fd07b0451f9a4d5de96ccfce7,
@@ -1145,10 +1145,10 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: -180.0219, w: 0}
   m_textInfo:
     textComponent: {fileID: 399872994}
-    characterCount: 32
+    characterCount: 9
     spriteCount: 0
-    spaceCount: 4
-    wordCount: 5
+    spaceCount: 0
+    wordCount: 1
     linkCount: 0
     lineCount: 1
     pageCount: 1

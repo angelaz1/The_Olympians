@@ -20,7 +20,7 @@ public class PostingUIManager : MonoBehaviour
     // function TBD 
     public void PostPhoto()
     {
-
+        SceneManager.LoadScene("PhoneUIDemo");
     }
 
     public void ReturnToMainScreen()
