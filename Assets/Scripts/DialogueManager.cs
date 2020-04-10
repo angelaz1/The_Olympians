@@ -28,6 +28,7 @@ public class DialogueManager : MonoBehaviour
     void Start()
     {
         speakerName = "Aphrodite";
+        readDialogue();
     }
 
     // Update is called once per frame
@@ -36,7 +37,7 @@ public class DialogueManager : MonoBehaviour
         
     }
 
-    void readDialogue() {
+    public void readDialogue() {
         string json = File.ReadAllText(Application.dataPath + "/" + speakerName + ".json");
         dialogue = JsonUtility.FromJson<CharacterDialogue>(json);
         Debug.Log(dialogue.checkpointDialogue[0].dialogue[0].text);
