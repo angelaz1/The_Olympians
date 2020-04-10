@@ -7,6 +7,7 @@ abstract public class ButtonListener : MonoBehaviour
 {   
     public void onHover() {
         this.GetComponent<Animator>().SetBool("isHovering", true);
+        this.GetComponent<AudioSource>().Play();
     }
 
     public void offHover() {
