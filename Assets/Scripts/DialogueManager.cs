@@ -51,7 +51,7 @@ public class DialogueManager : MonoBehaviour
     }
 
     public void readDialogue() {
-        string json = File.ReadAllText(Application.dataPath + "/" + speakerName + ".json");
+        string json = File.ReadAllText(Application.streamingAssetsPath + "/" + speakerName + ".json");
         dialogue = JsonUtility.FromJson<CharacterDialogue>(json);
         Debug.Log(dialogue.checkpointDialogue[0].dialogue[0].text);
     }
