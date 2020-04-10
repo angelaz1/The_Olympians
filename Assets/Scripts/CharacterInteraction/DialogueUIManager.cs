@@ -6,7 +6,7 @@ using TMPro;
 
 public class DialogueUIManager : MonoBehaviour
 {
-    private Dialogue[] currDialogue;
+    // private Dialogue[] currDialogue;
     private GameObject dialogueUI;
     private GameObject textBox;
     private GameObject nextButton;
@@ -44,8 +44,8 @@ public class DialogueUIManager : MonoBehaviour
         
     }
 
-    IEnumerator updateText() {
-        string targetText = currDialogue[currIndex].text;
+    public IEnumerator updateTextUI(string targetText, Option[] options) {
+        disableAllButtons();
         string currText = "";
         for(int i = 0; i < targetText.Length; i++) {
             currText += targetText[i];
@@ -57,11 +57,11 @@ public class DialogueUIManager : MonoBehaviour
             }
         }
         
-        setOptions();
+        setOptions(options);
     }
 
-    public void setOptions() {
-        Option[] options = currDialogue[currIndex].options;
+    public void setOptions(Option[] options) {
+        // Option[] options = currDialogue[currIndex].options;
 
         if(options.Length == 1) {
             nextButton.SetActive(true);
@@ -85,38 +85,13 @@ public class DialogueUIManager : MonoBehaviour
         nextButton.SetActive(false);
     }
 
-    public void startDialogue(Dialogue[] dialogue) {
-        currDialogue = dialogue;
-        currIndex = 0;
-
+    public void startDialogueUI() {
         // Manage the UI
         dialogueUI.GetComponent<Canvas>().enabled = true;
         disableAllButtons();
-        StartCoroutine(updateText());
     }
 
-    public void advanceText() {
-        int nextIndex = currDialogue[currIndex].options[0].link;
-        if(nextIndex == -1) {
-            dialogueUI.GetComponent<Canvas>().enabled = false;
-            GameObject.Find("DialogueManager").GetComponent<DialogueManager>().finishDialogue();
-        } else {
-            currIndex = nextIndex;
-            disableAllButtons();
-            StartCoroutine(updateText());
-        }
-    }
-
-    public void selectOption(int i) {
-        //REQUIRES: i must be a selectable option in current dialogue
-        int nextIndex = currDialogue[currIndex].options[i].link;
-        if(nextIndex == -1) {
-            dialogueUI.GetComponent<Canvas>().enabled = false;
-            GameObject.Find("DialogueManager").GetComponent<DialogueManager>().finishDialogue();
-        } else {
-            currIndex = nextIndex;
-            disableAllButtons();
-            StartCoroutine(updateText());
-        }
+    public void finishDialogueUI() {
+        dialogueUI.GetComponent<Canvas>().enabled = false;
     }
 }

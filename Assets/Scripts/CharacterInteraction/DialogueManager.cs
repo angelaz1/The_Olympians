@@ -9,8 +9,11 @@ public class DialogueManager : MonoBehaviour
 
     // We will use the speakerName to find and parse the dialogue JSON
     // The dialogue for all characters should be in a JSON file named their name
-    public string speakerName;
+    private string speakerName;
     private CharacterDialogue dialogue;
+    private Dialogue[] currDialogue;
+    private int currIndex;
+    private DialogueUIManager dialogueUI;
 
     private void Awake() {
         if (dm == null)
@@ -27,8 +30,9 @@ public class DialogueManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        speakerName = "Aphrodite";
+        speakerName = "Aphrodite"; //TO BE REPLACED
         readDialogue();
+        dialogueUI = GameObject.Find("DialogueUIManager").GetComponent<DialogueUIManager>();
     }
 
     // Update is called once per frame
@@ -37,14 +41,53 @@ public class DialogueManager : MonoBehaviour
         
     }
 
+    public void setSpeakerName(string name) {
+        speakerName = name;
+    }
+
     public void startConversationDialogue() {
         // Pick a random conversation dialogue to do
         int convoLen = dialogue.conversationDialogue.Length;
         int index = Random.Range(0, convoLen);
- 
+
         Dialogue[] selected = dialogue.conversationDialogue[index].dialogue;
-        GameObject.Find("DialogueUIManager").GetComponent<DialogueUIManager>().startDialogue(selected);
+        currDialogue = selected;
+        currIndex = 0;
+
+        dialogueUI.startDialogueUI();
+        updateText();
+        // dialogueUI.startDialogue(selected);
     }
+
+    public void updateText() {
+        string targetText = currDialogue[currIndex].text;
+        Option[] options = currDialogue[currIndex].options;
+        StartCoroutine(dialogueUI.updateTextUI(targetText, options));
+    }
+
+    public void advanceText() {
+        int nextIndex = currDialogue[currIndex].options[0].link;
+        if(nextIndex == -1) {
+            dialogueUI.finishDialogueUI();
+            finishDialogue();
+        } else {
+            updateText();
+        }
+    }
+
+    public void selectOption(int i) {
+        //REQUIRES: i must be a selectable option in current dialogue
+        int nextIndex = currDialogue[currIndex].options[i].link;
+        if(nextIndex == -1) {
+            dialogueUI.finishDialogueUI();
+            finishDialogue();
+        } else {
+            currIndex = nextIndex;
+            updateText();
+        }
+    }
+
+
 
     public void finishDialogue() {
         GameObject.Find("InteractButtonManager").GetComponent<InteractButtonManager>().allFlyIn();
