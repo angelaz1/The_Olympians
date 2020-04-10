@@ -37,6 +37,19 @@ public class DialogueManager : MonoBehaviour
         
     }
 
+    public void startConversationDialogue() {
+        // Pick a random conversation dialogue to do
+        int convoLen = dialogue.conversationDialogue.Length;
+        int index = Random.Range(0, convoLen);
+ 
+        Dialogue[] selected = dialogue.conversationDialogue[index].dialogue;
+        GameObject.Find("DialogueUIManager").GetComponent<DialogueUIManager>().startDialogue(selected);
+    }
+
+    public void finishDialogue() {
+        GameObject.Find("InteractButtonManager").GetComponent<InteractButtonManager>().allFlyIn();
+    }
+
     public void readDialogue() {
         string json = File.ReadAllText(Application.dataPath + "/" + speakerName + ".json");
         dialogue = JsonUtility.FromJson<CharacterDialogue>(json);

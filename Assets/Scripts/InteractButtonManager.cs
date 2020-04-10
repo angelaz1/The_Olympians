@@ -26,4 +26,10 @@ public class InteractButtonManager : MonoBehaviour
             listeners[i].setFlyingOff();
         }
     }
+
+    public void allFlyIn() {
+        for(int i = 0; i < listeners.Length; i++) {
+            listeners[i].setFlyingOn();
+        }
+    }
 }

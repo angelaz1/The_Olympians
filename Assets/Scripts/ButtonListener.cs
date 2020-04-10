@@ -19,8 +19,8 @@ abstract public class ButtonListener : MonoBehaviour
     }
 
     public void setFlyingOn() {
-        this.GetComponent<Animator>().SetTrigger("flyOff");
-        this.GetComponent<Animator>().ResetTrigger("flyIn");
+        this.GetComponent<Animator>().ResetTrigger("flyOff");
+        this.GetComponent<Animator>().SetTrigger("flyIn");
     }
 
     public abstract void onClick();

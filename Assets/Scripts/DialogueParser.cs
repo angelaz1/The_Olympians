@@ -26,7 +26,7 @@ public class Option
 public class OtherDialogue
 {
     public int numDialogue;    
-    public Dialogue[,] dialoguePools;
+    public Dialogue[] dialogue;
 }
 
 [System.Serializable]

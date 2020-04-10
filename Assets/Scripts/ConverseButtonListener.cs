@@ -8,5 +8,6 @@ public class ConverseButtonListener : ButtonListener
     public override void onClick() {
         GameObject.Find("InteractButtonManager").GetComponent<InteractButtonManager>().allFlyOff();
         // START DIALOGUE
+        GameObject.Find("DialogueManager").GetComponent<DialogueManager>().startConversationDialogue();
     }
 }

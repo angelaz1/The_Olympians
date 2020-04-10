@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class DateButtonListener : ButtonListener
 {
     public override void onClick() {
-        GameObject.Find("InteractButtonManager").GetComponent<InteractButtonManager>().allFlyOff();
+        // GameObject.Find("InteractButtonManager").GetComponent<InteractButtonManager>().allFlyOff();
         // START DATE
     }
 }
