@@ -44,27 +44,45 @@ public class DialogueUIManager : MonoBehaviour
         
     }
 
+    IEnumerator updateText() {
+        string targetText = currDialogue[currIndex].text;
+        string currText = "";
+        for(int i = 0; i < targetText.Length; i++) {
+            currText += targetText[i];
+            textBox.GetComponentInChildren<TextMeshProUGUI>().text = currText;
+            yield return new WaitForSeconds(0.01f);
+            if (Input.GetMouseButtonDown(0)) {
+                textBox.GetComponentInChildren<TextMeshProUGUI>().text = targetText;
+                break;
+            }
+        }
+        
+        setOptions();
+    }
+
     public void setOptions() {
         Option[] options = currDialogue[currIndex].options;
-
-        for(int i = 0; i < optionButtons.Length; i++) {
-            optionButtons[i].SetActive(false);
-        }
 
         if(options.Length == 1) {
             nextButton.SetActive(true);
         } else {
             nextButton.SetActive(false);
             for(int i = 0; i < options.Length; i++) {
-                optionButtons[i].SetActive(true);
+                // optionButtons[i].SetActive(true);
                 optionButtons[i].GetComponentInChildren<TextMeshProUGUI>().text = options[i].optionText;
+                optionButtons[i].GetComponent<Animator>().SetTrigger("flyIn");
+                optionButtons[i].GetComponent<Animator>().ResetTrigger("flyOut");
             }
         }
     }
 
-    public void updateText() {
-        textBox.GetComponentInChildren<TextMeshProUGUI>().text = currDialogue[currIndex].text;
-        setOptions();
+    public void disableAllButtons() {
+        for(int i = 0; i < optionButtons.Length; i++) {
+            // optionButtons[i].SetActive(false);
+            optionButtons[i].GetComponent<Animator>().SetTrigger("flyOut");
+            optionButtons[i].GetComponent<Animator>().ResetTrigger("flyIn");
+        }
+        nextButton.SetActive(false);
     }
 
     public void startDialogue(Dialogue[] dialogue) {
@@ -73,7 +91,8 @@ public class DialogueUIManager : MonoBehaviour
 
         // Manage the UI
         dialogueUI.GetComponent<Canvas>().enabled = true;
-        updateText();
+        disableAllButtons();
+        StartCoroutine(updateText());
     }
 
     public void advanceText() {
@@ -83,7 +102,8 @@ public class DialogueUIManager : MonoBehaviour
             GameObject.Find("DialogueManager").GetComponent<DialogueManager>().finishDialogue();
         } else {
             currIndex = nextIndex;
-            updateText();
+            disableAllButtons();
+            StartCoroutine(updateText());
         }
     }
 
@@ -95,7 +115,8 @@ public class DialogueUIManager : MonoBehaviour
             GameObject.Find("DialogueManager").GetComponent<DialogueManager>().finishDialogue();
         } else {
             currIndex = nextIndex;
-            updateText();
+            disableAllButtons();
+            StartCoroutine(updateText());
         }
     }
 }
