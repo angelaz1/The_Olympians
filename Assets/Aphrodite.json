@@ -1,0 +1,98 @@
+{
+	"name": "Aphrodite",
+	"checkpointDialogue": [
+    {
+      "checkpointNum": 1,
+      "dialogue": [
+        {
+          "id": 0,
+          "text": "Oh, hi there! I didn’t see you come in.",
+          "numOptions": 1, 
+          "options": [
+            {
+              "optionText": "Next",
+              "link": 1,
+              "affectionBonus": 0
+            }
+          ]
+        },
+        {
+          "id": 1,
+          "text": "Are you the new social media manager?",
+          "numOptions": 2, 
+          "options": [
+            {
+              "optionText": "Who’s asking?",
+              "link": -1,
+              "affectionBonus": 0
+            },
+            {
+              "optionText": "Yeah, that’s me!",
+              "link": -1,
+              "affectionBonus": 5
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "conversationDialogue": [
+    {
+      "numDialogue": 1,
+      "dialogue": [
+        {
+          "id": 0,
+          "text": "What kind of food do you like?",
+          "numOptions": 3, 
+          "options": [
+            {
+              "optionText": "Definitely pizza",
+              "link": 1,
+              "affectionBonus": 0
+            },
+            {
+              "optionText": "Desserts are my vice",
+              "link": 1,
+              "affectionBonus": 5
+            },
+            {
+              "optionText": "I enjoy a good spinach smoothie",
+              "link": 1,
+              "affectionBonus": 5
+            }
+          ]
+        },
+        {
+          "id": 1,
+          "text": "Wow, that sure is interesting!",
+          "numOptions": 1, 
+          "options": [
+            {
+              "optionText": "Next",
+              "link": -1,
+              "affectionBonus": 0
+            }
+          ]
+        }
+      ] 
+    }
+  ],
+  "greetDialogue": [
+    {
+      "numDialogue": 0,
+      "dialogue": [ ]
+    }
+  ],
+  "dateDialogue": [
+    {
+      "numDialogue": 0,
+      "dialogue": [ ]
+    }
+  ],
+  "postDialogue": [
+    {
+      "numDialogue": 0,
+      "dialogue": [ ]
+    }
+  ]
+}
