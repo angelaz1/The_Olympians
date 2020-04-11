@@ -16,6 +16,16 @@ public class DialogueUIManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        initVariables();
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        
+    }
+
+    void initVariables() {
         dialogueUI = GameObject.Find("DialogueUI");
         optionButtons = new GameObject[3];
         foreach (Transform child in dialogueUI.transform){
@@ -36,12 +46,6 @@ public class DialogueUIManager : MonoBehaviour
             }
         }
         dialogueUI.GetComponent<Canvas>().enabled = false;
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 
     public IEnumerator updateTextUI(string targetText, Option[] options) {
@@ -87,6 +91,9 @@ public class DialogueUIManager : MonoBehaviour
 
     public void startDialogueUI() {
         // Manage the UI
+        if (dialogueUI == null) {
+            initVariables();
+        }
         dialogueUI.GetComponent<Canvas>().enabled = true;
         disableAllButtons();
     }

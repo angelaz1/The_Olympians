@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Networking;
 
 public class DialogueManager : MonoBehaviour
 {
@@ -30,15 +31,9 @@ public class DialogueManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        speakerName = "Aphrodite"; //TO BE REPLACED
-        readDialogue();
+        // speakerName = "Aphrodite"; //TO BE REPLACED
+        // readDialogue();
         dialogueUI = GameObject.Find("DialogueUIManager").GetComponent<DialogueUIManager>();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 
     public void setSpeakerName(string name) {
@@ -53,6 +48,10 @@ public class DialogueManager : MonoBehaviour
         Dialogue[] selected = dialogue.conversationDialogue[index].dialogue;
         currDialogue = selected;
         currIndex = 0;
+        
+        if (dialogueUI == null) {
+            dialogueUI = GameObject.Find("DialogueUIManager").GetComponent<DialogueUIManager>();
+        }
 
         dialogueUI.startDialogueUI();
         updateText();
@@ -87,15 +86,35 @@ public class DialogueManager : MonoBehaviour
         }
     }
 
-
-
     public void finishDialogue() {
         GameObject.Find("InteractButtonManager").GetComponent<InteractButtonManager>().allFlyIn();
     }
 
+    // IEnumerator loadStreamingAsset(string fileName)
+    // {
+    //     string filePath = System.IO.Path.Combine(Application.streamingAssetsPath + "/", fileName);
+    //     // Debug.Log(filePath);
+    //     string result;
+    //     if (filePath.Contains("://") || filePath.Contains(":///"))
+    //     {
+    //         UnityWebRequest www = new UnityWebRequest(filePath);
+    //         yield return www.SendWebRequest();
+    //         result = www.downloadHandler.text;
+    //     }
+    //     else
+    //         result = System.IO.File.ReadAllText(filePath);
+
+    //     Debug.Log(filePath);
+    //     dialogue = JsonUtility.FromJson<CharacterDialogue>(result);
+    //     // Debug.Log(dialogue.checkpointDialogue[0].dialogue[0].text);
+    // }
     public void readDialogue() {
-        string json = File.ReadAllText(Application.streamingAssetsPath + "/" + speakerName + ".json");
-        dialogue = JsonUtility.FromJson<CharacterDialogue>(json);
-        Debug.Log(dialogue.checkpointDialogue[0].dialogue[0].text);
+        // Debug.Log(System.IO.Path.Combine(Application.streamingAssetsPath, speakerName+".json"));
+        TextAsset jsonTextFile = Resources.Load<TextAsset>(speakerName);
+        dialogue = JsonUtility.FromJson<CharacterDialogue>(jsonTextFile.ToString());
+        // StartCoroutine(loadStreamingAsset(speakerName+".json"));
+        // string json = File.ReadAllText(Application.streamingAssetsPath + "/" + speakerName + ".json");
+        // dialogue = JsonUtility.FromJson<CharacterDialogue>(json);
+        // Debug.Log(dialogue.checkpointDialogue[0].dialogue[0].text);
     }
 }
