@@ -7,6 +7,8 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager gm;
     private string currentCharacterName;
+
+    private GameObject characterImage;
     private DialogueManager dialogueManager;
     private Dictionary<string, CharacterProgress> allCharacterProgress;
 
@@ -18,8 +20,11 @@ public class GameManager : MonoBehaviour
     // called second
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        if (scene.name == "PhoneUIDemo" && allCharacterProgress != null) {
-            startGreetingDialogue();
+        if (scene.name == "PhoneUIDemo") {
+            characterImage = GameObject.Find("CharacterImage");
+            if (allCharacterProgress != null) {
+                startGreetingDialogue();
+            }
         }
     }
 
@@ -67,6 +72,14 @@ public class GameManager : MonoBehaviour
             dialogueManager.startCheckpointDialogue(0);
         } else {
             dialogueManager.startGreetingDialogue();
+        }
+    }
+
+    public void addAffection(int amount) {
+        CharacterProgress p = allCharacterProgress[currentCharacterName];
+        p.addAffection(amount);
+        if (amount > 0) {
+            characterImage.GetComponent<ParticleSystem>().Play();
         }
     }
 }

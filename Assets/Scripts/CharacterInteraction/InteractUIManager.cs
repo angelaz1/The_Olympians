@@ -42,6 +42,10 @@ public class InteractUIManager : MonoBehaviour
         }
     }
 
+    public void loadMap() {
+        SceneManager.LoadScene("MapDemo");
+    }
+
     public void exitGame() {
         Application.Quit();
     }

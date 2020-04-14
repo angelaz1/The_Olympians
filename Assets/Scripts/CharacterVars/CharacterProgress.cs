@@ -5,10 +5,22 @@ using UnityEngine;
 public class CharacterProgress
 {
     private int currentCheckpoint;
-    private int currentProgress;
+    private int currentAffection;
+    private int currentFollowers;
     private CharacterVars vars;
 
     public CharacterProgress(CharacterVars vars) {
         this.vars = vars;
+        currentCheckpoint = 0;
+        currentAffection = 0;
+        currentFollowers = 0;
+    }
+
+    public void addAffection(int amount) {
+        currentAffection += amount;
+    }
+
+    public void addFollowers(int amount) {
+        currentFollowers += amount;
     }
 }

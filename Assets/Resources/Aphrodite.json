@@ -59,7 +59,7 @@
         },
 		{
           "id": 4,
-          "text": "Well, you probably already know who I am. I'm Aphrodite - yeah, like the Goddess of Love and Beauty.",
+          "text": "Well, you probably already know who I am. I'm Aphrodite. Yeah, just like the Goddess of Love and Beauty.",
           "numOptions": 1,
           "options": [
             {
@@ -70,8 +70,20 @@
           ]
         },
         {
-            "id": 5,
-            "text": "A lowly nobody like yourself should be grateful to be working with me. Try to keep up, with you?",
+          "id": 5,
+          "text": "You've probably seen me around on billboards or whatever. Movies, commercials, modelling - I've done it all.",
+          "numOptions": 1,
+          "options": [
+            {
+              "optionText": "Next",
+              "link": 6,
+              "affectionBonus": 0
+            }
+          ]
+        },
+        {
+            "id": 6,
+            "text": "A lowly nobody like yourself should be grateful to be working with me. Try to keep up, will you?",
             "numOptions": 1,
             "options": [
               {
@@ -94,19 +106,19 @@
           "numOptions": 3,
           "options": [
             {
-              "optionText": "Definitely pizza",
+              "optionText": "Definitely pizza (bad)",
               "link": 1,
-              "affectionBonus": 0
+              "affectionBonus": -10
             },
             {
-              "optionText": "Desserts are my vice",
+              "optionText": "Desserts are my vice (ok)",
               "link": 1,
               "affectionBonus": 5
             },
             {
-              "optionText": "I enjoy a good spinach smoothie",
+              "optionText": "I enjoy a good spinach smoothie (good)",
               "link": 1,
-              "affectionBonus": 5
+              "affectionBonus": 10
             }
           ]
         },
