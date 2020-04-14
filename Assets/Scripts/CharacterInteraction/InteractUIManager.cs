@@ -10,7 +10,7 @@ public class InteractUIManager : MonoBehaviour
     private GameObject phone;
     private GameObject buttons;
     private bool phoneDown;
-    // Start is called before the first frame update
+
     void Start()
     {
         phone = GameObject.Find("Phone");
@@ -18,13 +18,9 @@ public class InteractUIManager : MonoBehaviour
         buttons = GameObject.Find("Buttons");
     }
 
-    // Update is called once per frame
     void Update()
     {
-        // GameObject currentSelected = EventSystem.current.currentSelectedGameObject;
-        // if(currentSelected != null && currentSelected.transform.parent == buttons) {
-        //     currentSelected.GetComponent<Animator>().SetBool("isHovering", true);
-        // }
+
     }
 
     public void arrowPressed() {
@@ -42,8 +38,15 @@ public class InteractUIManager : MonoBehaviour
         }
     }
 
+    IEnumerator loadMapScene() {
+        yield return new WaitForSeconds(1f);
+        SceneManager.LoadScene("MapDemo");    
+    }
+
     public void loadMap() {
-        SceneManager.LoadScene("MapDemo");
+        phone.GetComponent<Animator>().SetTrigger("OpenApp");
+        Debug.Log("Map pressed");
+        StartCoroutine(loadMapScene());
     }
 
     public void exitGame() {
