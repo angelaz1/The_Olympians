@@ -6,8 +6,8 @@
       "dialogue": [
         {
           "id": 0,
-          "text": "Oh, hi there! I didn’t see you come in.",
-          "numOptions": 1, 
+          "text": "Hm, are you actually trying to talk to me? Who even are you?",
+          "numOptions": 1,
           "options": [
             {
               "optionText": "Next",
@@ -18,18 +18,54 @@
         },
         {
           "id": 1,
-          "text": "Are you the new social media manager?",
-          "numOptions": 2, 
+          "text": "Oh waaaait a minute, you're that new social media manager aren't you?",
+          "numOptions": 2,
           "options": [
             {
-              "optionText": "Who’s asking?",
-              "link": -1,
+              "optionText": "That's me! Nice to meet you!",
+              "link": 2,
               "affectionBonus": 0
             },
             {
-              "optionText": "Yeah, that’s me!",
+              "optionText": "Who else would I be?",
+              "link": 3,
+              "affectionBonus": 0
+            }
+          ]
+        },
+				{
+          "id": 2,
+          "text": "Ha, don't try to be so peppy with me.",
+          "numOptions": 1,
+          "options": [
+            {
+              "optionText": "Next",
+              "link": 4,
+              "affectionBonus": 0
+            }
+          ]
+        },
+				{
+          "id": 3,
+          "text": "Wow, someone's snarky. Try that tone with me again and I'll fire you on the spot.",
+          "numOptions": 1,
+          "options": [
+            {
+              "optionText": "Next",
+              "link": 4,
+              "affectionBonus": 0
+            }
+          ]
+        },
+				{
+          "id": 4,
+          "text": "Well, you probably already know who I am. I'm Aphrodite - yeah, like the Goddess of Love and Beauty. A lowly nobody like yourself should be grateful to be working with me. Try to keep up, with you?",
+          "numOptions": 1,
+          "options": [
+            {
+              "optionText": "Next",
               "link": -1,
-              "affectionBonus": 5
+              "affectionBonus": 0
             }
           ]
         }
@@ -43,7 +79,7 @@
         {
           "id": 0,
           "text": "What kind of food do you like?",
-          "numOptions": 3, 
+          "numOptions": 3,
           "options": [
             {
               "optionText": "Definitely pizza",
@@ -65,7 +101,7 @@
         {
           "id": 1,
           "text": "Wow, that sure is interesting!",
-          "numOptions": 1, 
+          "numOptions": 1,
           "options": [
             {
               "optionText": "Next",
@@ -74,25 +110,64 @@
             }
           ]
         }
-      ] 
+      ]
     }
   ],
   "greetDialogue": [
     {
-      "numDialogue": 0,
-      "dialogue": [ ]
+      "numDialogue": 1,
+      "dialogue": [
+				{
+          "id": 0,
+          "text": "Back already? I have a busy life so try to get to the point.",
+          "numOptions": 1,
+          "options": [
+            {
+              "optionText": "Next",
+              "link": -1,
+              "affectionBonus": 0
+            }
+          ]
+        }
+			]
     }
   ],
   "dateDialogue": [
     {
-      "numDialogue": 0,
-      "dialogue": [ ]
+      "numDialogue": 1,
+      "dialogue": [
+				{
+          "id": 0,
+          "text": "You want to go on a date with me? Sure, but it better be worth my time.",
+          "numOptions": 1,
+          "options": [
+            {
+              "optionText": "Next",
+              "link": -1,
+              "affectionBonus": 0
+            }
+          ]
+        }
+			]
     }
   ],
   "postDialogue": [
     {
-      "numDialogue": 0,
-      "dialogue": [ ]
+      "numDialogue": 1,
+      "dialogue": [
+				{
+          "id": 0,
+          "text": "Another Instagram post? Let's do it then.",
+          "numOptions": 1,
+          "options": [
+            {
+              "optionText": "Next",
+              "link": -1,
+              "affectionBonus": 0
+            }
+          ]
+        }
+			]
     }
   ]
 }
