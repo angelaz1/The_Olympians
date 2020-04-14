@@ -12,11 +12,17 @@ public class DialogueUIManager : MonoBehaviour
     private GameObject nextButton;
     private GameObject[] optionButtons;
     private int currIndex;
+    private bool mouseClicked;
 
-    // Start is called before the first frame update
     void Awake()
     {
         initVariables();
+    }
+
+    void Update() {
+        if (!mouseClicked && Input.GetMouseButtonDown(0)) {
+            mouseClicked = true;
+        }    
     }
 
     void initVariables() {
@@ -45,11 +51,12 @@ public class DialogueUIManager : MonoBehaviour
     public IEnumerator updateTextUI(string targetText, Option[] options) {
         disableAllButtons();
         string currText = "";
+        mouseClicked = false;
         for(int i = 0; i < targetText.Length; i++) {
             currText += targetText[i];
             textBox.GetComponentInChildren<TextMeshProUGUI>().text = currText;
             yield return new WaitForSeconds(0.02f);
-            if (Input.GetMouseButtonDown(0)) {
+            if (mouseClicked) {
                 textBox.GetComponentInChildren<TextMeshProUGUI>().text = targetText;
                 break;
             }

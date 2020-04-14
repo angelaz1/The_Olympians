@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Networking;
+using UnityEngine.SceneManagement;
 
 public class DialogueManager : MonoBehaviour
 {
@@ -10,7 +11,7 @@ public class DialogueManager : MonoBehaviour
 
     // We will use the speakerName to find and parse the dialogue JSON
     // The dialogue for all characters should be in a JSON file named their name
-    private enum DialogueType {Checkpoint, Conversation, Greeting};
+    private enum DialogueType {Checkpoint, Conversation, Greeting, Post};
     private string speakerName;
     private CharacterDialogue dialogue;
     private Dialogue[] currDialogue;
@@ -30,7 +31,6 @@ public class DialogueManager : MonoBehaviour
         }
     }
 
-    // Start is called before the first frame update
     void Start()
     {
         dialogueUI = GameObject.Find("DialogueUIManager").GetComponent<DialogueUIManager>();
@@ -40,16 +40,8 @@ public class DialogueManager : MonoBehaviour
         speakerName = name;
     }
 
-    public void startConversationDialogue() {
-        // Pick a random conversation dialogue to do
-        int convoLen = dialogue.conversationDialogue.Length;
-        int index = Random.Range(0, convoLen);
-
-        Dialogue[] selected = dialogue.conversationDialogue[index].dialogue;
-        currDialogue = selected;
+    void startDialogue() {
         currIndex = 0;
-        currType = DialogueType.Conversation;
-        
         if (dialogueUI == null) {
             dialogueUI = GameObject.Find("DialogueUIManager").GetComponent<DialogueUIManager>();
         }
@@ -58,20 +50,39 @@ public class DialogueManager : MonoBehaviour
         updateText();
     }
 
+    public void startConversationDialogue() {
+        // Pick a random conversation dialogue to do
+        int convoLen = dialogue.conversationDialogue.Length;
+        int index = Random.Range(0, convoLen);
+
+        Dialogue[] selected = dialogue.conversationDialogue[index].dialogue;
+        currDialogue = selected;
+        currType = DialogueType.Conversation;
+        startDialogue();
+    }
+
+    public void startGreetingDialogue() {
+        // Get greeting dialogue
+        Dialogue[] selected = dialogue.greetDialogue[0].dialogue;
+        currDialogue = selected;
+        currType = DialogueType.Greeting;
+        startDialogue();
+    }
+
     public void startCheckpointDialogue(int i) {
         // Get the ith checkpoint dialogue
         Dialogue[] selected = dialogue.checkpointDialogue[i].dialogue;
-
         currDialogue = selected;
-        currIndex = 0;
         currType = DialogueType.Conversation;
-        
-        if (dialogueUI == null) {
-            dialogueUI = GameObject.Find("DialogueUIManager").GetComponent<DialogueUIManager>();
-        }
+        startDialogue();
+    }
 
-        dialogueUI.startDialogueUI();
-        updateText();
+    public void startPostDialogue() {
+        // Get pre-post minigame dialogue
+        Dialogue[] selected = dialogue.postDialogue[0].dialogue;
+        currDialogue = selected;
+        currType = DialogueType.Post;
+        startDialogue();
     }
 
     public void updateText() {
@@ -116,6 +127,11 @@ public class DialogueManager : MonoBehaviour
             }
             case DialogueType.Greeting: {
                 GameObject.Find("InteractButtonManager").GetComponent<InteractButtonManager>().allFlyIn();
+                break;
+            }
+            case DialogueType.Post: {
+                // Load post minigame scene
+                SceneManager.LoadScene("PostDemo");
                 break;
             }
         }        

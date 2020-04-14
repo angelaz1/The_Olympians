@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -8,6 +9,24 @@ public class GameManager : MonoBehaviour
     private string currentCharacterName;
     private DialogueManager dialogueManager;
     private Dictionary<string, CharacterProgress> allCharacterProgress;
+
+    void OnEnable()
+    {
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
+    // called second
+    void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        if (scene.name == "PhoneUIDemo" && allCharacterProgress != null) {
+            startGreetingDialogue();
+        }
+    }
+
+    void OnDisable()
+    {
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+    }
 
     private void Awake() {
         if (gm == null)
@@ -31,7 +50,6 @@ public class GameManager : MonoBehaviour
         dialogueManager.readDialogue();
 
         startGreetingDialogue();
-
         // Read/Write to file for character data
         // Have a file containing all the set variables for a character (i.e. checkpoint numbers, 
         // path to the character sprite, Instagram pictures, other responses to posts)
@@ -46,18 +64,9 @@ public class GameManager : MonoBehaviour
         if (!allCharacterProgress.ContainsKey(currentCharacterName)) {
             CharacterProgress characterProgress = new CharacterProgress(new AphroditeVars());
             allCharacterProgress.Add(currentCharacterName, characterProgress);
-            Debug.Log("Hello");
             dialogueManager.startCheckpointDialogue(0);
         } else {
-            // dialogueManager.startGreetingDialogue();
+            dialogueManager.startGreetingDialogue();
         }
-    }
-
-
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }

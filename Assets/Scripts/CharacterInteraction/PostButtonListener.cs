@@ -8,9 +8,7 @@ public class PostButtonListener : ButtonListener
 {
     public override void onClick() {
         GameObject.Find("InteractButtonManager").GetComponent<InteractButtonManager>().allFlyOff();
-        // START POST
-
-        // Load post minigame scene
-        SceneManager.LoadScene("PostDemo");
+        // START POST DIALOGUE
+        GameObject.Find("DialogueManager").GetComponent<DialogueManager>().startPostDialogue();
     }
 }
