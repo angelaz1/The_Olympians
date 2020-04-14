@@ -2,7 +2,7 @@
 	"name": "Aphrodite",
 	"checkpointDialogue": [
     {
-      "checkpointNum": 1,
+      "checkpointNum": 0,
       "dialogue": [
         {
           "id": 0,
@@ -57,18 +57,30 @@
             }
           ]
         },
-				{
+		{
           "id": 4,
-          "text": "Well, you probably already know who I am. I'm Aphrodite - yeah, like the Goddess of Love and Beauty. A lowly nobody like yourself should be grateful to be working with me. Try to keep up, with you?",
+          "text": "Well, you probably already know who I am. I'm Aphrodite - yeah, like the Goddess of Love and Beauty.",
           "numOptions": 1,
           "options": [
             {
               "optionText": "Next",
-              "link": -1,
+              "link": 5,
               "affectionBonus": 0
             }
           ]
-        }
+        },
+        {
+            "id": 5,
+            "text": "A lowly nobody like yourself should be grateful to be working with me. Try to keep up, with you?",
+            "numOptions": 1,
+            "options": [
+              {
+                "optionText": "Next",
+                "link": -1,
+                "affectionBonus": 0
+              }
+            ]
+          }
       ]
     }
   ],

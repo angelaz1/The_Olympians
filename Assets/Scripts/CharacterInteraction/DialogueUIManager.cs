@@ -14,15 +14,9 @@ public class DialogueUIManager : MonoBehaviour
     private int currIndex;
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         initVariables();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 
     void initVariables() {
@@ -54,7 +48,7 @@ public class DialogueUIManager : MonoBehaviour
         for(int i = 0; i < targetText.Length; i++) {
             currText += targetText[i];
             textBox.GetComponentInChildren<TextMeshProUGUI>().text = currText;
-            yield return new WaitForSeconds(0.01f);
+            yield return new WaitForSeconds(0.02f);
             if (Input.GetMouseButtonDown(0)) {
                 textBox.GetComponentInChildren<TextMeshProUGUI>().text = targetText;
                 break;
@@ -65,14 +59,12 @@ public class DialogueUIManager : MonoBehaviour
     }
 
     public void setOptions(Option[] options) {
-        // Option[] options = currDialogue[currIndex].options;
 
         if(options.Length == 1) {
             nextButton.SetActive(true);
         } else {
             nextButton.SetActive(false);
             for(int i = 0; i < options.Length; i++) {
-                // optionButtons[i].SetActive(true);
                 optionButtons[i].GetComponentInChildren<TextMeshProUGUI>().text = options[i].optionText;
                 optionButtons[i].GetComponent<Animator>().SetTrigger("flyIn");
                 optionButtons[i].GetComponent<Animator>().ResetTrigger("flyOut");
@@ -82,7 +74,6 @@ public class DialogueUIManager : MonoBehaviour
 
     public void disableAllButtons() {
         for(int i = 0; i < optionButtons.Length; i++) {
-            // optionButtons[i].SetActive(false);
             optionButtons[i].GetComponent<Animator>().SetTrigger("flyOut");
             optionButtons[i].GetComponent<Animator>().ResetTrigger("flyIn");
         }
@@ -95,7 +86,6 @@ public class DialogueUIManager : MonoBehaviour
             initVariables();
         }
         dialogueUI.GetComponent<Canvas>().enabled = true;
-        disableAllButtons();
     }
 
     public void finishDialogueUI() {

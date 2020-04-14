@@ -10,10 +10,12 @@ public class DialogueManager : MonoBehaviour
 
     // We will use the speakerName to find and parse the dialogue JSON
     // The dialogue for all characters should be in a JSON file named their name
+    private enum DialogueType {Checkpoint, Conversation, Greeting};
     private string speakerName;
     private CharacterDialogue dialogue;
     private Dialogue[] currDialogue;
     private int currIndex;
+    private DialogueType currType;
     private DialogueUIManager dialogueUI;
 
     private void Awake() {
@@ -31,8 +33,6 @@ public class DialogueManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        // speakerName = "Aphrodite"; //TO BE REPLACED
-        // readDialogue();
         dialogueUI = GameObject.Find("DialogueUIManager").GetComponent<DialogueUIManager>();
     }
 
@@ -48,6 +48,7 @@ public class DialogueManager : MonoBehaviour
         Dialogue[] selected = dialogue.conversationDialogue[index].dialogue;
         currDialogue = selected;
         currIndex = 0;
+        currType = DialogueType.Conversation;
         
         if (dialogueUI == null) {
             dialogueUI = GameObject.Find("DialogueUIManager").GetComponent<DialogueUIManager>();
@@ -55,7 +56,22 @@ public class DialogueManager : MonoBehaviour
 
         dialogueUI.startDialogueUI();
         updateText();
-        // dialogueUI.startDialogue(selected);
+    }
+
+    public void startCheckpointDialogue(int i) {
+        // Get the ith checkpoint dialogue
+        Dialogue[] selected = dialogue.checkpointDialogue[i].dialogue;
+
+        currDialogue = selected;
+        currIndex = 0;
+        currType = DialogueType.Conversation;
+        
+        if (dialogueUI == null) {
+            dialogueUI = GameObject.Find("DialogueUIManager").GetComponent<DialogueUIManager>();
+        }
+
+        dialogueUI.startDialogueUI();
+        updateText();
     }
 
     public void updateText() {
@@ -70,6 +86,7 @@ public class DialogueManager : MonoBehaviour
             dialogueUI.finishDialogueUI();
             finishDialogue();
         } else {
+            currIndex = nextIndex;
             updateText();
         }
     }
@@ -86,8 +103,22 @@ public class DialogueManager : MonoBehaviour
         }
     }
 
+    // Finish dialogue & load next UI
     public void finishDialogue() {
-        GameObject.Find("InteractButtonManager").GetComponent<InteractButtonManager>().allFlyIn();
+        switch(currType) {
+            case DialogueType.Conversation: {
+                GameObject.Find("InteractButtonManager").GetComponent<InteractButtonManager>().allFlyIn();
+                break;
+            }
+            case DialogueType.Checkpoint: {
+                GameObject.Find("InteractButtonManager").GetComponent<InteractButtonManager>().allFlyIn();
+                break;
+            }
+            case DialogueType.Greeting: {
+                GameObject.Find("InteractButtonManager").GetComponent<InteractButtonManager>().allFlyIn();
+                break;
+            }
+        }        
     }
 
     // IEnumerator loadStreamingAsset(string fileName)
