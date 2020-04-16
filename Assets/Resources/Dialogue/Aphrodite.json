@@ -1,27 +1,104 @@
 {
-    "name": "Ares",
-    "defaultPortraitPath": "/Portraits/Ares/default",
+    "name": "Aphrodite",
 	"checkpointDialogue": [
     {
       "checkpointNum": 0,
       "dialogue": [
         {
           "id": 0,
-          "text": "Oh please, we're not taking autographs at the moment.",
+          "text": "Hm, are you actually trying to talk to me? Who even are you?",
           "numOptions": 1,
           "options": [
             {
               "optionText": "Next",
-              "link": -1,
+              "link": 1,
               "affectionBonus": 0
             }
           ]
-        }
+        },
+        {
+          "id": 1,
+          "text": "Oh waaaait a minute, you're that new social media manager aren't you?",
+          "numOptions": 2,
+          "options": [
+            {
+              "optionText": "That's me! Nice to meet you!",
+              "link": 2,
+              "affectionBonus": 0
+            },
+            {
+              "optionText": "Who else would I be?",
+              "link": 3,
+              "affectionBonus": 0
+            }
+          ]
+        },
+				{
+          "id": 2,
+          "text": "Ha, don't try to be so peppy with me.",
+          "numOptions": 1,
+          "options": [
+            {
+              "optionText": "Next",
+              "link": 4,
+              "affectionBonus": 0
+            }
+          ]
+        },
+				{
+          "id": 3,
+          "text": "Wow, someone's snarky. Try that tone with me again and I'll fire you on the spot.",
+          "numOptions": 1,
+          "options": [
+            {
+              "optionText": "Next",
+              "link": 4,
+              "affectionBonus": 0
+            }
+          ]
+        },
+		{
+          "id": 4,
+          "text": "Well, you probably already know who I am. I'm Aphrodite. Yeah, just like the Goddess of Love and Beauty.",
+          "numOptions": 1,
+          "options": [
+            {
+              "optionText": "Next",
+              "link": 5,
+              "affectionBonus": 0
+            }
+          ]
+        },
+        {
+          "id": 5,
+          "text": "You've probably seen me around on billboards or whatever. Movies, commercials, modelling - I've done it all.",
+          "numOptions": 1,
+          "options": [
+            {
+              "optionText": "Next",
+              "link": 6,
+              "affectionBonus": 0
+            }
+          ]
+        },
+        {
+            "id": 6,
+            "text": "A lowly nobody like yourself should be grateful to be working with me. Try to keep up, will you?",
+            "numOptions": 1,
+            "options": [
+              {
+                "optionText": "Next",
+                "link": -1,
+                "affectionBonus": 0
+              }
+            ]
+          }
       ]
     }
   ],
   "conversationDialogue": [
     {
+      "numDialogue": 1,
       "dialogue": [
         {
           "id": 0,

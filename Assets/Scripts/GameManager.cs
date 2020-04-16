@@ -10,7 +10,7 @@ public class GameManager : MonoBehaviour
 
     private GameObject characterImage;
     private DialogueManager dialogueManager;
-    private Dictionary<string, CharacterProgress> allCharacterProgress;
+    private Dictionary<string, Character> allCharacters;
 
     void OnEnable()
     {
@@ -22,14 +22,17 @@ public class GameManager : MonoBehaviour
     {
         if (scene.name == "PhoneUIDemo") {
             dialogueManager = GameObject.Find("DialogueManager").GetComponent<DialogueManager>();
-            dialogueManager.setSpeakerName(currentCharacterName);
-            dialogueManager.readDialogue();
-
             characterImage = GameObject.Find("CharacterImage");
-            if (allCharacterProgress == null) {
-                allCharacterProgress = new Dictionary<string, CharacterProgress>();
+            
+            if (allCharacters == null) {
+                allCharacters = new Dictionary<string, Character>();
             }
 
+            if (!allCharacters.ContainsKey(currentCharacterName)) {
+                Character character = new Character(currentCharacterName);
+                allCharacters.Add(currentCharacterName, character);
+            }
+            dialogueManager.setDialogue(allCharacters[currentCharacterName].getDialogue());
             startGreetingDialogue();
         }
     }
@@ -53,10 +56,7 @@ public class GameManager : MonoBehaviour
 
     void startGreetingDialogue() {
         // Check if this is first time meeting character
-        // TODO: MAKE GENERIC
-        if (!allCharacterProgress.ContainsKey(currentCharacterName)) {
-            CharacterProgress characterProgress = new CharacterProgress(currentCharacterName);
-            allCharacterProgress.Add(currentCharacterName, characterProgress);
+        if (allCharacters[currentCharacterName].isFirstMeeting()) {
             dialogueManager.startCheckpointDialogue(0);
         } else {
             dialogueManager.startGreetingDialogue();
@@ -64,8 +64,8 @@ public class GameManager : MonoBehaviour
     }
 
     public void addAffection(int amount) {
-        CharacterProgress p = allCharacterProgress[currentCharacterName];
-        p.addAffection(amount);
+        Character c = allCharacters[currentCharacterName];
+        c.addAffection(amount);
         if (amount > 0) {
             characterImage.GetComponent<ParticleSystem>().Play();
         }

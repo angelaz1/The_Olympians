@@ -38,8 +38,8 @@ public class DialogueManager : MonoBehaviour
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
     }
 
-    public void setSpeakerName(string name) {
-        speakerName = name;
+    public void setDialogue(CharacterDialogue dialogue) {
+        this.dialogue = dialogue;
     }
 
     void startDialogue() {
@@ -142,8 +142,8 @@ public class DialogueManager : MonoBehaviour
         }        
     }
 
-    public void readDialogue() {
-        TextAsset jsonTextFile = Resources.Load<TextAsset>(speakerName);
-        dialogue = JsonUtility.FromJson<CharacterDialogue>(jsonTextFile.ToString());
-    }
+    // public void readDialogue() {
+    //     TextAsset jsonTextFile = Resources.Load<TextAsset>(speakerName);
+    //     dialogue = JsonUtility.FromJson<CharacterDialogue>(jsonTextFile.ToString());
+    // }
 }
