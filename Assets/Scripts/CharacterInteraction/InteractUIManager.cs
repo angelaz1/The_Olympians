@@ -18,11 +18,6 @@ public class InteractUIManager : MonoBehaviour
         buttons = GameObject.Find("Buttons");
     }
 
-    void Update()
-    {
-
-    }
-
     public void arrowPressed() {
         Debug.Log("Pressed!");
         if (phoneDown) {
@@ -39,7 +34,7 @@ public class InteractUIManager : MonoBehaviour
     }
 
     IEnumerator loadMapScene() {
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(0.8f);
         SceneManager.LoadScene("MapDemo");    
     }
 

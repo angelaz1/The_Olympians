@@ -25,7 +25,6 @@ public class Option
 [System.Serializable]
 public class OtherDialogue
 {
-    public int numDialogue;    
     public Dialogue[] dialogue;
 }
 
@@ -33,6 +32,7 @@ public class OtherDialogue
 public class CharacterDialogue
 {
     public string name;
+    public string defaultPortraitPath;
     public CheckpointDialogue[] checkpointDialogue;
     public OtherDialogue[] conversationDialogue;
     public OtherDialogue[] greetDialogue;

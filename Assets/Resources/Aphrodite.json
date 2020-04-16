@@ -1,5 +1,6 @@
 {
-	"name": "Aphrodite",
+    "name": "Aphrodite",
+    "defaultPortraitPath": "/Portraits/Aphrodite/default",
 	"checkpointDialogue": [
     {
       "checkpointNum": 0,
@@ -139,9 +140,8 @@
   ],
   "greetDialogue": [
     {
-      "numDialogue": 1,
       "dialogue": [
-				{
+		{
           "id": 0,
           "text": "Back already? I have a busy life so try to get to the point.",
           "numOptions": 1,
@@ -158,9 +158,8 @@
   ],
   "dateDialogue": [
     {
-      "numDialogue": 1,
       "dialogue": [
-				{
+		{
           "id": 0,
           "text": "You want to go on a date with me? Sure, but it better be worth my time.",
           "numOptions": 1,
@@ -177,9 +176,8 @@
   ],
   "postDialogue": [
     {
-      "numDialogue": 1,
       "dialogue": [
-				{
+		{
           "id": 0,
           "text": "Another Instagram post? Let's do it then.",
           "numOptions": 1,
@@ -191,7 +189,7 @@
             }
           ]
         }
-			]
+	  ]
     }
   ]
 }

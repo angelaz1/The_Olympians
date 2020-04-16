@@ -1,0 +1,117 @@
+{
+    "name": "Ares",
+    "defaultPortraitPath": "/Portraits/Ares/default",
+	"checkpointDialogue": [
+    {
+      "checkpointNum": 0,
+      "dialogue": [
+        {
+          "id": 0,
+          "text": "Oh please, we're not taking autographs at the moment.",
+          "numOptions": 1,
+          "options": [
+            {
+              "optionText": "Next",
+              "link": -1,
+              "affectionBonus": 0
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "conversationDialogue": [
+    {
+      "dialogue": [
+        {
+          "id": 0,
+          "text": "What kind of food do you like?",
+          "numOptions": 3,
+          "options": [
+            {
+              "optionText": "Definitely pizza (bad)",
+              "link": 1,
+              "affectionBonus": -10
+            },
+            {
+              "optionText": "Desserts are my vice (ok)",
+              "link": 1,
+              "affectionBonus": 5
+            },
+            {
+              "optionText": "I enjoy a good spinach smoothie (good)",
+              "link": 1,
+              "affectionBonus": 10
+            }
+          ]
+        },
+        {
+          "id": 1,
+          "text": "Wow, that sure is interesting!",
+          "numOptions": 1,
+          "options": [
+            {
+              "optionText": "Next",
+              "link": -1,
+              "affectionBonus": 0
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "greetDialogue": [
+    {
+      "dialogue": [
+		{
+          "id": 0,
+          "text": "Back already? I have a busy life so try to get to the point.",
+          "numOptions": 1,
+          "options": [
+            {
+              "optionText": "Next",
+              "link": -1,
+              "affectionBonus": 0
+            }
+          ]
+        }
+			]
+    }
+  ],
+  "dateDialogue": [
+    {
+      "dialogue": [
+		{
+          "id": 0,
+          "text": "You want to go on a date with me? Sure, but it better be worth my time.",
+          "numOptions": 1,
+          "options": [
+            {
+              "optionText": "Next",
+              "link": -1,
+              "affectionBonus": 0
+            }
+          ]
+        }
+			]
+    }
+  ],
+  "postDialogue": [
+    {
+      "dialogue": [
+		{
+          "id": 0,
+          "text": "Another Instagram post? Let's do it then.",
+          "numOptions": 1,
+          "options": [
+            {
+              "optionText": "Next",
+              "link": -1,
+              "affectionBonus": 0
+            }
+          ]
+        }
+	  ]
+    }
+  ]
+}

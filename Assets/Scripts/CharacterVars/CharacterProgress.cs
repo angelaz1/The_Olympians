@@ -9,11 +9,19 @@ public class CharacterProgress
     private int currentFollowers;
     private CharacterVars vars;
 
-    public CharacterProgress(CharacterVars vars) {
-        this.vars = vars;
+    public CharacterProgress(string characterName) {
+        this.vars = getVariablesFor(characterName);
         currentCheckpoint = 0;
         currentAffection = 0;
         currentFollowers = 0;
+    }
+
+    public CharacterVars getVariablesFor(string name) {
+        switch(name) {
+            case "Aphrodite": return new AphroditeVars();
+            case "Ares": return new AresVars();
+            default: return new AphroditeVars();
+        }
     }
 
     public void addAffection(int amount) {

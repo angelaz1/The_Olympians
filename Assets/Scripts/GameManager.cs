@@ -55,7 +55,7 @@ public class GameManager : MonoBehaviour
         // Check if this is first time meeting character
         // TODO: MAKE GENERIC
         if (!allCharacterProgress.ContainsKey(currentCharacterName)) {
-            CharacterProgress characterProgress = new CharacterProgress(new AphroditeVars());
+            CharacterProgress characterProgress = new CharacterProgress(currentCharacterName);
             allCharacterProgress.Add(currentCharacterName, characterProgress);
             dialogueManager.startCheckpointDialogue(0);
         } else {
@@ -72,9 +72,18 @@ public class GameManager : MonoBehaviour
     }
 
     public void moveToLocation(string location) {
-        if (location == "Mall") {
-            currentCharacterName = "Aphrodite";
+        switch(location) {
+            case "Mall": {
+                currentCharacterName = "Aphrodite";
+                break;
+            }
+            case "Gym": {
+                currentCharacterName = "Ares";
+                break;
+            }
+            default: break;
         }
+
         SceneManager.LoadScene("PhoneUIDemo");
     }
 }
