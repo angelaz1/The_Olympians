@@ -5,30 +5,51 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using UnityEngine.EventSystems;
 
+public enum CharacterExpression{Default};
 public class InteractUIManager : MonoBehaviour
 {
     private GameObject phone;
     private GameObject buttons;
+    private GameObject topBar;
+    private GameObject characterImage;
     private bool phoneDown;
+    private Character currentCharacter;
 
     void Start()
     {
         phone = GameObject.Find("Phone");
         phoneDown = true;
         buttons = GameObject.Find("Buttons");
+        topBar = GameObject.Find("TopBar");
+        characterImage = GameObject.Find("CharacterImage");
+    }
+
+    public void setCharacter(Character character) {
+        currentCharacter = character;
+    }
+
+    public void setCharacterPortrait(CharacterExpression expr) {
+        Sprite portrait = currentCharacter.getCharacterPortrait(expr.ToString());
+        if(characterImage == null) {
+            characterImage = GameObject.Find("CharacterImage");
+        }
+        if(portrait != null) {
+            characterImage.GetComponent<Image>().sprite = portrait;
+        }
+    }
+
+    public void playAffectionParticles() {
+        characterImage.GetComponent<ParticleSystem>().Play();
     }
 
     public void arrowPressed() {
-        Debug.Log("Pressed!");
         if (phoneDown) {
             phone.GetComponent<Animator>().SetTrigger("PullUpPhone");
             phone.GetComponent<Animator>().ResetTrigger("PutAwayPhone");
-            Debug.Log("PullUp!");
             phoneDown = false;
         } else {
             phone.GetComponent<Animator>().SetTrigger("PutAwayPhone");
             phone.GetComponent<Animator>().ResetTrigger("PullUpPhone");
-            Debug.Log("PutAway!");
             phoneDown = true;
         }
     }
@@ -40,7 +61,6 @@ public class InteractUIManager : MonoBehaviour
 
     public void loadMap() {
         phone.GetComponent<Animator>().SetTrigger("OpenApp");
-        Debug.Log("Map pressed");
         StartCoroutine(loadMapScene());
     }
 

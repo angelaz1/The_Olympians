@@ -7,23 +7,20 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager gm;
     private string currentCharacterName = "Aphrodite";
-
-    private GameObject characterImage;
     private DialogueManager dialogueManager;
+    private InteractUIManager interactUIManager;
     private Dictionary<string, Character> allCharacters;
 
-    void OnEnable()
-    {
+    void OnEnable() {
         SceneManager.sceneLoaded += OnSceneLoaded;
     }
 
     // called second
-    void OnSceneLoaded(Scene scene, LoadSceneMode mode)
-    {
+    void OnSceneLoaded(Scene scene, LoadSceneMode mode) {
         if (scene.name == "PhoneUIDemo") {
             dialogueManager = GameObject.Find("DialogueManager").GetComponent<DialogueManager>();
-            characterImage = GameObject.Find("CharacterImage");
-            
+            interactUIManager = GameObject.Find("InteractUIManager").GetComponent<InteractUIManager>();
+
             if (allCharacters == null) {
                 allCharacters = new Dictionary<string, Character>();
             }
@@ -33,12 +30,13 @@ public class GameManager : MonoBehaviour
                 allCharacters.Add(currentCharacterName, character);
             }
             dialogueManager.setDialogue(allCharacters[currentCharacterName].getDialogue());
+            interactUIManager.setCharacter(allCharacters[currentCharacterName]);
+            interactUIManager.setCharacterPortrait(CharacterExpression.Default);
             startGreetingDialogue();
         }
     }
 
-    void OnDisable()
-    {
+    void OnDisable() {
         SceneManager.sceneLoaded -= OnSceneLoaded;
     }
 
@@ -67,7 +65,7 @@ public class GameManager : MonoBehaviour
         Character c = allCharacters[currentCharacterName];
         c.addAffection(amount);
         if (amount > 0) {
-            characterImage.GetComponent<ParticleSystem>().Play();
+            interactUIManager.playAffectionParticles();
         }
     }
 

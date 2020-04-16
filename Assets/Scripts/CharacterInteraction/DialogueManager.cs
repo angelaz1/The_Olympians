@@ -12,7 +12,6 @@ public class DialogueManager : MonoBehaviour
     // We will use the speakerName to find and parse the dialogue JSON
     // The dialogue for all characters should be in a JSON file named their name
     private enum DialogueType {Checkpoint, Conversation, Greeting, Post};
-    private string speakerName;
     private CharacterDialogue dialogue;
     private Dialogue[] currDialogue;
     private int currIndex;

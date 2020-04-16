@@ -1,0 +1,8 @@
+{
+    "name": "Ares",
+    "portraitPath": "Portraits/Ares/",
+    "dialoguePath": "Dialogue/Ares",
+    "postImagePath": "PostImages/Ares",
+    "checkpointAffectionPts": [20, 20, 20, 20, 20],
+    "checkpointFollowerCount": [20, 20, 20, 20, 20]
+}

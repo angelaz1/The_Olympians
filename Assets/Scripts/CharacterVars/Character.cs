@@ -41,4 +41,9 @@ public class Character
     public void addAffection(int amount) {
         this.progress.addAffection(amount);
     } 
+
+    public Sprite getCharacterPortrait(string name) {
+        string path = vars.portraitPath + (name.ToLower());
+        return Resources.Load<Sprite>(path);
+    } 
 }
