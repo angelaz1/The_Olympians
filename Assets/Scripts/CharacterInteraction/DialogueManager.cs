@@ -18,6 +18,7 @@ public class DialogueManager : MonoBehaviour
     private DialogueType currType;
     private DialogueUIManager dialogueUI;
     private GameManager gameManager;
+    private int lastConvoIndex;
 
     private void Awake() {
         if (dm == null)
@@ -55,6 +56,10 @@ public class DialogueManager : MonoBehaviour
         // Pick a random conversation dialogue to do
         int convoLen = dialogue.conversationDialogue.Length;
         int index = Random.Range(0, convoLen);
+        while(convoLen > 1 && index == lastConvoIndex) {
+            index = Random.Range(0, convoLen);
+        }
+        lastConvoIndex = index;
 
         Dialogue[] selected = dialogue.conversationDialogue[index].dialogue;
         currDialogue = selected;

@@ -121,7 +121,7 @@ public class InteractUIManager : MonoBehaviour
     }
 
     public void playAffectionParticles() {
-        characterImage.GetComponent<ParticleSystem>().Play();
+        characterImage.GetComponentInChildren<ParticleSystem>().Play();
     }
 
     public void arrowPressed() {
