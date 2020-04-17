@@ -5,12 +5,12 @@ using UnityEngine.UI;
 
 abstract public class ButtonListener : MonoBehaviour
 {   
-    public void onHover() {
+    public virtual void onHover() {
         this.GetComponent<Animator>().SetBool("isHovering", true);
         this.GetComponent<AudioSource>().Play();
     }
 
-    public void offHover() {
+    public virtual void offHover() {
         this.GetComponent<Animator>().SetBool("isHovering", false);
     }
     

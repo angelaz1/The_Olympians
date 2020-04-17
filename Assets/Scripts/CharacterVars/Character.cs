@@ -30,6 +30,10 @@ public class Character
         return this.dialogue;
     }
 
+    public string getName() {
+        return name;
+    }
+
     public bool isFirstMeeting() {
         if(hasntMet) {
             hasntMet = false;

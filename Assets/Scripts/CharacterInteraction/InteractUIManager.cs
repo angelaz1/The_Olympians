@@ -4,28 +4,77 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using UnityEngine.EventSystems;
+using TMPro;
 
 public enum CharacterExpression{Default};
 public class InteractUIManager : MonoBehaviour
 {
+    public Sprite[] heartStates;
+
     private GameObject phone;
     private GameObject buttons;
-    private GameObject topBar;
     private GameObject characterImage;
-    private bool phoneDown;
+
+    private GameObject topBar;
+    private GameObject topBarName;
+    private GameObject[] hearts;
+    private GameObject followerCount;
+
     private Character currentCharacter;
+    private bool phoneDown;
+    
 
     void Start()
     {
         phone = GameObject.Find("Phone");
         phoneDown = true;
         buttons = GameObject.Find("Buttons");
-        topBar = GameObject.Find("TopBar");
+        setTopBar();
         characterImage = GameObject.Find("CharacterImage");
+    }
+
+    void setTopBar() {
+        topBar = GameObject.Find("TopBar");
+        hearts = new GameObject[5];
+        foreach (Transform child in topBar.transform){
+            if (child.name == "Name"){
+                topBarName = child.gameObject;
+            }
+            if (child.name == "Heart0"){
+                hearts[0] = child.gameObject;
+            }
+            if (child.name == "Heart1"){
+                hearts[1] = child.gameObject;
+            }
+            if (child.name == "Heart2"){
+                hearts[2] = child.gameObject;
+            }
+            if (child.name == "Heart3"){
+                hearts[3] = child.gameObject;
+            }
+            if (child.name == "Heart4"){
+                hearts[4] = child.gameObject;
+            }
+            if (child.name == "FollowerCount"){
+                followerCount = child.gameObject;
+            }
+        }
     }
 
     public void setCharacter(Character character) {
         currentCharacter = character;
+        if(topBar == null) {
+            setTopBar();
+            topBarName.GetComponent<TextMeshProUGUI>().text = character.getName();
+            //UPDATE HEARTS AND FOLLOWER COUNT
+
+        }
+    }
+
+    public void showTopBar() {
+        if (topBar == null) setTopBar();
+        topBar.GetComponent<Animator>().ResetTrigger("ShowBar");
+        topBar.GetComponent<Animator>().SetTrigger("ShowBar");
     }
 
     public void setCharacterPortrait(CharacterExpression expr) {

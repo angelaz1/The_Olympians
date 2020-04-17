@@ -74,7 +74,7 @@ public class DialogueManager : MonoBehaviour
         // Get the ith checkpoint dialogue
         Dialogue[] selected = dialogue.checkpointDialogue[i].dialogue;
         currDialogue = selected;
-        currType = DialogueType.Conversation;
+        currType = DialogueType.Checkpoint;
         startDialogue();
     }
 
@@ -95,7 +95,6 @@ public class DialogueManager : MonoBehaviour
     public void advanceText() {
         int nextIndex = currDialogue[currIndex].options[0].link;
         if(nextIndex == -1) {
-            dialogueUI.finishDialogueUI();
             finishDialogue();
         } else {
             currIndex = nextIndex;
@@ -110,7 +109,6 @@ public class DialogueManager : MonoBehaviour
 
         int nextIndex = currDialogue[currIndex].options[i].link;
         if(nextIndex == -1) {
-            dialogueUI.finishDialogueUI();
             finishDialogue();
         } else {
             currIndex = nextIndex;
@@ -120,6 +118,7 @@ public class DialogueManager : MonoBehaviour
 
     // Finish dialogue & load next UI
     public void finishDialogue() {
+        dialogueUI.finishDialogueUI();
         switch(currType) {
             case DialogueType.Conversation: {
                 GameObject.Find("InteractButtonManager").GetComponent<InteractButtonManager>().allFlyIn();
@@ -127,10 +126,12 @@ public class DialogueManager : MonoBehaviour
             }
             case DialogueType.Checkpoint: {
                 GameObject.Find("InteractButtonManager").GetComponent<InteractButtonManager>().allFlyIn();
+                GameObject.Find("InteractUIManager").GetComponent<InteractUIManager>().showTopBar();
                 break;
             }
             case DialogueType.Greeting: {
                 GameObject.Find("InteractButtonManager").GetComponent<InteractButtonManager>().allFlyIn();
+                GameObject.Find("InteractUIManager").GetComponent<InteractUIManager>().showTopBar();
                 break;
             }
             case DialogueType.Post: {
@@ -140,9 +141,4 @@ public class DialogueManager : MonoBehaviour
             }
         }        
     }
-
-    // public void readDialogue() {
-    //     TextAsset jsonTextFile = Resources.Load<TextAsset>(speakerName);
-    //     dialogue = JsonUtility.FromJson<CharacterDialogue>(jsonTextFile.ToString());
-    // }
 }
