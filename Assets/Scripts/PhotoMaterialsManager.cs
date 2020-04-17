@@ -8,11 +8,23 @@ public class PhotoMaterialsManager : MonoBehaviour
     public Material filter2;
     public Material filter3;
     public Material dissolve; 
-    public Material original; 
+    public Material original;
+    public Material brighten;
+    public Material blackwhite;
+    public Material sepia;
+    public Material sakura;
+    public Material hearts;
+    private Dictionary<string, Material> mat_dict; 
 
     // Start is called before the first frame update
     void Start()
     {
+        mat_dict = new Dictionary<string, Material>();
+        mat_dict.Add("brighten", brighten);
+        mat_dict.Add("blackwhite", blackwhite);
+        mat_dict.Add("sepia", sepia);
+        mat_dict.Add("sakura", sakura);
+        mat_dict.Add("hearts", hearts); 
         
     }
 
@@ -49,5 +61,22 @@ public class PhotoMaterialsManager : MonoBehaviour
     public void RevertToOriginal()
     {
         GetComponent<Renderer>().material = original;
+    }
+
+    // change filter number num to material name 
+    public void ChangeFilter(int num, string name)
+    {
+        if (num == 1)
+        {
+            filter1 = mat_dict[name]; 
+        }
+        else if (num == 2)
+        {
+            filter2 = mat_dict[name]; 
+        }
+        else
+        {
+            filter3 = mat_dict[name]; 
+        }
     }
 }
