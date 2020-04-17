@@ -89,6 +89,14 @@ public class DialogueManager : MonoBehaviour
     public void updateText() {
         string targetText = currDialogue[currIndex].text;
         Option[] options = currDialogue[currIndex].options;
+        
+        if(currDialogue[currIndex].state == null) {
+            dialogueUI.setState(CharacterExpression.Default);
+        } else {
+            CharacterExpression expr = (CharacterExpression)System.Enum.Parse(typeof(CharacterExpression), currDialogue[currIndex].state);
+            dialogueUI.setState(expr); 
+        }
+          
         StartCoroutine(dialogueUI.updateTextUI(targetText, options));
     }
 

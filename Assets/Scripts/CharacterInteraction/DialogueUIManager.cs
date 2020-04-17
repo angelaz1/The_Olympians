@@ -48,6 +48,10 @@ public class DialogueUIManager : MonoBehaviour
         dialogueUI.GetComponent<Canvas>().enabled = false;
     }
 
+    public void setState(CharacterExpression state) {
+        GameObject.Find("InteractUIManager").GetComponent<InteractUIManager>().setCharacterPortrait(state);
+    }
+
     public IEnumerator updateTextUI(string targetText, Option[] options) {
         disableAllButtons();
         string currText = "";

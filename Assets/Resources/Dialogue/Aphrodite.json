@@ -1,6 +1,6 @@
 {
-    "name": "Aphrodite",
-	"checkpointDialogue": [
+  "name": "Aphrodite",
+  "checkpointDialogue": [
     {
       "checkpointNum": 0,
       "dialogue": [
@@ -8,6 +8,7 @@
           "id": 0,
           "text": "Hm, are you actually trying to talk to me? Who even are you?",
           "numOptions": 1,
+          "state": "Default",
           "options": [
             {
               "optionText": "Next",
@@ -20,6 +21,7 @@
           "id": 1,
           "text": "Oh waaaait a minute, you're that new social media manager aren't you?",
           "numOptions": 2,
+          "state": "Default",
           "options": [
             {
               "optionText": "That's me! Nice to meet you!",
@@ -33,10 +35,11 @@
             }
           ]
         },
-				{
+        {
           "id": 2,
           "text": "Ha, don't try to be so peppy with me.",
           "numOptions": 1,
+          "state": "Amused",
           "options": [
             {
               "optionText": "Next",
@@ -45,10 +48,11 @@
             }
           ]
         },
-				{
+        {
           "id": 3,
           "text": "Wow, someone's snarky. Try that tone with me again and I'll fire you on the spot.",
           "numOptions": 1,
+          "state": "Default",
           "options": [
             {
               "optionText": "Next",
@@ -57,10 +61,11 @@
             }
           ]
         },
-		{
+        {
           "id": 4,
           "text": "Well, you probably already know who I am. I'm Aphrodite. Yeah, just like the Goddess of Love and Beauty.",
           "numOptions": 1,
+          "state": "Amused",
           "options": [
             {
               "optionText": "Next",
@@ -73,6 +78,7 @@
           "id": 5,
           "text": "You've probably seen me around on billboards or whatever. Movies, commercials, modelling - I've done it all.",
           "numOptions": 1,
+          "state": "Amused",
           "options": [
             {
               "optionText": "Next",
@@ -82,17 +88,18 @@
           ]
         },
         {
-            "id": 6,
-            "text": "A lowly nobody like yourself should be grateful to be working with me. Try to keep up, will you?",
-            "numOptions": 1,
-            "options": [
-              {
-                "optionText": "Next",
-                "link": -1,
-                "affectionBonus": 0
-              }
-            ]
-          }
+          "id": 6,
+          "text": "A lowly nobody like yourself should be grateful to be working with me. Try to keep up, will you?",
+          "numOptions": 1,
+          "state": "Default",
+          "options": [
+            {
+              "optionText": "Next",
+              "link": -1,
+              "affectionBonus": 0
+            }
+          ]
+        }
       ]
     }
   ],
@@ -102,28 +109,254 @@
         {
           "id": 0,
           "text": "What kind of food do you like?",
+          "state": "Default",
           "numOptions": 3,
           "options": [
             {
-              "optionText": "Definitely pizza (bad)",
+              "optionText": "Definitely pizza",
               "link": 1,
               "affectionBonus": -10
             },
             {
-              "optionText": "Desserts are my vice (ok)",
-              "link": 1,
+              "optionText": "Desserts are my vice",
+              "link": 2,
               "affectionBonus": 5
             },
             {
-              "optionText": "I enjoy a good spinach smoothie (good)",
-              "link": 1,
+              "optionText": "I enjoy a good spinach smoothie",
+              "link": 3,
               "affectionBonus": 10
             }
           ]
         },
         {
           "id": 1,
-          "text": "Wow, that sure is interesting!",
+          "text": "Ugh, those oily things? Do you even care about your health?",
+          "state": "Default",
+          "numOptions": 1,
+          "options": [
+            {
+              "optionText": "Next",
+              "link": -1,
+              "affectionBonus": 0
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "text": "Mmm I suppose we all have our faults.",
+          "state": "Amused",
+          "numOptions": 1,
+          "options": [
+            {
+              "optionText": "Next",
+              "link": -1,
+              "affectionBonus": 0
+            }
+          ]
+        },
+        {
+          "id": 3,
+          "text": "Really?! Glad to hear someone around here actually cares for their health.",
+          "state": "Amused",
+          "numOptions": 1,
+          "options": [
+            {
+              "optionText": "Next",
+              "link": -1,
+              "affectionBonus": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "dialogue": [
+        {
+          "id": 0,
+          "text": "Let's play a guessing game - what's my favorite fruit?",
+          "state": "Default",
+          "numOptions": 3,
+          "options": [
+            {
+              "optionText": "I'm gonna Go with ManGos",
+              "link": 1,
+              "affectionBonus": 5
+            },
+            {
+              "optionText": "Apples? Red and delicious, just like you!",
+              "link": 2,
+              "affectionBonus": 0
+            },
+            {
+              "optionText": "Well, it would apPear to be pears!",
+              "link": 3,
+              "affectionBonus": -5
+            }
+          ]
+        },
+        {
+          "id": 1,
+          "text": "Ding ding ding, we've got the winner! Well, if you can ignore that abhorrent pun.",
+          "state": "Amused",
+          "numOptions": 1,
+          "options": [
+            {
+              "optionText": "Next",
+              "link": -1,
+              "affectionBonus": 0
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "text": "Ha ha, as if I haven't heard that one before. No points for correctness, nor for your lack of charm.",
+          "state": "Default",
+          "numOptions": 1,
+          "options": [
+            {
+              "optionText": "Next",
+              "link": -1,
+              "affectionBonus": 0
+            }
+          ]
+        },
+        {
+          "id": 3,
+          "text": "Ugh, could you have picked a worse fruit?",
+          "state": "Default",
+          "numOptions": 1,
+          "options": [
+            {
+              "optionText": "Next",
+              "link": -1,
+              "affectionBonus": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "dialogue": [
+        {
+          "id": 0,
+          "text": "Hm, I want to watch a movie this weekend but I’m not sure what to watch... Have any good recommendations?",
+          "state": "Default",
+          "numOptions": 3,
+          "options": [
+            {
+              "optionText": "Dumb and Dumber",
+              "link": 1,
+              "affectionBonus": 10
+            },
+            {
+              "optionText": "The Exorcist",
+              "link": 2,
+              "affectionBonus": -10
+            },
+            {
+              "optionText": "1917",
+              "link": 3,
+              "affectionBonus": 5
+            }
+          ]
+        },
+        {
+          "id": 1,
+          "text": "What do you take me for, a fool? Well, I suppose I do enjoy a good comedy.",
+          "state": "Amused",
+          "numOptions": 1,
+          "options": [
+            {
+              "optionText": "Next",
+              "link": -1,
+              "affectionBonus": 0
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "text": "Maybe watching that will teach me how to deal with my demons. And by that, I mean you.",
+          "state": "Default",
+          "numOptions": 1,
+          "options": [
+            {
+              "optionText": "Next",
+              "link": -1,
+              "affectionBonus": 0
+            }
+          ]
+        },
+        {
+          "id": 3,
+          "text": "Ah yes, a classic. Well... perhaps.",
+          "state": "Default",
+          "numOptions": 1,
+          "options": [
+            {
+              "optionText": "Next",
+              "link": -1,
+              "affectionBonus": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "dialogue": [
+        {
+          "id": 0,
+          "text": "I heard you started helping Ares with his social media. Did he tell you any of his secrets?",
+          "state": "Default",
+          "numOptions": 3,
+          "options": [
+            {
+              "optionText": "Nothing",
+              "link": 1,
+              "affectionBonus": -5
+            },
+            {
+              "optionText": "He hides his natural hair colo",
+              "link": 2,
+              "affectionBonus": 5
+            },
+            {
+              "optionText": "He doesnt flush the toilet at your house",
+              "link": 3,
+              "affectionBonus": -10
+            }
+          ]
+        },
+        {
+          "id": 1,
+          "text": "I see. So that's where your loyalties lie.",
+          "state": "Default",
+          "numOptions": 1,
+          "options": [
+            {
+              "optionText": "Next",
+              "link": -1,
+              "affectionBonus": 0
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "text": "You're joking!! I mean, his hair did always seem too good to be true... This is huge news!",
+          "state": "Amused",
+          "numOptions": 1,
+          "options": [
+            {
+              "optionText": "Next",
+              "link": -1,
+              "affectionBonus": 0
+            }
+          ]
+        },
+        {
+          "id": 3,
+          "text": "That... I... I don't know if I'm angrier at him for doing it or for telling you of all people.",
+          "state": "Default",
           "numOptions": 1,
           "options": [
             {
@@ -139,9 +372,10 @@
   "greetDialogue": [
     {
       "dialogue": [
-		{
+        {
           "id": 0,
           "text": "Back already? I have a busy life so try to get to the point.",
+          "state": "Default",
           "numOptions": 1,
           "options": [
             {
@@ -151,15 +385,16 @@
             }
           ]
         }
-			]
+      ]
     }
   ],
   "dateDialogue": [
     {
       "dialogue": [
-		{
+        {
           "id": 0,
           "text": "You want to go on a date with me? Sure, but it better be worth my time.",
+          "state": "Amused",
           "numOptions": 1,
           "options": [
             {
@@ -169,15 +404,16 @@
             }
           ]
         }
-			]
+      ]
     }
   ],
   "postDialogue": [
     {
       "dialogue": [
-		{
+        {
           "id": 0,
           "text": "Another Instagram post? Let's do it then.",
+          "state": "Default",
           "numOptions": 1,
           "options": [
             {
@@ -187,7 +423,7 @@
             }
           ]
         }
-	  ]
+      ]
     }
   ]
 }

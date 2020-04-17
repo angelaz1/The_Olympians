@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 using UnityEngine.EventSystems;
 using TMPro;
 
-public enum CharacterExpression{Default};
+public enum CharacterExpression{Default, Amused};
 public class InteractUIManager : MonoBehaviour
 {
     public Sprite[] heartStates;
@@ -113,8 +113,10 @@ public class InteractUIManager : MonoBehaviour
         if(characterImage == null) {
             characterImage = GameObject.Find("CharacterImage");
         }
-        if(portrait != null) {
+        if(portrait != null && portrait != characterImage.GetComponent<Image>().sprite) {
             characterImage.GetComponent<Image>().sprite = portrait;
+            characterImage.GetComponent<Animator>().ResetTrigger("swappedState");
+            characterImage.GetComponent<Animator>().SetTrigger("swappedState");
         }
     }
 
