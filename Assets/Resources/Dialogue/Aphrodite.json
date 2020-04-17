@@ -316,12 +316,12 @@
               "affectionBonus": -5
             },
             {
-              "optionText": "He hides his natural hair colo",
+              "optionText": "He hides his natural hair color",
               "link": 2,
               "affectionBonus": 5
             },
             {
-              "optionText": "He doesnt flush the toilet at your house",
+              "optionText": "He doesn't flush the toilet at your house",
               "link": 3,
               "affectionBonus": -10
             }
