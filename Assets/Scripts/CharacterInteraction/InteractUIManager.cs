@@ -67,8 +67,39 @@ public class InteractUIManager : MonoBehaviour
             setTopBar();
             topBarName.GetComponent<TextMeshProUGUI>().text = character.getName();
             //UPDATE HEARTS AND FOLLOWER COUNT
-
+            updateHearts();
         }
+    }
+
+    public void unlockDate() {
+        GameObject.Find("DateButton").GetComponent<Button>().interactable = true;
+    }
+
+    public void lockDate() {
+        GameObject.Find("DateButton").GetComponent<Button>().interactable = false;
+    }
+
+    public void updateHearts() {
+        int currCheckpoint = currentCharacter.getCurrentCheckpoint();
+            int currProgress = currentCharacter.getCurrentAffectionProgress();
+            for(int i = 0; i < currCheckpoint; i++) {
+                //All hearts before currCheckpoint are completed
+                hearts[i].GetComponent<Image>().sprite = heartStates[heartStates.Length - 1];
+            }
+            GameObject heart = hearts[currCheckpoint];
+            if(currProgress < 20) {
+                heart.GetComponent<Image>().sprite = heartStates[0];
+            } else if(currProgress < 40) {
+                heart.GetComponent<Image>().sprite = heartStates[1];
+            } else if(currProgress < 60) {
+                heart.GetComponent<Image>().sprite = heartStates[2];
+            } else if(currProgress < 80) {
+                heart.GetComponent<Image>().sprite = heartStates[3];
+            } else if(currProgress < 100) {
+                heart.GetComponent<Image>().sprite = heartStates[4];
+            } else {
+                heart.GetComponent<Image>().sprite = heartStates[5];
+            }
     }
 
     public void showTopBar() {

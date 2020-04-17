@@ -23,4 +23,12 @@ public class CharacterProgress
     public void addFollowers(int amount) {
         currentFollowers += amount;
     }
+
+    public int getCurrentCheckpoint() {
+        return currentCheckpoint;
+    }
+
+    public int getCurrentAffection() {
+        return currentAffection;
+    }
 }

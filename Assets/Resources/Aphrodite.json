@@ -3,6 +3,6 @@
     "portraitPath": "Portraits/Aphrodite/",
     "dialoguePath": "Dialogue/Aphrodite",
     "postImagePath": "PostImages/Aphrodite",
-    "checkpointAffectionPts": [20, 20, 20, 20, 20],
+    "checkpointAffectionPts": [100, 100, 100, 100, 100],
     "checkpointFollowerCount": [20, 20, 20, 20, 20]
 }

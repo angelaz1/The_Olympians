@@ -34,6 +34,17 @@ public class Character
         return name;
     }
 
+    public int getCurrentCheckpoint() {
+        return progress.getCurrentCheckpoint();
+    }
+
+    public int getCurrentAffectionProgress() {
+        int affection = progress.getCurrentAffection();
+        int checkpointVal = vars.checkpointAffectionPts[this.getCurrentCheckpoint()];
+        if (affection > checkpointVal) affection = checkpointVal;
+        return affection * 100 / checkpointVal;
+    }
+
     public bool isFirstMeeting() {
         if(hasntMet) {
             hasntMet = false;
@@ -44,6 +55,14 @@ public class Character
 
     public void addAffection(int amount) {
         this.progress.addAffection(amount);
+    }
+
+    public bool completedCheckpoint() {
+        //TODO: MAKE DEPENDENT ON FOLLOWERS
+        int affection = progress.getCurrentAffection();
+        int checkpointVal = vars.checkpointAffectionPts[this.getCurrentCheckpoint()];
+        if (affection >= checkpointVal) return true;
+        return false;
     } 
 
     public Sprite getCharacterPortrait(string name) {

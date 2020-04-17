@@ -67,6 +67,13 @@ public class GameManager : MonoBehaviour
         if (amount > 0) {
             interactUIManager.playAffectionParticles();
         }
+        interactUIManager.updateHearts();
+        
+        if(c.completedCheckpoint()) {
+            interactUIManager.unlockDate();
+        } else {
+            interactUIManager.lockDate();
+        }
     }
 
     public void moveToLocation(string location) {
