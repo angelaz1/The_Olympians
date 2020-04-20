@@ -32,6 +32,7 @@ public class GameManager : MonoBehaviour
             dialogueManager.setDialogue(allCharacters[currentCharacterName].getDialogue());
             interactUIManager.setCharacter(allCharacters[currentCharacterName]);
             interactUIManager.setCharacterPortrait(CharacterExpression.Default);
+            interactUIManager.setBackgroundImage();
             startGreetingDialogue();
         }
     }

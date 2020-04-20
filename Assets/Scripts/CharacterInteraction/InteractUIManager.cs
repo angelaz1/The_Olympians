@@ -14,6 +14,7 @@ public class InteractUIManager : MonoBehaviour
     private GameObject phone;
     private GameObject buttons;
     private GameObject characterImage;
+    private GameObject backgroundImage;
 
     private GameObject topBar;
     private GameObject topBarName;
@@ -31,6 +32,7 @@ public class InteractUIManager : MonoBehaviour
         buttons = GameObject.Find("Buttons");
         setTopBar();
         characterImage = GameObject.Find("CharacterImage");
+        backgroundImage = GameObject.Find("BackgroundImage");
     }
 
     void setTopBar() {
@@ -117,6 +119,16 @@ public class InteractUIManager : MonoBehaviour
             characterImage.GetComponent<Image>().sprite = portrait;
             characterImage.GetComponent<Animator>().ResetTrigger("swappedState");
             characterImage.GetComponent<Animator>().SetTrigger("swappedState");
+        }
+    }
+
+    public void setBackgroundImage() {
+        Sprite background = currentCharacter.getBackground();
+        if(backgroundImage == null) {
+            backgroundImage = GameObject.Find("BackgroundImage");
+        }
+        if(background != null) {
+            backgroundImage.GetComponent<Image>().sprite = background;
         }
     }
 

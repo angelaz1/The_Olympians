@@ -69,4 +69,9 @@ public class Character
         string path = vars.portraitPath + (name.ToLower());
         return Resources.Load<Sprite>(path);
     } 
+
+    public Sprite getBackground() {
+        string path = vars.backgroundPath;
+        return Resources.Load<Sprite>(path);
+    }
 }

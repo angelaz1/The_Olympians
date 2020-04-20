@@ -3,6 +3,7 @@
     "portraitPath": "Portraits/Ares/",
     "dialoguePath": "Dialogue/Ares",
     "postImagePath": "PostImages/Ares",
+    "backgroundPath": "Background/Gym",
     "checkpointAffectionPts": [20, 20, 20, 20, 20],
     "checkpointFollowerCount": [20, 20, 20, 20, 20]
 }
