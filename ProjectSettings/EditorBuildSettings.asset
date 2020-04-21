@@ -17,4 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/MapDemo.unity
     guid: 3b0903bd45c594ae5b0c5d7044f400e6
+  - enabled: 1
+    path: Assets/Scenes/Match3Game.unity
+    guid: e552d5e14e7c547c0b56c28ab17c297a
   m_configObjects: {}

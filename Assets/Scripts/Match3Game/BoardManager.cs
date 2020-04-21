@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class BoardManager : MonoBehaviour
 {
@@ -106,5 +107,9 @@ public class BoardManager : MonoBehaviour
         }
 
         return possibleOrbs[Random.Range(0, possibleOrbs.Count)];
+    }
+
+    public void backToMainGame() {
+        SceneManager.LoadScene("PhoneUIDemo");
     }
 }

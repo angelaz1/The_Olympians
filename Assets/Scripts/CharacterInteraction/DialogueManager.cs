@@ -11,7 +11,7 @@ public class DialogueManager : MonoBehaviour
 
     // We will use the speakerName to find and parse the dialogue JSON
     // The dialogue for all characters should be in a JSON file named their name
-    private enum DialogueType {Checkpoint, Conversation, Greeting, Post, AfterPost};
+    private enum DialogueType {Checkpoint, Conversation, Greeting, Post, AfterPost, Date};
     private CharacterDialogue dialogue;
     private Dialogue[] currDialogue;
     private int currIndex;
@@ -115,6 +115,14 @@ public class DialogueManager : MonoBehaviour
         startDialogue();
     }
 
+    public void startDateDialogue() {
+        // Get date dialogue
+        Dialogue[] selected = dialogue.dateDialogue[0].dialogue;
+        currDialogue = selected;
+        currType = DialogueType.Date;
+        startDialogue();
+    }
+
     public void updateText() {
         string targetText = currDialogue[currIndex].text;
         Option[] options = currDialogue[currIndex].options;
@@ -180,6 +188,11 @@ public class DialogueManager : MonoBehaviour
                 GameObject.Find("InteractButtonManager").GetComponent<InteractButtonManager>().allFlyIn();
                 GameObject.Find("InteractUIManager").GetComponent<InteractUIManager>().showTopBar();
                 GameObject.Find("GameManager").GetComponent<GameManager>().showFeedback();
+                break;
+            }
+            case DialogueType.Date: {
+                // Load post minigame scene
+                SceneManager.LoadScene("Match3Game");
                 break;
             }
         }        
