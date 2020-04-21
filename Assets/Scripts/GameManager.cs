@@ -11,9 +11,11 @@ public class GameManager : MonoBehaviour
     private InteractUIManager interactUIManager;
     private PostingManager postingManager;
     private Dictionary<string, Character> allCharacters;
+
     private bool postedPhoto;
     private int photoQuality;
     private int addedFollowers;
+    private Feedback nextFeedback;
 
     void OnEnable() {
         SceneManager.sceneLoaded += OnSceneLoaded;
@@ -112,30 +114,46 @@ public class GameManager : MonoBehaviour
         checkDateUnlocked();
     }
 
+    public void showFeedback() {
+        interactUIManager.showFeedback(nextFeedback);
+    }
+
     public void postImage(Filter filter, Caption caption) {
         postedPhoto = true;
+
+        string feedbackText = "";
         if (filter == null || caption == null) {
             photoQuality = -1;
             addedFollowers = Random.Range(-400, -200);
-            // Add feedback
-            return;
+            
+            if (filter == null && caption == null) feedbackText = "no filter?? default text?? that's so sad, they legit don't even care";
+            else if (filter == null) feedbackText = "omg did they not even use a filter? that's so weird!";
+            else feedbackText = "pfft default caption text. shows how much they care, hm?";
+        } else {
+            int filterEff = filter.effectIndicator;
+            int captionEff = caption.effectIndicator;
+            if (filterEff > 0 && captionEff > 0) {
+                // Good combination
+                photoQuality = 1;
+                addedFollowers = Random.Range(300, 500);
+
+                feedbackText = "omg that " + filter.filterName + " filter really suits the image! and the caption matched it perfectly!";
+            } else if (filterEff < 0 && captionEff < 0) {
+                // Bad combination
+                photoQuality = -1;
+                addedFollowers = Random.Range(-200, 10);
+                feedbackText = "wasn't that... like... the worst filter-caption-image combination you've ever seen?!";
+            } else {
+                // Ok combination
+                photoQuality = 0;
+                addedFollowers = Random.Range(50, 200);
+                if (captionEff < 0) feedbackText = "the filter seems aight, but yikes, was that caption bad!!";
+                else if (filterEff < 0) feedbackText = "ooo the " + filter.filterName + " really doesn't suit that image...";
+                else feedbackText = "ehh not much of an impact... this gets a 5/10 from me";
+            } 
         }
 
-        int filterEff = filter.effectIndicator;
-        int captionEff = caption.effectIndicator;
-        if (filterEff > 0 && captionEff > 0) {
-            // Good combination
-            photoQuality = 1;
-            addedFollowers = Random.Range(300, 500);
-        } else if (filterEff < 0 && captionEff < 0) {
-            // Bad combination
-            photoQuality = -1;
-            addedFollowers = Random.Range(-200, 10);
-        } else {
-            // Ok combination
-            photoQuality = 0;
-            addedFollowers = Random.Range(50, 200);
-        } 
+        nextFeedback = new Feedback(addedFollowers, feedbackText);
     }
 
     public void moveToLocation(string location) {

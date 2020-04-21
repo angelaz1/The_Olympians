@@ -22,6 +22,12 @@ public class InteractUIManager : MonoBehaviour
     private GameObject followerIcon;
     private GameObject followerCount;
 
+    private GameObject feedback;
+    private GameObject feedbackName;
+    private GameObject feedbackText;
+    private GameObject addedFollowersText;
+    private bool mouseClicked = true;
+
     private Character currentCharacter;
     private bool phoneDown;
     
@@ -34,6 +40,30 @@ public class InteractUIManager : MonoBehaviour
         setTopBar();
         characterImage = GameObject.Find("CharacterImage");
         backgroundImage = GameObject.Find("BackgroundImage");
+        setFeedback();
+    }
+
+    void Update() {
+        if (!mouseClicked && Input.GetMouseButtonDown(0)) {
+            mouseClicked = true;
+            this.feedback.GetComponent<Animator>().ResetTrigger("flyUp");
+            this.feedback.GetComponent<Animator>().SetTrigger("flyOff");
+        }  
+    }
+
+    void setFeedback() {
+        feedback = GameObject.Find("Feedback");
+        foreach (Transform child in feedback.transform){
+            if (child.name == "FeedbackName"){
+                feedbackName = child.gameObject;
+            }
+            if (child.name == "FeedbackText"){
+                feedbackText = child.gameObject;
+            }
+            if (child.name == "AddedFollowers"){
+                addedFollowersText = child.gameObject;
+            }
+        }
     }
 
     void setTopBar() {
@@ -144,6 +174,23 @@ public class InteractUIManager : MonoBehaviour
         if(background != null) {
             backgroundImage.GetComponent<Image>().sprite = background;
         }
+    }
+
+    public void showFeedback(Feedback feedback) {
+        feedbackName.GetComponent<TextMeshProUGUI>().text = feedback.getFeedbackName();
+        feedbackText.GetComponent<TextMeshProUGUI>().text = feedback.getFeedbackText();
+        int addedFollowers = feedback.getAddedFollowers();
+        if (addedFollowers >= 0) {
+            addedFollowersText.GetComponent<TextMeshProUGUI>().text = "+" + addedFollowers + " followers";
+            addedFollowersText.GetComponent<TextMeshProUGUI>().color = new Color32(7, 145, 30, 255);
+        } else {
+            addedFollowersText.GetComponent<TextMeshProUGUI>().text = addedFollowers + " followers";
+            addedFollowersText.GetComponent<TextMeshProUGUI>().color = new Color32(145, 7, 7, 255);
+        }
+        
+        this.feedback.GetComponent<Animator>().ResetTrigger("flyOff");
+        this.feedback.GetComponent<Animator>().SetTrigger("flyUp");
+        mouseClicked = false;
     }
 
     public void playAffectionParticles() {
