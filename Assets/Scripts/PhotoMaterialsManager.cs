@@ -14,7 +14,9 @@ public class PhotoMaterialsManager : MonoBehaviour
     public Material sepia;
     public Material sakura;
     public Material hearts;
-    private Dictionary<string, Material> mat_dict; 
+    private Dictionary<string, Material> mat_dict;
+
+    public int selectedFilter; // 0 representing original 
 
     // Start is called before the first frame update
     void Start()
@@ -24,8 +26,9 @@ public class PhotoMaterialsManager : MonoBehaviour
         mat_dict.Add("blackwhite", blackwhite);
         mat_dict.Add("sepia", sepia);
         mat_dict.Add("sakura", sakura);
-        mat_dict.Add("hearts", hearts); 
-        
+        mat_dict.Add("hearts", hearts);
+
+        selectedFilter = 0; 
     }
 
     // Update is called once per frame
@@ -37,19 +40,30 @@ public class PhotoMaterialsManager : MonoBehaviour
     public void SelectFilter1()
     {
         Debug.Log("changing to filter1"); 
-        GetComponent<Renderer>().material = filter1; 
+        GetComponent<Renderer>().material = filter1;
+
+        ChangeSelectedTo(1); 
     }
 
     public void SelectFilter2()
     {
         Debug.Log("changing to filter2");
-        GetComponent<Renderer>().material = filter2; 
+        GetComponent<Renderer>().material = filter2;
+
+        ChangeSelectedTo(2);
     }
 
     public void SelectFilter3()
     {
         Debug.Log("changing to filter3");
-        GetComponent<Renderer>().material = filter3; 
+        GetComponent<Renderer>().material = filter3;
+
+        ChangeSelectedTo(3); 
+    }
+
+    void ChangeSelectedTo(int num)
+    {
+        selectedFilter = num; 
     }
 
     // POSSIBLE TODO: DISSOLVE FADE IN EFFECT 
@@ -61,6 +75,8 @@ public class PhotoMaterialsManager : MonoBehaviour
     public void RevertToOriginal()
     {
         GetComponent<Renderer>().material = original;
+
+        ChangeSelectedTo(0); 
     }
 
     // change filter number num to material name 
