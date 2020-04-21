@@ -6,10 +6,11 @@ using TMPro;
 
 public class CaptionSelectManager : MonoBehaviour
 {
-    public TMP_InputField caption;
+    public TextMeshProUGUI caption;
     public TextMeshProUGUI caption1;
     public TextMeshProUGUI caption2;
     public TextMeshProUGUI caption3;
+    private Caption[] captions;
 
     public int selectedCaption; // 0 as starting, referring to none 
 
@@ -19,29 +20,23 @@ public class CaptionSelectManager : MonoBehaviour
         selectedCaption = 0; 
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     public void SelectCaption1()
     {
-        caption.text = caption1.text;
+        caption.text = captions[0].captionText;
 
         ChangeSelectedTo(1); 
     }
 
     public void SelectCaption2()
     {
-        caption.text = caption2.text;
+        caption.text = captions[1].captionText;
 
         ChangeSelectedTo(2); 
     }
 
     public void SelectCaption3()
     {
-        caption.text = caption3.text;
+        caption.text = captions[2].captionText;
 
         ChangeSelectedTo(3);
     }
@@ -49,5 +44,14 @@ public class CaptionSelectManager : MonoBehaviour
     void ChangeSelectedTo(int num)
     {
         selectedCaption = num; 
+    }
+
+    // change caption text at given index to the given text
+    public void SetCaptions(Caption[] captions)
+    {
+        this.captions = captions;
+        caption1.text = captions[0].captionButtonText;
+        caption2.text = captions[1].captionButtonText;
+        caption3.text = captions[2].captionButtonText;
     }
 }

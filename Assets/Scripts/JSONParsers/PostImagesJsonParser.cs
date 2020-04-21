@@ -9,13 +9,14 @@ public class PostImage
 [System.Serializable]
 public class Filter
 {
-    public int filterFlagVal;   // integer that corresponds to filter
+    public string filterName;   // name of the corresponding filter
     public int effectIndicator; // -1 for bad, 0 for ok, 1 for good
 }
 
 [System.Serializable]
 public class Caption
 {
+    public string captionButtonText;
     public string captionText;
     public int effectIndicator; // -1 for bad, 0 for ok, 1 for good
 }

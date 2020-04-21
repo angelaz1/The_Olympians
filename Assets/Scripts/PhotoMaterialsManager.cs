@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
 
 public class PhotoMaterialsManager : MonoBehaviour
 {
@@ -14,6 +16,11 @@ public class PhotoMaterialsManager : MonoBehaviour
     public Material sepia;
     public Material sakura;
     public Material hearts;
+
+    public TextMeshProUGUI filterText1;
+    public TextMeshProUGUI filterText2;
+    public TextMeshProUGUI filterText3;
+
     private Dictionary<string, Material> mat_dict;
 
     public int selectedFilter; // 0 representing original 
@@ -21,20 +28,27 @@ public class PhotoMaterialsManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        mat_dict = new Dictionary<string, Material>();
-        mat_dict.Add("brighten", brighten);
-        mat_dict.Add("blackwhite", blackwhite);
-        mat_dict.Add("sepia", sepia);
-        mat_dict.Add("sakura", sakura);
-        mat_dict.Add("hearts", hearts);
-
+        if (mat_dict == null) initDict();
         selectedFilter = 0; 
+    }
+
+    void initDict() {
+        mat_dict = new Dictionary<string, Material>();
+        mat_dict.Add("Brighten", brighten);
+        mat_dict.Add("Black & White", blackwhite);
+        mat_dict.Add("Sepia", sepia);
+        mat_dict.Add("Sakura", sakura);
+        mat_dict.Add("Hearts", hearts);
     }
 
     // Update is called once per frame
     void Update()
     {
         
+    }
+
+    public void setImage(Sprite image) {
+        GetComponent<SpriteRenderer>().sprite = image;
     }
 
     public void SelectFilter1()
@@ -82,17 +96,21 @@ public class PhotoMaterialsManager : MonoBehaviour
     // change filter number num to material name 
     public void ChangeFilter(int num, string name)
     {
+        if (mat_dict == null) initDict();
         if (num == 1)
         {
             filter1 = mat_dict[name]; 
+            filterText1.text = name;
         }
         else if (num == 2)
         {
             filter2 = mat_dict[name]; 
+            filterText2.text = name;
         }
         else
         {
             filter3 = mat_dict[name]; 
+            filterText3.text = name;
         }
     }
 }

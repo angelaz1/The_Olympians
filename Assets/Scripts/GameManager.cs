@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour
     private string currentCharacterName = "Aphrodite";
     private DialogueManager dialogueManager;
     private InteractUIManager interactUIManager;
+    private PostingManager postingManager;
     private Dictionary<string, Character> allCharacters;
 
     void OnEnable() {
@@ -17,23 +18,31 @@ public class GameManager : MonoBehaviour
 
     // called second
     void OnSceneLoaded(Scene scene, LoadSceneMode mode) {
+        if (allCharacters == null) {
+            allCharacters = new Dictionary<string, Character>();
+        }
+
+        if (!allCharacters.ContainsKey(currentCharacterName)) {
+            Character character = new Character(currentCharacterName);
+            allCharacters.Add(currentCharacterName, character);
+        }
+
         if (scene.name == "PhoneUIDemo") {
             dialogueManager = GameObject.Find("DialogueManager").GetComponent<DialogueManager>();
             interactUIManager = GameObject.Find("InteractUIManager").GetComponent<InteractUIManager>();
-
-            if (allCharacters == null) {
-                allCharacters = new Dictionary<string, Character>();
-            }
-
-            if (!allCharacters.ContainsKey(currentCharacterName)) {
-                Character character = new Character(currentCharacterName);
-                allCharacters.Add(currentCharacterName, character);
-            }
+            
             dialogueManager.setDialogue(allCharacters[currentCharacterName].getDialogue());
             interactUIManager.setCharacter(allCharacters[currentCharacterName]);
             interactUIManager.setCharacterPortrait(CharacterExpression.Default);
             interactUIManager.setBackgroundImage();
             startGreetingDialogue();
+        }
+
+        else if (scene.name == "PostDemo") {
+            postingManager = GameObject.Find("PostingManager").GetComponent<PostingManager>();
+
+            postingManager.setPostImages(allCharacters[currentCharacterName].getPostImages());
+            postingManager.startPostingMinigame();
         }
     }
 

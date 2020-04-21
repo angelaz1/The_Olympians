@@ -2,9 +2,38 @@
   "name": "Aphrodite",
   "images": [
     {
-      "imagePath": "",
-      "filters": [],
-      "captions": [] 
+      "imagePath": "PostImages/Aphrodite/dog_and_icecream",
+      "filters": [
+        {
+          "filterName": "Sakura",
+          "effectIndicator": "1"
+        },
+        {
+          "filterName": "Brighten",
+          "effectIndicator": "0"
+        },
+        {
+          "filterName": "Black & White",
+          "effectIndicator": "-1"
+        }
+      ],
+      "captions": [
+        {
+          "captionButtonText": "Boring...",
+          "captionText": "another boring day...",
+          "effectIndicator": "-1"
+        }, 
+        {
+          "captionButtonText": "Fun day!!",
+          "captionText": "Having some #Kirby 'n #Cream!!",
+          "effectIndicator": "1"
+        },
+        {
+          "captionButtonText": "Time with #dog",
+          "captionText": "Getting me some #dog + #dessert",
+          "effectIndicator": "0"
+        }
+      ] 
     }
   ]
 }
