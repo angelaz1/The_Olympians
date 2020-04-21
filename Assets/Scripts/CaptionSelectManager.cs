@@ -46,7 +46,13 @@ public class CaptionSelectManager : MonoBehaviour
         selectedCaption = num; 
     }
 
-    // change caption text at given index to the given text
+    // return the Caption object selected, null if none selected
+    public Caption getSelectedCaption() {
+        if (selectedCaption == 0) return null;
+        return captions[selectedCaption - 1];
+    }
+
+    // set the captions
     public void SetCaptions(Caption[] captions)
     {
         this.captions = captions;

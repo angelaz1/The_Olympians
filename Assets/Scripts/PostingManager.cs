@@ -41,16 +41,24 @@ public class PostingManager : MonoBehaviour
 
         currImage = postImages.images[index];
         photoManager.setImage(getImage(currImage.imagePath));
-        for(int i = 0; i < currImage.filters.Length; i++) {
-            photoManager.ChangeFilter(i+1, currImage.filters[i].filterName);
-        }
-
+        photoManager.SetFilters(currImage.filters);
         captionManager.SetCaptions(currImage.captions);
-
-        
     }
 
     public Sprite getImage(string path) {
         return Resources.Load<Sprite>(path);
     } 
+
+    public void PostPhoto()
+    {
+        Filter filter = photoManager.getSelectedFilter();
+        Caption caption = captionManager.getSelectedCaption();
+        gameManager.postImage(filter, caption);
+        SceneManager.LoadScene("PhoneUIDemo");
+    }
+
+    public void ReturnToMainScreen()
+    {
+        SceneManager.LoadScene("PhoneUIDemo");
+    }
 }

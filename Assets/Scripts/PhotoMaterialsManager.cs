@@ -22,6 +22,7 @@ public class PhotoMaterialsManager : MonoBehaviour
     public TextMeshProUGUI filterText3;
 
     private Dictionary<string, Material> mat_dict;
+    private Filter[] filters;
 
     public int selectedFilter; // 0 representing original 
 
@@ -39,12 +40,6 @@ public class PhotoMaterialsManager : MonoBehaviour
         mat_dict.Add("Sepia", sepia);
         mat_dict.Add("Sakura", sakura);
         mat_dict.Add("Hearts", hearts);
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 
     public void setImage(Sprite image) {
@@ -93,24 +88,22 @@ public class PhotoMaterialsManager : MonoBehaviour
         ChangeSelectedTo(0); 
     }
 
-    // change filter number num to material name 
-    public void ChangeFilter(int num, string name)
+    // return the Filter object selected, null if none selected
+    public Filter getSelectedFilter() {
+        if (selectedFilter == 0) return null;
+        return filters[selectedFilter - 1];
+    }
+
+    // set the filters
+    public void SetFilters(Filter[] filters)
     {
         if (mat_dict == null) initDict();
-        if (num == 1)
-        {
-            filter1 = mat_dict[name]; 
-            filterText1.text = name;
-        }
-        else if (num == 2)
-        {
-            filter2 = mat_dict[name]; 
-            filterText2.text = name;
-        }
-        else
-        {
-            filter3 = mat_dict[name]; 
-            filterText3.text = name;
-        }
+        this.filters = filters;
+        filter1 = mat_dict[filters[0].filterName]; 
+        filterText1.text = filters[0].filterName; 
+        filter2 = mat_dict[filters[1].filterName];
+        filterText2.text = filters[1].filterName;  
+        filter3 = mat_dict[filters[2].filterName];
+        filterText3.text = filters[2].filterName;  
     }
 }

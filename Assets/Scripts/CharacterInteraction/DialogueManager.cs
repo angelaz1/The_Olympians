@@ -11,7 +11,7 @@ public class DialogueManager : MonoBehaviour
 
     // We will use the speakerName to find and parse the dialogue JSON
     // The dialogue for all characters should be in a JSON file named their name
-    private enum DialogueType {Checkpoint, Conversation, Greeting, Post};
+    private enum DialogueType {Checkpoint, Conversation, Greeting, Post, AfterPost};
     private CharacterDialogue dialogue;
     private Dialogue[] currDialogue;
     private int currIndex;
@@ -91,6 +91,30 @@ public class DialogueManager : MonoBehaviour
         startDialogue();
     }
 
+    public void startBadPostDialogue() {
+        // Get bad after-post minigame dialogue
+        Dialogue[] selected = dialogue.badPostDialogue[0].dialogue;
+        currDialogue = selected;
+        currType = DialogueType.AfterPost;
+        startDialogue();
+    }
+
+    public void startOkPostDialogue() {
+        // Get ok after-post minigame dialogue
+        Dialogue[] selected = dialogue.okPostDialogue[0].dialogue;
+        currDialogue = selected;
+        currType = DialogueType.AfterPost;
+        startDialogue();
+    }
+
+    public void startGoodPostDialogue() {
+        // Get good after-post minigame dialogue
+        Dialogue[] selected = dialogue.goodPostDialogue[0].dialogue;
+        currDialogue = selected;
+        currType = DialogueType.AfterPost;
+        startDialogue();
+    }
+
     public void updateText() {
         string targetText = currDialogue[currIndex].text;
         Option[] options = currDialogue[currIndex].options;
@@ -150,6 +174,12 @@ public class DialogueManager : MonoBehaviour
             case DialogueType.Post: {
                 // Load post minigame scene
                 SceneManager.LoadScene("PostDemo");
+                break;
+            }
+            case DialogueType.AfterPost: {
+                GameObject.Find("InteractButtonManager").GetComponent<InteractButtonManager>().allFlyIn();
+                GameObject.Find("InteractUIManager").GetComponent<InteractUIManager>().showTopBar();
+                // DO FEEDBACK
                 break;
             }
         }        

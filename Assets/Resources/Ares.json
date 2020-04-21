@@ -5,5 +5,5 @@
     "postImagePath": "PostImages/Ares",
     "backgroundPath": "Background/Gym",
     "checkpointAffectionPts": [20, 20, 20, 20, 20],
-    "checkpointFollowerCount": [20, 20, 20, 20, 20]
+    "checkpointFollowerCount": [500, 1000, 2000, 4000, 8000]
 }

@@ -19,6 +19,7 @@ public class InteractUIManager : MonoBehaviour
     private GameObject topBar;
     private GameObject topBarName;
     private GameObject[] hearts;
+    private GameObject followerIcon;
     private GameObject followerCount;
 
     private Character currentCharacter;
@@ -57,6 +58,9 @@ public class InteractUIManager : MonoBehaviour
             if (child.name == "Heart4"){
                 hearts[4] = child.gameObject;
             }
+            if (child.name == "FollowerIcon"){
+                followerIcon = child.gameObject;
+            }
             if (child.name == "FollowerCount"){
                 followerCount = child.gameObject;
             }
@@ -70,6 +74,7 @@ public class InteractUIManager : MonoBehaviour
             topBarName.GetComponent<TextMeshProUGUI>().text = character.getName();
             //UPDATE HEARTS AND FOLLOWER COUNT
             updateHearts();
+            updateFollowers();
         }
     }
 
@@ -83,25 +88,34 @@ public class InteractUIManager : MonoBehaviour
 
     public void updateHearts() {
         int currCheckpoint = currentCharacter.getCurrentCheckpoint();
-            int currProgress = currentCharacter.getCurrentAffectionProgress();
-            for(int i = 0; i < currCheckpoint; i++) {
-                //All hearts before currCheckpoint are completed
-                hearts[i].GetComponent<Image>().sprite = heartStates[heartStates.Length - 1];
-            }
-            GameObject heart = hearts[currCheckpoint];
-            if(currProgress < 20) {
-                heart.GetComponent<Image>().sprite = heartStates[0];
-            } else if(currProgress < 40) {
-                heart.GetComponent<Image>().sprite = heartStates[1];
-            } else if(currProgress < 60) {
-                heart.GetComponent<Image>().sprite = heartStates[2];
-            } else if(currProgress < 80) {
-                heart.GetComponent<Image>().sprite = heartStates[3];
-            } else if(currProgress < 100) {
-                heart.GetComponent<Image>().sprite = heartStates[4];
-            } else {
-                heart.GetComponent<Image>().sprite = heartStates[5];
-            }
+        int currProgress = currentCharacter.getCurrentAffectionProgress();
+        for(int i = 0; i < currCheckpoint; i++) {
+            //All hearts before currCheckpoint are completed
+            hearts[i].GetComponent<Image>().sprite = heartStates[heartStates.Length - 1];
+        }
+        GameObject heart = hearts[currCheckpoint];
+        if(currProgress < 20) {
+            heart.GetComponent<Image>().sprite = heartStates[0];
+        } else if(currProgress < 40) {
+            heart.GetComponent<Image>().sprite = heartStates[1];
+        } else if(currProgress < 60) {
+            heart.GetComponent<Image>().sprite = heartStates[2];
+        } else if(currProgress < 80) {
+            heart.GetComponent<Image>().sprite = heartStates[3];
+        } else if(currProgress < 100) {
+            heart.GetComponent<Image>().sprite = heartStates[4];
+        } else {
+            heart.GetComponent<Image>().sprite = heartStates[5];
+        }
+    }
+
+    public void updateFollowers() {
+        int currFollowerGoal = currentCharacter.getCurrentFollowerGoal();
+        int currFollowerCount = currentCharacter.getCurrentFollowerCount();
+        followerCount.GetComponent<TextMeshProUGUI>().text = currFollowerCount + "/" + currFollowerGoal;
+        if (currFollowerCount >= currFollowerGoal) {
+            followerIcon.GetComponent<Image>().color = new Color32(0, 255, 188, 255);
+        }
     }
 
     public void showTopBar() {

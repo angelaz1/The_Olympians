@@ -11,6 +11,9 @@ public class GameManager : MonoBehaviour
     private InteractUIManager interactUIManager;
     private PostingManager postingManager;
     private Dictionary<string, Character> allCharacters;
+    private bool postedPhoto;
+    private int photoQuality;
+    private int addedFollowers;
 
     void OnEnable() {
         SceneManager.sceneLoaded += OnSceneLoaded;
@@ -35,6 +38,7 @@ public class GameManager : MonoBehaviour
             interactUIManager.setCharacter(allCharacters[currentCharacterName]);
             interactUIManager.setCharacterPortrait(CharacterExpression.Default);
             interactUIManager.setBackgroundImage();
+            checkDateUnlocked();
             startGreetingDialogue();
         }
 
@@ -66,8 +70,26 @@ public class GameManager : MonoBehaviour
         // Check if this is first time meeting character
         if (allCharacters[currentCharacterName].isFirstMeeting()) {
             dialogueManager.startCheckpointDialogue(0);
+        } else if(postedPhoto) {
+            postedPhoto = false;
+            addFollowers(addedFollowers);
+            switch (photoQuality) {
+                case -1: dialogueManager.startBadPostDialogue(); break;
+                case 0: dialogueManager.startOkPostDialogue(); break;
+                case 1: dialogueManager.startGoodPostDialogue(); break;
+            }
         } else {
             dialogueManager.startGreetingDialogue();
+        }
+    }
+
+    void checkDateUnlocked() {
+        Character c = allCharacters[currentCharacterName];
+
+        if(c.completedCheckpoint()) {
+            interactUIManager.unlockDate();
+        } else {
+            interactUIManager.lockDate();
         }
     }
 
@@ -79,11 +101,41 @@ public class GameManager : MonoBehaviour
         }
         interactUIManager.updateHearts();
         
-        if(c.completedCheckpoint()) {
-            interactUIManager.unlockDate();
-        } else {
-            interactUIManager.lockDate();
+        checkDateUnlocked();
+    }
+
+    public void addFollowers(int amount) {
+        Character c = allCharacters[currentCharacterName];
+        c.addFollowers(amount);
+        interactUIManager.updateFollowers();
+        
+        checkDateUnlocked();
+    }
+
+    public void postImage(Filter filter, Caption caption) {
+        postedPhoto = true;
+        if (filter == null || caption == null) {
+            photoQuality = -1;
+            addedFollowers = Random.Range(-400, -200);
+            // Add feedback
+            return;
         }
+
+        int filterEff = filter.effectIndicator;
+        int captionEff = caption.effectIndicator;
+        if (filterEff > 0 && captionEff > 0) {
+            // Good combination
+            photoQuality = 1;
+            addedFollowers = Random.Range(300, 500);
+        } else if (filterEff < 0 && captionEff < 0) {
+            // Bad combination
+            photoQuality = -1;
+            addedFollowers = Random.Range(-200, 10);
+        } else {
+            // Ok combination
+            photoQuality = 0;
+            addedFollowers = Random.Range(50, 200);
+        } 
     }
 
     public void moveToLocation(string location) {

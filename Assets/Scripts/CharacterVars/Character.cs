@@ -64,6 +64,16 @@ public class Character
         return affection * 100 / checkpointVal;
     }
 
+    // Accessor method for follower goal with character
+    public int getCurrentFollowerGoal() {
+        return vars.checkpointFollowerCount[this.getCurrentCheckpoint()];
+    }
+
+    // Accessor method for follower count with character
+    public int getCurrentFollowerCount() {
+        return progress.getCurrentFollowers();
+    }
+
     // Checks if this is the first meeting with the character; if so, sets to false
     public bool isFirstMeeting() {
         if(hasntMet) {
@@ -78,13 +88,19 @@ public class Character
         this.progress.addAffection(amount);
     }
 
+    // Mutator method that adds followers
+    public void addFollowers(int amount) {
+        this.progress.addFollowers(amount);
+    }
+
     // Returns true if current checkpoint values have been met
     public bool completedCheckpoint() {
-        //TODO: MAKE DEPENDENT ON FOLLOWERS
         int affection = progress.getCurrentAffection();
-        int checkpointVal = vars.checkpointAffectionPts[this.getCurrentCheckpoint()];
-        if (affection >= checkpointVal) return true;
-        return false;
+        int checkpointAffectionVal = vars.checkpointAffectionPts[this.getCurrentCheckpoint()];
+
+        int followers = progress.getCurrentFollowers();
+        int checkpointFollowerVal = vars.checkpointFollowerCount[this.getCurrentCheckpoint()];
+        return (affection >= checkpointAffectionVal && followers >= checkpointFollowerVal);
     } 
 
     // Accessor method for character portrait

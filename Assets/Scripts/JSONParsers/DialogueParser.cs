@@ -38,4 +38,7 @@ public class CharacterDialogue
     public OtherDialogue[] greetDialogue;
     public OtherDialogue[] dateDialogue;
     public OtherDialogue[] postDialogue;
+    public OtherDialogue[] badPostDialogue;
+    public OtherDialogue[] okPostDialogue;
+    public OtherDialogue[] goodPostDialogue;   
 }
