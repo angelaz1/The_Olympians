@@ -1,3 +1,39 @@
 {
-  "name": "Ares"
+  "name": "Ares",
+  "images": [
+    {
+      "imagePath": "PostImages/Aphrodite/dog_and_icecream",
+      "filters": [
+        {
+          "filterName": "Sakura",
+          "effectIndicator": "1"
+        },
+        {
+          "filterName": "Brighten",
+          "effectIndicator": "0"
+        },
+        {
+          "filterName": "Black & White",
+          "effectIndicator": "-1"
+        }
+      ],
+      "captions": [
+        {
+          "captionButtonText": "Boring...",
+          "captionText": "another boring day...",
+          "effectIndicator": "-1"
+        }, 
+        {
+          "captionButtonText": "Fun day!!",
+          "captionText": "Having some #Kirby 'n #Cream!! Amazing day <3",
+          "effectIndicator": "1"
+        },
+        {
+          "captionButtonText": "Time with #dog",
+          "captionText": "Spending the day with my #dog",
+          "effectIndicator": "0"
+        }
+      ] 
+    }
+  ]
 }
