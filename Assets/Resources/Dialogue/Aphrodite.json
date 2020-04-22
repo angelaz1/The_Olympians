@@ -7,7 +7,6 @@
         {
           "id": 0,
           "text": "Hm, are you actually trying to talk to me? Who even are you?",
-          "numOptions": 1,
           "state": "Default",
           "options": [
             {
@@ -20,7 +19,6 @@
         {
           "id": 1,
           "text": "Oh waaaait a minute, you're that new social media manager aren't you?",
-          "numOptions": 2,
           "state": "Default",
           "options": [
             {
@@ -38,7 +36,6 @@
         {
           "id": 2,
           "text": "Ha, don't try to be so peppy with me.",
-          "numOptions": 1,
           "state": "Amused",
           "options": [
             {
@@ -51,7 +48,6 @@
         {
           "id": 3,
           "text": "Wow, someone's snarky. Try that tone with me again and I'll fire you on the spot.",
-          "numOptions": 1,
           "state": "Default",
           "options": [
             {
@@ -64,7 +60,6 @@
         {
           "id": 4,
           "text": "Well, you probably already know who I am. I'm Aphrodite. Yeah, just like the Goddess of Love and Beauty.",
-          "numOptions": 1,
           "state": "Amused",
           "options": [
             {
@@ -77,7 +72,6 @@
         {
           "id": 5,
           "text": "You've probably seen me around on billboards or whatever. Movies, commercials, modeling - I've done it all.",
-          "numOptions": 1,
           "state": "Amused",
           "options": [
             {
@@ -90,7 +84,6 @@
         {
           "id": 6,
           "text": "A lowly nobody like yourself should be grateful to be working with me. Try to keep up, will you?",
-          "numOptions": 1,
           "state": "Default",
           "options": [
             {
@@ -110,7 +103,6 @@
           "id": 0,
           "text": "What kind of food do you like?",
           "state": "Default",
-          "numOptions": 3,
           "options": [
             {
               "optionText": "Definitely pizza",
@@ -133,7 +125,6 @@
           "id": 1,
           "text": "Ugh, those oily things? Do you even care about your health?",
           "state": "Default",
-          "numOptions": 1,
           "options": [
             {
               "optionText": "Next",
@@ -146,7 +137,6 @@
           "id": 2,
           "text": "Mmm I suppose we all have our faults.",
           "state": "Amused",
-          "numOptions": 1,
           "options": [
             {
               "optionText": "Next",
@@ -159,7 +149,6 @@
           "id": 3,
           "text": "Really?! Glad to hear someone around here actually cares for their health.",
           "state": "Amused",
-          "numOptions": 1,
           "options": [
             {
               "optionText": "Next",
@@ -176,7 +165,6 @@
           "id": 0,
           "text": "Let's play a guessing game - what's my favorite fruit?",
           "state": "Default",
-          "numOptions": 3,
           "options": [
             {
               "optionText": "I'm gonna Go with ManGos",
@@ -199,7 +187,6 @@
           "id": 1,
           "text": "Ding ding ding, we've got the winner! Well, if you can ignore that abhorrent pun.",
           "state": "Amused",
-          "numOptions": 1,
           "options": [
             {
               "optionText": "Next",
@@ -212,7 +199,6 @@
           "id": 2,
           "text": "Ha ha, as if I haven't heard that one before. No points for correctness, nor for your lack of charm.",
           "state": "Default",
-          "numOptions": 1,
           "options": [
             {
               "optionText": "Next",
@@ -225,7 +211,6 @@
           "id": 3,
           "text": "Ugh, could you have picked a worse fruit?",
           "state": "Default",
-          "numOptions": 1,
           "options": [
             {
               "optionText": "Next",
@@ -242,7 +227,6 @@
           "id": 0,
           "text": "Hm, I want to watch a movie this weekend but I’m not sure what to watch... Have any good recommendations?",
           "state": "Default",
-          "numOptions": 3,
           "options": [
             {
               "optionText": "Dumb and Dumber",
@@ -265,7 +249,6 @@
           "id": 1,
           "text": "What do you take me for, a fool? Well, I suppose I do enjoy a good comedy.",
           "state": "Amused",
-          "numOptions": 1,
           "options": [
             {
               "optionText": "Next",
@@ -278,7 +261,6 @@
           "id": 2,
           "text": "Maybe watching that will teach me how to deal with my demons. And by that, I mean you.",
           "state": "Default",
-          "numOptions": 1,
           "options": [
             {
               "optionText": "Next",
@@ -291,7 +273,6 @@
           "id": 3,
           "text": "Ah yes, a classic. Well... perhaps.",
           "state": "Default",
-          "numOptions": 1,
           "options": [
             {
               "optionText": "Next",
@@ -308,7 +289,6 @@
           "id": 0,
           "text": "I heard you started helping Ares with his social media. Did he tell you any of his secrets?",
           "state": "Default",
-          "numOptions": 3,
           "options": [
             {
               "optionText": "Nothing",
@@ -331,7 +311,6 @@
           "id": 1,
           "text": "I see. So that's where your loyalties lie.",
           "state": "Default",
-          "numOptions": 1,
           "options": [
             {
               "optionText": "Next",
@@ -344,7 +323,6 @@
           "id": 2,
           "text": "You're joking!! I mean, his hair did always seem too good to be true... This is huge news!",
           "state": "Amused",
-          "numOptions": 1,
           "options": [
             {
               "optionText": "Next",
@@ -357,7 +335,6 @@
           "id": 3,
           "text": "That... I... I don't know if I'm angrier at him for doing it or for telling you of all people.",
           "state": "Default",
-          "numOptions": 1,
           "options": [
             {
               "optionText": "Next",
@@ -376,7 +353,6 @@
           "id": 0,
           "text": "Back already? I have a busy life so try to get to the point.",
           "state": "Default",
-          "numOptions": 1,
           "options": [
             {
               "optionText": "Next",
@@ -395,7 +371,6 @@
           "id": 0,
           "text": "You want to go on a date with me? Sure, but it better be worth my time.",
           "state": "Amused",
-          "numOptions": 1,
           "options": [
             {
               "optionText": "Next",
@@ -414,7 +389,6 @@
           "id": 0,
           "text": "Another Instagram post? Let's do it then.",
           "state": "Default",
-          "numOptions": 1,
           "options": [
             {
               "optionText": "Next",
@@ -433,7 +407,6 @@
           "id": 0,
           "text": "Gods, what even was that? I've never seen a more disappointing post.",
           "state": "Default",
-          "numOptions": 1,
           "options": [
             {
               "optionText": "Next",
@@ -450,7 +423,6 @@
           "id": 0,
           "text": "What is this?! Are you trying to make me lose followers?",
           "state": "Default",
-          "numOptions": 1,
           "options": [
             {
               "optionText": "Next",
@@ -469,7 +441,6 @@
           "id": 0,
           "text": "Not your best work but... I guess I can live with it",
           "state": "Default",
-          "numOptions": 1,
           "options": [
             {
               "optionText": "Next",
@@ -486,7 +457,6 @@
           "id": 0,
           "text": "Not bad for a peasant mortal",
           "state": "Default",
-          "numOptions": 1,
           "options": [
             {
               "optionText": "Next",
@@ -505,7 +475,6 @@
           "id": 0,
           "text": "Oh. My. Gods. That was the most amazing thing I've ever seen! Are you some kind of wizard?",
           "state": "Amused",
-          "numOptions": 1,
           "options": [
             {
               "optionText": "Next",
@@ -522,7 +491,6 @@
           "id": 0,
           "text": "Hmm, I'll admit this is a pretty nice one. I guess miracles really do exist.",
           "state": "Amused",
-          "numOptions": 1,
           "options": [
             {
               "optionText": "Next",

@@ -8,9 +8,7 @@ public class CheckpointDialogue
 [System.Serializable]
 public class Dialogue
 {
-    public int id;
     public string text;
-    public int numOptions;
     public string state;
     public Option[] options;
 }
