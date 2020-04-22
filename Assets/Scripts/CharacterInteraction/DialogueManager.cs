@@ -18,6 +18,7 @@ public class DialogueManager : MonoBehaviour
     private DialogueType currType;
     private DialogueUIManager dialogueUI;
     private GameManager gameManager;
+    private SFXManager sfxManager;
     private int lastConvoIndex;
 
     private void Awake() {
@@ -36,6 +37,7 @@ public class DialogueManager : MonoBehaviour
     {
         dialogueUI = GameObject.Find("DialogueUIManager").GetComponent<DialogueUIManager>();
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
+        sfxManager = GameObject.Find("SFXManager").GetComponent<SFXManager>();
     }
 
     public void setDialogue(CharacterDialogue dialogue) {
@@ -144,6 +146,7 @@ public class DialogueManager : MonoBehaviour
     }
 
     public void advanceText() {
+        sfxManager.playClickSound();
         int nextIndex = currDialogue[currIndex].options[0].link;
         if(nextIndex == -1) {
             finishDialogue();
@@ -155,6 +158,7 @@ public class DialogueManager : MonoBehaviour
 
     public void selectOption(int i) {
         //REQUIRES: i must be a selectable option in current dialogue
+        sfxManager.playClickSound();
         int affectionBonus = currDialogue[currIndex].options[i].affectionBonus;
         gameManager.addAffection(affectionBonus);
 

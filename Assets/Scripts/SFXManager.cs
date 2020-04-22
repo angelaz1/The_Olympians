@@ -6,6 +6,7 @@ public class SFXManager : MonoBehaviour
 {
     public AudioClip goodSound;
     public AudioClip badSound;
+    public AudioClip clickSound;
 
     private AudioSource source;
 
@@ -14,13 +15,23 @@ public class SFXManager : MonoBehaviour
         source = this.GetComponent<AudioSource>();
     }
 
+    public IEnumerator playSound() {
+        source.Play();
+        yield return new WaitForSeconds(source.clip.length);
+    }
+
     public void playGoodSound() {
         source.clip = goodSound;
-        source.Play();
+        StartCoroutine(playSound());
     }
 
     public void playBadSound() {
         source.clip = badSound;
-        source.Play();
+        StartCoroutine(playSound());
+    }
+
+    public void playClickSound() {
+        source.clip = clickSound;
+        StartCoroutine(playSound());
     }
 }
