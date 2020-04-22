@@ -93,7 +93,9 @@ public class DialogueManager : MonoBehaviour
 
     public void startBadPostDialogue() {
         // Get bad after-post minigame dialogue
-        Dialogue[] selected = dialogue.badPostDialogue[0].dialogue;
+        int diaLen = dialogue.badPostDialogue.Length;
+        int index = Random.Range(0, diaLen);
+        Dialogue[] selected = dialogue.badPostDialogue[index].dialogue;
         currDialogue = selected;
         currType = DialogueType.AfterPost;
         startDialogue();
@@ -101,7 +103,9 @@ public class DialogueManager : MonoBehaviour
 
     public void startOkPostDialogue() {
         // Get ok after-post minigame dialogue
-        Dialogue[] selected = dialogue.okPostDialogue[0].dialogue;
+        int diaLen = dialogue.okPostDialogue.Length;
+        int index = Random.Range(0, diaLen);
+        Dialogue[] selected = dialogue.okPostDialogue[index].dialogue;
         currDialogue = selected;
         currType = DialogueType.AfterPost;
         startDialogue();
@@ -109,7 +113,9 @@ public class DialogueManager : MonoBehaviour
 
     public void startGoodPostDialogue() {
         // Get good after-post minigame dialogue
-        Dialogue[] selected = dialogue.goodPostDialogue[0].dialogue;
+        int diaLen = dialogue.goodPostDialogue.Length;
+        int index = Random.Range(0, diaLen);
+        Dialogue[] selected = dialogue.goodPostDialogue[index].dialogue;
         currDialogue = selected;
         currType = DialogueType.AfterPost;
         startDialogue();

@@ -95,6 +95,13 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public void advanceCheckpoint() {
+        Character c = allCharacters[currentCharacterName];
+        if(c.completedCheckpoint()) {
+            c.advanceCheckpoint();
+        }
+    }
+
     public void addAffection(int amount) {
         Character c = allCharacters[currentCharacterName];
         c.addAffection(amount);

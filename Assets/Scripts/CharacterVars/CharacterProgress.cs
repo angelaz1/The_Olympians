@@ -7,10 +7,8 @@ public class CharacterProgress
     private int currentCheckpoint;
     private int currentAffection;
     private int currentFollowers;
-    // private CharacterVars vars;
 
     public CharacterProgress() {
-        // this.vars = getVariablesFor(characterName);
         currentCheckpoint = 0;
         currentAffection = 0;
         currentFollowers = 0;
@@ -36,5 +34,10 @@ public class CharacterProgress
 
     public int getCurrentFollowers() {
         return currentFollowers;
+    }
+
+    public void advanceCheckpoint() { 
+        currentCheckpoint++;
+        currentAffection = 0;
     }
 }

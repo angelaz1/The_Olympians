@@ -76,7 +76,7 @@
         },
         {
           "id": 5,
-          "text": "You've probably seen me around on billboards or whatever. Movies, commercials, modelling - I've done it all.",
+          "text": "You've probably seen me around on billboards or whatever. Movies, commercials, modeling - I've done it all.",
           "numOptions": 1,
           "state": "Amused",
           "options": [
@@ -443,6 +443,23 @@
           ]
         }
       ]
+    },
+    {
+      "dialogue": [
+        {
+          "id": 0,
+          "text": "What is this?! Are you trying to make me lose followers?",
+          "state": "Default",
+          "numOptions": 1,
+          "options": [
+            {
+              "optionText": "Next",
+              "link": -1,
+              "affectionBonus": 0
+            }
+          ]
+        }
+      ]
     }
   ],
   "okPostDialogue": [
@@ -462,6 +479,23 @@
           ]
         }
       ]
+    },
+    {
+      "dialogue": [
+        {
+          "id": 0,
+          "text": "Not bad for a peasant mortal",
+          "state": "Default",
+          "numOptions": 1,
+          "options": [
+            {
+              "optionText": "Next",
+              "link": -1,
+              "affectionBonus": 0
+            }
+          ]
+        }
+      ]
     }
   ],
   "goodPostDialogue": [
@@ -470,6 +504,23 @@
         {
           "id": 0,
           "text": "Oh. My. Gods. That was the most amazing thing I've ever seen! Are you some kind of wizard?",
+          "state": "Amused",
+          "numOptions": 1,
+          "options": [
+            {
+              "optionText": "Next",
+              "link": -1,
+              "affectionBonus": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "dialogue": [
+        {
+          "id": 0,
+          "text": "Hmm, I'll admit this is a pretty nice one. I guess miracles really do exist.",
           "state": "Amused",
           "numOptions": 1,
           "options": [

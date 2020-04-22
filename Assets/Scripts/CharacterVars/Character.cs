@@ -93,6 +93,11 @@ public class Character
         this.progress.addFollowers(amount);
     }
 
+    // Mutator method that adds followers
+    public void advanceCheckpoint() {
+        this.progress.advanceCheckpoint();
+    }
+
     // Returns true if current checkpoint values have been met
     public bool completedCheckpoint() {
         int affection = progress.getCurrentAffection();

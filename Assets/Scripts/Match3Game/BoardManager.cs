@@ -110,6 +110,8 @@ public class BoardManager : MonoBehaviour
     }
 
     public void backToMainGame() {
+        // REPLACE LATER:
+        GameObject.Find("GameManager").GetComponent<GameManager>().advanceCheckpoint();
         SceneManager.LoadScene("PhoneUIDemo");
     }
 }
