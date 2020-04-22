@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour
     private string currentCharacterName = "Aphrodite";
     private DialogueManager dialogueManager;
     private InteractUIManager interactUIManager;
+    private SFXManager sfxManager;
     private PostingManager postingManager;
     private Dictionary<string, Character> allCharacters;
 
@@ -35,6 +36,7 @@ public class GameManager : MonoBehaviour
         if (scene.name == "PhoneUIDemo") {
             dialogueManager = GameObject.Find("DialogueManager").GetComponent<DialogueManager>();
             interactUIManager = GameObject.Find("InteractUIManager").GetComponent<InteractUIManager>();
+            sfxManager = GameObject.Find("SFXManager").GetComponent<SFXManager>();
             
             dialogueManager.setDialogue(allCharacters[currentCharacterName].getDialogue());
             interactUIManager.setCharacter(allCharacters[currentCharacterName]);
@@ -107,6 +109,9 @@ public class GameManager : MonoBehaviour
         c.addAffection(amount);
         if (amount > 0) {
             interactUIManager.playAffectionParticles();
+            sfxManager.playGoodSound();
+        } else if (amount < 0) {
+            sfxManager.playBadSound();
         }
         interactUIManager.updateHearts();
         

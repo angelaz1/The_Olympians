@@ -174,7 +174,7 @@
             {
               "optionText": "Apples? Red and delicious, just like you!",
               "link": 2,
-              "affectionBonus": 0
+              "affectionBonus": -5
             },
             {
               "optionText": "Well, it would apPear to be pears!",
