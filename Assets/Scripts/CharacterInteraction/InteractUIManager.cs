@@ -193,6 +193,7 @@ public class InteractUIManager : MonoBehaviour
         this.feedback.GetComponent<Animator>().ResetTrigger("flyOff");
         this.feedback.GetComponent<Animator>().SetTrigger("flyUp");
         mouseClicked = false;
+        sfxManager.playPhoneUpSound();
     }
 
     public void playAffectionParticles() {
