@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 using UnityEngine.EventSystems;
 using TMPro;
 
-public enum CharacterExpression{Default, Amused};
+public enum CharacterExpression{Default, Amused, Happy, Mad, Surprised};
 public class InteractUIManager : MonoBehaviour
 {
     public Sprite[] heartStates;

@@ -48,7 +48,7 @@
         {
           "id": 3,
           "text": "Wow, someone's snarky. Try that tone with me again and I'll fire you on the spot.",
-          "state": "Default",
+          "state": "Mad",
           "options": [
             {
               "optionText": "Next",
@@ -148,7 +148,7 @@
         {
           "id": 3,
           "text": "Really?! Glad to hear someone around here actually cares for their health.",
-          "state": "Amused",
+          "state": "Happy",
           "options": [
             {
               "optionText": "Next",
@@ -198,7 +198,7 @@
         {
           "id": 2,
           "text": "Ha ha, as if I haven't heard that one before. No points for correctness, nor for your lack of charm.",
-          "state": "Default",
+          "state": "Mad",
           "options": [
             {
               "optionText": "Next",
@@ -260,7 +260,7 @@
         {
           "id": 2,
           "text": "Maybe watching that will teach me how to deal with my demons. And by that, I mean you.",
-          "state": "Default",
+          "state": "Mad",
           "options": [
             {
               "optionText": "Next",
@@ -334,7 +334,7 @@
         {
           "id": 3,
           "text": "That... I... I don't know if I'm angrier at him for doing it or for telling you of all people.",
-          "state": "Default",
+          "state": "Mad",
           "options": [
             {
               "optionText": "Next",
@@ -406,7 +406,7 @@
         {
           "id": 0,
           "text": "Gods, what even was that? I've never seen a more disappointing post.",
-          "state": "Default",
+          "state": "Mad",
           "options": [
             {
               "optionText": "Next",
@@ -422,7 +422,7 @@
         {
           "id": 0,
           "text": "What is this?! Are you trying to make me lose followers?",
-          "state": "Default",
+          "state": "Mad",
           "options": [
             {
               "optionText": "Next",
@@ -474,7 +474,7 @@
         {
           "id": 0,
           "text": "Oh. My. Gods. That was the most amazing thing I've ever seen! Are you some kind of wizard?",
-          "state": "Amused",
+          "state": "Happy",
           "options": [
             {
               "optionText": "Next",
