@@ -48,7 +48,7 @@
         {
           "id": 3,
           "text": "Wow, someone's snarky. Try that tone with me again and I'll fire you on the spot.",
-          "state": "Default",
+          "state": "Mad",
           "options": [
             {
               "optionText": "Next",
@@ -85,6 +85,175 @@
           "id": 6,
           "text": "A lowly nobody like yourself should be grateful to be working with me. Try to keep up, will you?",
           "state": "Default",
+          "options": [
+            {
+              "optionText": "Next",
+              "link": -1,
+              "affectionBonus": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "checkpointNum": 1,
+      "dialogue": [
+        {
+          "id": 0,
+          "text": "Hm... I guess you aren’t that bad of a person. I hate to admit it, but that was a pretty solid date.",
+          "state": "Amused",
+          "options": [
+            {
+              "optionText": "Next",
+              "link": 1,
+              "affectionBonus": 0
+            }
+          ]
+        },
+        {
+          "id": 1,
+          "text": "I constantly have people fawning over me day and night. It really gets a little tiring...",
+          "state": "Default",
+          "options": [
+            {
+              "optionText": "Next",
+              "link": 2,
+              "affectionBonus": 0
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "text": "It was nice to have a break, get some one-on-one time. Thanks.",
+          "state": "Default",
+          "options": [
+            {
+              "optionText": "Next",
+              "link": -1,
+              "affectionBonus": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "checkpointNum": 2,
+      "dialogue": [
+        {
+          "id": 0,
+          "text": "Ok, ok! I’ll accept you as a friend! But like, that really doesn’t mean too much to me.",
+          "state": "Default",
+          "options": [
+            {
+              "optionText": "Next",
+              "link": 1,
+              "affectionBonus": 0
+            }
+          ]
+        },
+        {
+          "id": 1,
+          "text": "I have so many friends and followers that honestly, I might forget about you.",
+          "state": "Amused",
+          "options": [
+            {
+              "optionText": "Next",
+              "link": -1,
+              "affectionBonus": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "checkpointNum": 3,
+      "dialogue": [
+        {
+          "id": 0,
+          "text": "Nice job on the recent post! You're actually getting pretty good at this.",
+          "state": "Amused",
+          "options": [
+            {
+              "optionText": "Next",
+              "link": 1,
+              "affectionBonus": 0
+            }
+          ]
+        },
+        {
+          "id": 1,
+          "text": "Hey, you're actually really nice to talk to. I really apprecate you keeping me company.",
+          "state": "Happy",
+          "options": [
+            {
+              "optionText": "Next",
+              "link": 2,
+              "affectionBonus": 0
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "text": "Oh, here's my personal number. Hit me up whenever - I consider myself as a very responsive person.",
+          "state": "Default",
+          "options": [
+            {
+              "optionText": "Next",
+              "link": -1,
+              "affectionBonus": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "checkpointNum": 4,
+      "dialogue": [
+        {
+          "id": 0,
+          "text": "Wow, for someone who spends all their time with me, you got some moves!",
+          "state": "Amused",
+          "options": [
+            {
+              "optionText": "Next",
+              "link": 1,
+              "affectionBonus": 0
+            }
+          ]
+        },
+        {
+          "id": 1,
+          "text": "But in all honesty, I really liked that date. We should go more often!",
+          "state": "Happy",
+          "options": [
+            {
+              "optionText": "Next",
+              "link": -1,
+              "affectionBonus": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "checkpointNum": 5,
+      "dialogue": [
+        {
+          "id": 0,
+          "text": "I guess I haven’t really been honest with my feelings before.",
+          "state": "Amused",
+          "options": [
+            {
+              "optionText": "Next",
+              "link": 1,
+              "affectionBonus": 0
+            }
+          ]
+        },
+        {
+          "id": 1,
+          "text": "I see you as more than just a friend, and hope that you feel the same way.",
+          "state": "Happy",
           "options": [
             {
               "optionText": "Next",
@@ -148,7 +317,7 @@
         {
           "id": 3,
           "text": "Really?! Glad to hear someone around here actually cares for their health.",
-          "state": "Amused",
+          "state": "Happy",
           "options": [
             {
               "optionText": "Next",
@@ -198,7 +367,7 @@
         {
           "id": 2,
           "text": "Ha ha, as if I haven't heard that one before. No points for correctness, nor for your lack of charm.",
-          "state": "Default",
+          "state": "Mad",
           "options": [
             {
               "optionText": "Next",
@@ -260,7 +429,7 @@
         {
           "id": 2,
           "text": "Maybe watching that will teach me how to deal with my demons. And by that, I mean you.",
-          "state": "Default",
+          "state": "Mad",
           "options": [
             {
               "optionText": "Next",
@@ -334,7 +503,7 @@
         {
           "id": 3,
           "text": "That... I... I don't know if I'm angrier at him for doing it or for telling you of all people.",
-          "state": "Default",
+          "state": "Mad",
           "options": [
             {
               "optionText": "Next",
@@ -382,6 +551,40 @@
       ]
     }
   ],
+  "failDateDialogue": [
+    {
+      "dialogue": [
+        {
+          "id": 0,
+          "text": "Did you really think you were good enough? Keep dreaming.",
+          "state": "Default",
+          "options": [
+            {
+              "optionText": "Next",
+              "link": -1,
+              "affectionBonus": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "dialogue": [
+        {
+          "id": 0,
+          "text": "Ugh, I feel way too embarrassed to even stand near you! Let’s not go out again.",
+          "state": "Mad",
+          "options": [
+            {
+              "optionText": "Next",
+              "link": -1,
+              "affectionBonus": 0
+            }
+          ]
+        }
+      ]
+    }
+  ],
   "postDialogue": [
     {
       "dialogue": [
@@ -406,7 +609,7 @@
         {
           "id": 0,
           "text": "Gods, what even was that? I've never seen a more disappointing post.",
-          "state": "Default",
+          "state": "Mad",
           "options": [
             {
               "optionText": "Next",
@@ -422,7 +625,7 @@
         {
           "id": 0,
           "text": "What is this?! Are you trying to make me lose followers?",
-          "state": "Default",
+          "state": "Mad",
           "options": [
             {
               "optionText": "Next",
@@ -474,7 +677,7 @@
         {
           "id": 0,
           "text": "Oh. My. Gods. That was the most amazing thing I've ever seen! Are you some kind of wizard?",
-          "state": "Amused",
+          "state": "Happy",
           "options": [
             {
               "optionText": "Next",

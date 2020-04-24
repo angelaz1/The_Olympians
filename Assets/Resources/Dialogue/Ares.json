@@ -6,7 +6,119 @@
       "dialogue": [
         {
           "id": 0,
-          "text": "Are you here for an autograph? Sorry, I don't do that for just anybody.",
+          "text": "Gah! W-Who are you? Why did you approach me?!",
+          "state": "Surprised",
+          "options": [
+            {
+              "optionText": "Next",
+              "link": 1,
+              "affectionBonus": 0
+            }
+          ]
+        },
+        {
+          "id": 1,
+          "text": "Are... you here for an autograph? Sorry, I don't do that for just anybody.",
+          "state": "Default",
+          "options": [
+            {
+              "optionText": "Next",
+              "link": 2,
+              "affectionBonus": 0 
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "text": "Pause. Are you that person who’s in charge of social media or whatever?",
+          "state": "Default",
+          "options": [
+            {
+              "optionText": "Yeah, that's me!",
+              "link": 3,
+              "affectionBonus": 0 
+            },
+            {
+              "optionText": "I mean like... who else would I be?",
+              "link": 4,
+              "affectionBonus": 0 
+            }
+          ]
+        },
+        {
+          "id": 3,
+          "text": "Ayyy I thought so!",
+          "state": "Amused",
+          "options": [
+            {
+              "optionText": "Next",
+              "link": 5,
+              "affectionBonus": 0 
+            }
+          ]
+        },
+        {
+          "id": 4,
+          "text": "Woah, no need to get snarky with me!",
+          "state": "Mad",
+          "options": [
+            {
+              "optionText": "Next",
+              "link": 5,
+              "affectionBonus": 0 
+            }
+          ]
+        },
+        {
+          "id": 5,
+          "text": "Well 'sup! I'm Ares. Yeah, like the god of war. I’ve heard all the references already.",
+          "state": "Amused",
+          "options": [
+            {
+              "optionText": "Next",
+              "link": 6,
+              "affectionBonus": 0 
+            }
+          ]
+        },
+        {
+          "id": 6,
+          "text": "I’ve still got reps to finish here soooo try not to get in my way.",
+          "state": "Amused",
+          "options": [
+            {
+              "optionText": "Next",
+              "link": -1,
+              "affectionBonus": 0 
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "checkpointNum": 1,
+      "dialogue": [
+        {
+          "id": 0,
+          "text": "You’re not that bad... I guess.",
+          "state": "Amused",
+          "options": [
+            {
+              "optionText": "Next",
+              "link": -1,
+              "affectionBonus": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "checkpointNum": 2,
+      "dialogue": [
+        {
+          "id": 0,
+          "text": "Hey. I had fun there. I suppose I wouldn’t be opposed to spending more time together.",
+          "state": "Happy",
           "options": [
             {
               "optionText": "Next",
@@ -23,28 +135,302 @@
       "dialogue": [
         {
           "id": 0,
-          "text": "What kind of food do you like?",
+          "text": "I’m feeling kind of thirsty...",
+          "state": "Default",
           "options": [
             {
-              "optionText": "Definitely pizza (bad)",
-              "link": 1,
-              "affectionBonus": -10
-            },
-            {
-              "optionText": "Desserts are my vice (ok)",
-              "link": 1,
-              "affectionBonus": 5
-            },
-            {
-              "optionText": "I enjoy a good spinach smoothie (good)",
+              "optionText": "Let me get you some water!",
               "link": 1,
               "affectionBonus": 10
+            },
+            {
+              "optionText": "Your water is over there",
+              "link": 2,
+              "affectionBonus": -5
+            },
+            {
+              "optionText": "For me? ;)",
+              "link": 3,
+              "affectionBonus": -10
             }
           ]
         },
         {
           "id": 1,
-          "text": "Wow, that sure is interesting!",
+          "text": "I uh... you really didn't have to do that. Thanks.",
+          "state": "Happy",
+          "options": [
+            {
+              "optionText": "Next",
+              "link": -1,
+              "affectionBonus": 0
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "text": "Wow gee, thanks. It's not like I have eyes or anything.",
+          "state": "Default",
+          "options": [
+            {
+              "optionText": "Next",
+              "link": -1,
+              "affectionBonus": 0
+            }
+          ]
+        },
+        {
+          "id": 3,
+          "text": "Hey, cool it hotshot. No one likes a tryhard.",
+          "state": "Mad",
+          "options": [
+            {
+              "optionText": "Next",
+              "link": -1,
+              "affectionBonus": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "dialogue": [
+        {
+          "id": 0,
+          "text": "Hey, have you been to this gym before?",
+          "state": "Default",
+          "options": [
+            {
+              "optionText": "Yes, multiple times!",
+              "link": 1,
+              "affectionBonus": 10
+            },
+            {
+              "optionText": "I haven't had the chance to",
+              "link": 2,
+              "affectionBonus": -5
+            },
+            {
+              "optionText": "I don’t like this place",
+              "link": 3,
+              "affectionBonus": -10
+            }
+          ]
+        },
+        {
+          "id": 1,
+          "text": "Ayyy, glad to hear someone cares about their well-being. We should do a work-out together!",
+          "state": "Amused",
+          "options": [
+            {
+              "optionText": "Next",
+              "link": -1,
+              "affectionBonus": 0
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "text": "Well that's kinda disappointing. You should get out more.",
+          "state": "Default",
+          "options": [
+            {
+              "optionText": "Next",
+              "link": -1,
+              "affectionBonus": 0
+            }
+          ]
+        },
+        {
+          "id": 3,
+          "text": "Woah. What kind of person doesn't like the gym? Jeez.",
+          "state": "Default",
+          "options": [
+            {
+              "optionText": "Next",
+              "link": -1,
+              "affectionBonus": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "dialogue": [
+        {
+          "id": 0,
+          "text": "I’m feeling kind of hungry...",
+          "state": "Default",
+          "options": [
+            {
+              "optionText": "Do you want to get some Roots?",
+              "link": 1,
+              "affectionBonus": 5
+            },
+            {
+              "optionText": "Let’s go grab a burger!",
+              "link": 2,
+              "affectionBonus": 5
+            },
+            {
+              "optionText": "You want a snack? Here I am :)",
+              "link": 3,
+              "affectionBonus": -10
+            }
+          ]
+        },
+        {
+          "id": 1,
+          "text": "Did you say Roots? Healthy, yummy, and easily accessible? Sign me right up!",
+          "state": "Happy",
+          "options": [
+            {
+              "optionText": "Next",
+              "link": -1,
+              "affectionBonus": 0
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "text": "Mmm, I could definitely go for some buns and a milkshake right now...",
+          "state": "Amused",
+          "options": [
+            {
+              "optionText": "Next",
+              "link": -1,
+              "affectionBonus": 0
+            }
+          ]
+        },
+        {
+          "id": 3,
+          "text": "Well, I've certainly lost my appetite with that statement.",
+          "state": "Mad",
+          "options": [
+            {
+              "optionText": "Next",
+              "link": -1,
+              "affectionBonus": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "dialogue": [
+        {
+          "id": 0,
+          "text": "Hey, don’t you have other things to do other than watch me? It's kinda creeping me out.",
+          "state": "Default",
+          "options": [
+            {
+              "optionText": "Let me spot you on your next few reps",
+              "link": 1,
+              "affectionBonus": 10
+            },
+            {
+              "optionText": "I mean, not really",
+              "link": 2,
+              "affectionBonus": -5
+            },
+            {
+              "optionText": "I'm just enjoying the view...",
+              "link": 3,
+              "affectionBonus": -5
+            }
+          ]
+        },
+        {
+          "id": 1,
+          "text": "That's... actually not a bad idea! Get over here and help me!",
+          "state": "Happy",
+          "options": [
+            {
+              "optionText": "Next",
+              "link": -1,
+              "affectionBonus": 0
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "text": "Wow really? Get a life, will ya?",
+          "state": "Default",
+          "options": [
+            {
+              "optionText": "Next",
+              "link": -1,
+              "affectionBonus": 0
+            }
+          ]
+        },
+        {
+          "id": 3,
+          "text": "Ok. Creep levels off the chart. Please stop.",
+          "state": "Mad",
+          "options": [
+            {
+              "optionText": "Next",
+              "link": -1,
+              "affectionBonus": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "dialogue": [
+        {
+          "id": 0,
+          "text": "Ok, random question. How’s Aphrodite been?",
+          "state": "Default",
+          "options": [
+            {
+              "optionText": "She's as popular as ever!",
+              "link": 1,
+              "affectionBonus": 10
+            },
+            {
+              "optionText": "She's doing okay",
+              "link": 2,
+              "affectionBonus": 5
+            },
+            {
+              "optionText": "Dunno. I don't really care about her",
+              "link": 3,
+              "affectionBonus": -5
+            }
+          ]
+        },
+        {
+          "id": 1,
+          "text": "That's good. I mean, it's not like I care or anything.",
+          "state": "Amused",
+          "options": [
+            {
+              "optionText": "Next",
+              "link": -1,
+              "affectionBonus": 0
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "text": "Mmm that's good to hear.",
+          "state": "Default",
+          "options": [
+            {
+              "optionText": "Next",
+              "link": -1,
+              "affectionBonus": 0
+            }
+          ]
+        },
+        {
+          "id": 3,
+          "text": "Hey what the heck?! No need to be rude about it.",
+          "state": "Mad",
           "options": [
             {
               "optionText": "Next",
@@ -61,7 +447,8 @@
       "dialogue": [
         {
           "id": 0,
-          "text": "Back already? I have a busy life so try to get to the point.",
+          "text": "Oh, you’re back. Didn’t notice you leaving.",
+          "state": "Default",
           "options": [
             {
               "optionText": "Next",
@@ -78,7 +465,8 @@
       "dialogue": [
         {
           "id": 0,
-          "text": "You want to go on a date with me? Sure, but it better be worth my time.",
+          "text": "A date? ...I guess I could take a break. Don't get the wrong idea or anything, 'kay?",
+          "state": "Default",
           "options": [
             {
               "optionText": "Next",
@@ -95,7 +483,8 @@
       "dialogue": [
         {
           "id": 0,
-          "text": "Another Instagram post? Let's do it then.",
+          "text": "Instagram? I guess I should show my followers my gains.",
+          "state": "Default",
           "options": [
             {
               "optionText": "Next",
@@ -112,7 +501,7 @@
       "dialogue": [
         {
           "id": 0,
-          "text": "Gods, what even was that? I've never seen a more disappointing post.",
+          "text": "What?! My followers are not interested in that kind of stuff!",
           "state": "Default",
           "options": [
             {
@@ -130,7 +519,7 @@
       "dialogue": [
         {
           "id": 0,
-          "text": "Not your best work but... I guess I can live with it",
+          "text": "I guess that works.",
           "state": "Default",
           "options": [
             {
