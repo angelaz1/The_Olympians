@@ -131,8 +131,21 @@ public class DialogueManager : MonoBehaviour
         startDialogue();
     }
 
+    void reshuffle(Option[] texts)
+    {
+        // Knuth shuffle algorithm :: courtesy of Wikipedia :)
+        for (int t = 0; t < texts.Length; t++ )
+        {
+            Option tmp = texts[t];
+            int r = Random.Range(t, texts.Length);
+            texts[t] = texts[r];
+            texts[r] = tmp;
+        }
+    }
+
     public void updateText() {
         string targetText = currDialogue[currIndex].text;
+        reshuffle(currDialogue[currIndex].options);
         Option[] options = currDialogue[currIndex].options;
         
         if(currDialogue[currIndex].state == null) {

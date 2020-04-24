@@ -85,7 +85,13 @@ public class Character
 
     // Mutator method that adds affection
     public void addAffection(int amount) {
-        this.progress.addAffection(amount);
+        if (progress.getCurrentAffection() < vars.checkpointAffectionPts[this.getCurrentCheckpoint()]
+            && amount > 0) {
+            this.progress.addAffection(amount);
+        }
+        else if (progress.getCurrentAffection() > 0 && amount < 0) {
+            this.progress.addAffection(amount);
+        }
     }
 
     // Mutator method that adds followers

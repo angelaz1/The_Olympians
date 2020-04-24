@@ -37,7 +37,9 @@ public class CharacterProgress
     }
 
     public void advanceCheckpoint() { 
-        currentCheckpoint++;
-        currentAffection = 0;
+        if(currentCheckpoint < 5) {
+            currentCheckpoint++;
+            currentAffection = 0;
+        }
     }
 }
