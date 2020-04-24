@@ -125,7 +125,7 @@
         {
           "id": 2,
           "text": "It was nice to have a break, get some one-on-one time. Thanks.",
-          "state": "Default",
+          "state": "Happy",
           "options": [
             {
               "optionText": "Next",
@@ -583,8 +583,24 @@
           ]
         }
       ]
+    },
+    {
+      "dialogue": [
+        {
+          "id": 0,
+          "text": "That wasn’t fun at all, I’d rather go out with a 100 year old turtle",
+          "state": "Default",
+          "options": [
+            {
+              "optionText": "Next",
+              "link": -1,
+              "affectionBonus": 0
+            }
+          ]
+        }
+      ]
     }
-  ],
+  ], 
   "postDialogue": [
     {
       "dialogue": [
