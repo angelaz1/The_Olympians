@@ -62,6 +62,7 @@ public class Tile : MonoBehaviour
 		Sprite tmp = render2.sprite;
 		render2.sprite = render.sprite;
 		render.sprite = tmp;
+		BoardManager.bm.MakeMove();
 	}
 
 	private GameObject GetAdjacent(Vector2 castDir) {
