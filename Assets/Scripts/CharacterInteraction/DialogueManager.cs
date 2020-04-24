@@ -11,7 +11,7 @@ public class DialogueManager : MonoBehaviour
 
     // We will use the speakerName to find and parse the dialogue JSON
     // The dialogue for all characters should be in a JSON file named their name
-    private enum DialogueType {Checkpoint, Conversation, Greeting, Post, AfterPost, Date};
+    private enum DialogueType {Checkpoint, Conversation, Greeting, Post, AfterPost, Date, FailedDate};
     private CharacterDialogue dialogue;
     private Dialogue[] currDialogue;
     private int currIndex;
@@ -131,6 +131,16 @@ public class DialogueManager : MonoBehaviour
         startDialogue();
     }
 
+    public void startFailDateDialogue() {
+        // Get failed date dialogue
+        int diaLen = dialogue.goodPostDialogue.Length;
+        int index = Random.Range(0, diaLen);
+        Dialogue[] selected = dialogue.failDateDialogue[index].dialogue;
+        currDialogue = selected;
+        currType = DialogueType.FailedDate;
+        startDialogue();
+    }
+
     void reshuffle(Option[] texts)
     {
         // Knuth shuffle algorithm :: courtesy of Wikipedia :)
@@ -211,6 +221,12 @@ public class DialogueManager : MonoBehaviour
                 GameObject.Find("InteractButtonManager").GetComponent<InteractButtonManager>().allFlyIn();
                 GameObject.Find("InteractUIManager").GetComponent<InteractUIManager>().showTopBar();
                 GameObject.Find("GameManager").GetComponent<GameManager>().showFeedback();
+                break;
+            }
+            case DialogueType.FailedDate: {
+                GameObject.Find("InteractButtonManager").GetComponent<InteractButtonManager>().allFlyIn();
+                GameObject.Find("InteractUIManager").GetComponent<InteractUIManager>().showTopBar();
+                GameObject.Find("GameManager").GetComponent<GameManager>().addAffection(-1000);
                 break;
             }
             case DialogueType.Date: {

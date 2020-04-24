@@ -18,6 +18,9 @@ public class GameManager : MonoBehaviour
     private int addedFollowers;
     private Feedback nextFeedback;
 
+    private bool justDated;
+    private bool failedDate;
+
     void OnEnable() {
         SceneManager.sceneLoaded += OnSceneLoaded;
     }
@@ -74,7 +77,14 @@ public class GameManager : MonoBehaviour
         // Check if this is first time meeting character
         if (allCharacters[currentCharacterName].isFirstMeeting()) {
             dialogueManager.startCheckpointDialogue(0);
-        } else if(postedPhoto) {
+        } else if (justDated) {
+            justDated = false;
+            if (failedDate) {
+                dialogueManager.startFailDateDialogue();
+            } else {
+                dialogueManager.startCheckpointDialogue(allCharacters[currentCharacterName].getCurrentCheckpoint());
+            }
+        } else if (postedPhoto) {
             postedPhoto = false;
             addFollowers(addedFollowers);
             switch (photoQuality) {
@@ -182,5 +192,13 @@ public class GameManager : MonoBehaviour
         }
 
         SceneManager.LoadScene("PhoneUIDemo");
+    }
+
+    public void setDateCondition(bool failedDate) {
+        this.justDated = true;
+        this.failedDate = failedDate;
+        if (!failedDate) {
+            this.advanceCheckpoint();
+        }
     }
 }
