@@ -21,6 +21,10 @@ public class GameManager : MonoBehaviour
     private bool justDated;
     private bool failedDate;
 
+    // Only used for match-3 date game
+    public int dateScoreReq;
+    public int dateMoveLimit;
+
     void OnEnable() {
         SceneManager.sceneLoaded += OnSceneLoaded;
     }

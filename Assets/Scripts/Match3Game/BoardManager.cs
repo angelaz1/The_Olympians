@@ -166,7 +166,10 @@ public class BoardManager : MonoBehaviour
         while(multiplier > 1)
         {
             yield return new WaitForSeconds(3.0f);
-            multiplier--;
+            if(multiplier > 1)
+            {
+                multiplier--;
+            }
         }
     }
 
