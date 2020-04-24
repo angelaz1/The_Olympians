@@ -7,11 +7,13 @@ public class SFXManager : MonoBehaviour
     public AudioClip goodSound;
     public AudioClip badSound;
     public AudioClip clickSound;
+    public AudioClip phoneUpSound;
+    public AudioClip phoneDownSound;
+    public AudioClip popSound;
 
     private AudioSource source;
 
-    void Start()
-    {
+    void setSource() {
         source = this.GetComponent<AudioSource>();
     }
 
@@ -21,17 +23,44 @@ public class SFXManager : MonoBehaviour
     }
 
     public void playGoodSound() {
+        setSource();
         source.clip = goodSound;
+        source.pitch = 1;
         StartCoroutine(playSound());
     }
 
     public void playBadSound() {
+        setSource();
         source.clip = badSound;
+        source.pitch = 1;
         StartCoroutine(playSound());
     }
 
     public void playClickSound() {
-        source.clip = clickSound;
+        setSource();
+        source.clip = popSound;//clickSound;
+        source.pitch = Random.Range(0.9f, 1.2f);
+        StartCoroutine(playSound());
+    }
+
+    public void playPhoneUpSound() {
+        setSource();
+        source.clip = phoneUpSound;
+        source.pitch = 1;
+        StartCoroutine(playSound());
+    }
+
+    public void playPhoneDownSound() {
+        setSource();
+        source.clip = phoneDownSound;
+        source.pitch = 1;
+        StartCoroutine(playSound());
+    }
+
+    public void playPopSound() {
+        setSource();
+        source.clip = popSound;
+        source.pitch = 1;
         StartCoroutine(playSound());
     }
 }

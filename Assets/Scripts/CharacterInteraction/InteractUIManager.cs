@@ -31,6 +31,7 @@ public class InteractUIManager : MonoBehaviour
     private Character currentCharacter;
     private bool phoneDown;
     
+    private SFXManager sfxManager;
 
     void Start()
     {
@@ -41,6 +42,7 @@ public class InteractUIManager : MonoBehaviour
         characterImage = GameObject.Find("CharacterImage");
         backgroundImage = GameObject.Find("BackgroundImage");
         setFeedback();
+        sfxManager = GameObject.Find("SFXManager").GetComponent<SFXManager>();
     }
 
     void Update() {
@@ -201,10 +203,12 @@ public class InteractUIManager : MonoBehaviour
         if (phoneDown) {
             phone.GetComponent<Animator>().SetTrigger("PullUpPhone");
             phone.GetComponent<Animator>().ResetTrigger("PutAwayPhone");
+            sfxManager.playPhoneUpSound();
             phoneDown = false;
         } else {
             phone.GetComponent<Animator>().SetTrigger("PutAwayPhone");
             phone.GetComponent<Animator>().ResetTrigger("PullUpPhone");
+            sfxManager.playPhoneDownSound();
             phoneDown = true;
         }
     }

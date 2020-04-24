@@ -5,9 +5,15 @@ using UnityEngine.UI;
 
 abstract public class ButtonListener : MonoBehaviour
 {   
+    private SFXManager sfxManager;
+
+    void Start() {
+        sfxManager = GameObject.Find("SFXManager").GetComponent<SFXManager>();
+    }
+
     public virtual void onHover() {
         this.GetComponent<Animator>().SetBool("isHovering", true);
-        this.GetComponent<AudioSource>().Play();
+        sfxManager.playPopSound();
     }
 
     public virtual void offHover() {

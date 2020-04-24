@@ -1183,15 +1183,15 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 24
-  m_fontSizeBase: 24
+  m_fontSize: 23
+  m_fontSizeBase: 23
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
   m_textAlignment: 257
-  m_characterSpacing: 0
+  m_characterSpacing: 1
   m_wordSpacing: 0
   m_lineSpacing: 0
   m_lineSpacingMax: 0
@@ -9836,7 +9836,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 9cada42d41956419da0a806e21a144d4, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.5
+  m_Volume: 0.4
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -9967,6 +9967,9 @@ MonoBehaviour:
   goodSound: {fileID: 8300000, guid: 6cdf663e0f10c45faab307877f2fa188, type: 3}
   badSound: {fileID: 8300000, guid: afd2c3784aaf14b548c8ba047f4f5a1a, type: 3}
   clickSound: {fileID: 8300000, guid: b4a85e8f7d1564d5b811140f30a79e4c, type: 3}
+  phoneUpSound: {fileID: 8300000, guid: 769cb71caf2b646ee9454d5efe32d439, type: 3}
+  phoneDownSound: {fileID: 8300000, guid: 148afc925d99c4406b0f6cddfb6d33f6, type: 3}
+  popSound: {fileID: 8300000, guid: 1b55eba8e173e41569c4ca50a87e0b47, type: 3}
 --- !u!82 &1583041345
 AudioSource:
   m_ObjectHideFlags: 0
@@ -10872,7 +10875,7 @@ MonoBehaviour:
   m_fontSizeMax: 72
   m_fontStyle: 0
   m_textAlignment: 260
-  m_characterSpacing: 0
+  m_characterSpacing: 1
   m_wordSpacing: 0
   m_lineSpacing: 0
   m_lineSpacingMax: 0
@@ -11216,7 +11219,7 @@ MonoBehaviour:
   m_fontSizeMax: 72
   m_fontStyle: 0
   m_textAlignment: 257
-  m_characterSpacing: 0
+  m_characterSpacing: 1
   m_wordSpacing: 0
   m_lineSpacing: 0
   m_lineSpacingMax: 0
