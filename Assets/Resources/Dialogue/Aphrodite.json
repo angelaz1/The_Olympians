@@ -513,6 +513,316 @@
           ]
         }
       ]
+    },
+    {
+      "dialogue": [
+        {
+          "id": 0,
+          "text": "I might go to the hair salon later this week. What hair color do you think would make me look good?",
+          "state": "Default",
+          "options": [
+            {
+              "optionText": "Strawberry Blonde",
+              "link": 1,
+              "affectionBonus": 5
+            },
+            {
+              "optionText": "Neon Green",
+              "link": 2,
+              "affectionBonus": -10
+            },
+            {
+              "optionText": "Black",
+              "link": 3,
+              "affectionBonus": -5
+            }
+          ]
+        },
+        {
+          "id": 1,
+          "text": "Keep it simple hm? That sounds like a good plan.",
+          "state": "Amused",
+          "options": [
+            {
+              "optionText": "Next",
+              "link": -1,
+              "affectionBonus": 0
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "text": "Ugh, what am I, some kind of anime character?",
+          "state": "Mad",
+          "options": [
+            {
+              "optionText": "Next",
+              "link": -1,
+              "affectionBonus": 0
+            }
+          ]
+        },
+        {
+          "id": 3,
+          "text": "Black is so basic and emo! Be more creative, will you?",
+          "state": "Default",
+          "options": [
+            {
+              "optionText": "Next",
+              "link": -1,
+              "affectionBonus": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "dialogue": [
+        {
+          "id": 0,
+          "text": "I watched a really cool movie about outer space last night. Which is your favorite planet?",
+          "state": "Default",
+          "options": [
+            {
+              "optionText": "Neptune",
+              "link": 1,
+              "affectionBonus": -5
+            },
+            {
+              "optionText": "Mars",
+              "link": 2,
+              "affectionBonus": 5
+            },
+            {
+              "optionText": "Venus",
+              "link": 3,
+              "affectionBonus": 10
+            }
+          ]
+        },
+        {
+          "id": 1,
+          "text": "I don't know... Neptune seems really blue and dull.",
+          "state": "Default",
+          "options": [
+            {
+              "optionText": "Next",
+              "link": -1,
+              "affectionBonus": 0
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "text": "Mars, hm? Interesting. I suppose that's a suitable option - for you, at least.",
+          "state": "Amused",
+          "options": [
+            {
+              "optionText": "Next",
+              "link": -1,
+              "affectionBonus": 0
+            }
+          ]
+        },
+        {
+          "id": 3,
+          "text": "Definitely agree 100%! How does the saying go... girls are from Venus, no?",
+          "state": "Happy",
+          "options": [
+            {
+              "optionText": "Next",
+              "link": -1,
+              "affectionBonus": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "dialogue": [
+        {
+          "id": 0,
+          "text": "Sigh, Hermes challenged me to a phone texting race and I totally lost. Do you think you can beat him for me?",
+          "state": "Default",
+          "options": [
+            {
+              "optionText": "I got this - hand it over!",
+              "link": 1,
+              "affectionBonus": 10
+            },
+            {
+              "optionText": "Uh... I can give it a shot?",
+              "link": 2,
+              "affectionBonus": 5
+            },
+            {
+              "optionText": "Not a chance!",
+              "link": 3,
+              "affectionBonus": -10
+            }
+          ]
+        },
+        {
+          "id": 1,
+          "text": "Oh...my...gods! I've never seen someone type so fast. You're gonna give Hermes a run for his money!",
+          "state": "Happy",
+          "options": [
+            {
+              "optionText": "Next",
+              "link": -1,
+              "affectionBonus": 0
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "text": "Hmm... you type fast, but definitely not fast enough.",
+          "state": "Amused",
+          "options": [
+            {
+              "optionText": "Next",
+              "link": -1,
+              "affectionBonus": 0
+            }
+          ]
+        },
+        {
+          "id": 3,
+          "text": "Not even giving it a try? Lame.",
+          "state": "Default",
+          "options": [
+            {
+              "optionText": "Next",
+              "link": -1,
+              "affectionBonus": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "dialogue": [
+        {
+          "id": 0,
+          "text": "Gamazon has these cute animal pajamas. Which one do you think is the cutest?",
+          "state": "Default",
+          "options": [
+            {
+              "optionText": "Elephant",
+              "link": 1,
+              "affectionBonus": -10
+            },
+            {
+              "optionText": "Dolphin",
+              "link": 2,
+              "affectionBonus": 10
+            },
+            {
+              "optionText": "Bear",
+              "link": 3,
+              "affectionBonus": 5
+            }
+          ]
+        },
+        {
+          "id": 1,
+          "text": "Seriously? Elephants aren't even cute. They're large and slow and kinda gross...",
+          "state": "Mad",
+          "options": [
+            {
+              "optionText": "Next",
+              "link": -1,
+              "affectionBonus": 0
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "text": "An animal that's cute, smart, and able to swim? You flatter me.",
+          "state": "Happy",
+          "options": [
+            {
+              "optionText": "Next",
+              "link": -1,
+              "affectionBonus": 0
+            }
+          ]
+        },
+        {
+          "id": 3,
+          "text": "Good choice. But I swear, if you try to call me 'Teddie', we're through.",
+          "state": "Amused",
+          "options": [
+            {
+              "optionText": "Next",
+              "link": -1,
+              "affectionBonus": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "dialogue": [
+        {
+          "id": 0,
+          "text": "I think I should change my phone to take better pictures, but I don’t know which brand I should buy from...",
+          "state": "Default",
+          "options": [
+            {
+              "optionText": "Two Plus",
+              "link": 1,
+              "affectionBonus": 10
+            },
+            {
+              "optionText": "Bapple",
+              "link": 2,
+              "affectionBonus": 5
+            },
+            {
+              "optionText": "Doogle",
+              "link": 3,
+              "affectionBonus": -5
+            }
+          ]
+        },
+        {
+          "id": 1,
+          "text": "Ooo, I did hear that their newest phone just dropped. I'll have to check that out!",
+          "state": "Happy",
+          "options": [
+            {
+              "optionText": "Next",
+              "link": -1,
+              "affectionBonus": 0
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "text": "Hm, but I already have their latest phone. Guess I'll have to wait for the next one.",
+          "state": "Default",
+          "options": [
+            {
+              "optionText": "Next",
+              "link": -1,
+              "affectionBonus": 0
+            }
+          ]
+        },
+        {
+          "id": 3,
+          "text": "I... Doogle? The search engine? Do they even sell phones?",
+          "state": "Default",
+          "options": [
+            {
+              "optionText": "Next",
+              "link": -1,
+              "affectionBonus": 0
+            }
+          ]
+        }
+      ]
     }
   ],
   "greetDialogue": [

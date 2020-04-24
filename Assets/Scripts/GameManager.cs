@@ -62,7 +62,7 @@ public class GameManager : MonoBehaviour
 
             int moveLimit = allCharacters[currentCharacterName].getMoveLimit();
             int scoreReq = allCharacters[currentCharacterName].getScoreReq();
-            boardManager.setVals(moveLimit, scoreReq);
+            boardManager.setVals(scoreReq, moveLimit);
         }
     }
 

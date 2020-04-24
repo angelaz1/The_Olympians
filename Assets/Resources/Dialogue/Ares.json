@@ -478,6 +478,56 @@
       ]
     }
   ],
+  "failDateDialogue": [
+    {
+      "dialogue": [
+        {
+          "id": 0,
+          "text": "Did you really think you were good enough? Keep dreaming.",
+          "state": "Default",
+          "options": [
+            {
+              "optionText": "Next",
+              "link": -1,
+              "affectionBonus": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "dialogue": [
+        {
+          "id": 0,
+          "text": "Ugh, I feel way too embarrassed to even stand near you! Let’s not go out again.",
+          "state": "Mad",
+          "options": [
+            {
+              "optionText": "Next",
+              "link": -1,
+              "affectionBonus": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "dialogue": [
+        {
+          "id": 0,
+          "text": "That wasn’t fun at all, I’d rather go out with a 100 year old turtle",
+          "state": "Default",
+          "options": [
+            {
+              "optionText": "Next",
+              "link": -1,
+              "affectionBonus": 0
+            }
+          ]
+        }
+      ]
+    }
+  ],
   "postDialogue": [
     {
       "dialogue": [
