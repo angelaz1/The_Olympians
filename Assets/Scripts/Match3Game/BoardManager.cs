@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class BoardManager : MonoBehaviour
 {
@@ -16,6 +17,11 @@ public class BoardManager : MonoBehaviour
     private int movesMade = 0;
     private int multiplier = 1;
 
+    public GameObject MovesText;
+    public GameObject ScoreText;
+    public GameObject ComboText;
+    public GameObject GoalText;
+
     private GameObject[,] tiles;
 
     void Start()
@@ -24,6 +30,18 @@ public class BoardManager : MonoBehaviour
 
         Vector2 offset = tile.GetComponent<SpriteRenderer>().bounds.size;
         CreateBoard(offset.x, offset.y);
+
+        MovesText.GetComponent<Text>().text = movesMade + " / " + moveLimit;
+        ScoreText.GetComponent<Text>().text = "" + score;
+        ComboText.GetComponent<Text>().text = "x" + multiplier;
+        GoalText.GetComponent<Text>().text = "" + scoreReq;
+    }
+
+    void Update()
+    {
+        MovesText.GetComponent<Text>().text = movesMade + " / " + moveLimit;
+        ScoreText.GetComponent<Text>().text = "" + score;
+        ComboText.GetComponent<Text>().text = "x" + multiplier;
     }
 
     private void CreateBoard (float xOffset, float yOffset) {
@@ -96,7 +114,9 @@ public class BoardManager : MonoBehaviour
         }
 
         isShifting = false;
-        Debug.Log(score);
+        // Multiplier not working CORRECTLY yet, but does "work"
+        AddMultiplier();
+        Debug.Log(multiplier);
     }
 
     private Sprite GetNewSprite(int x, int y) {
@@ -122,12 +142,12 @@ public class BoardManager : MonoBehaviour
         if(score >= scoreReq)
         {
             // Debug.Log("Victory! Checkpoint passed!");
-            backToMainGame();
+            backToMainGame(true);
         }
         else if (movesMade >= moveLimit && score < scoreReq)
         {
             // Debug.Log("Defeat! Try again?");
-            backToMainGame();
+            backToMainGame(false);
         }
     }
 
@@ -150,9 +170,9 @@ public class BoardManager : MonoBehaviour
         }
     }
 
-    public void backToMainGame() {
+    public void backToMainGame(bool passed) {
         // REPLACE LATER:
-        GameObject.Find("GameManager").GetComponent<GameManager>().advanceCheckpoint();
+        GameObject.Find("GameManager").GetComponent<GameManager>().setDateCondition(passed);
         SceneManager.LoadScene("PhoneUIDemo");
     }
 }

@@ -118,7 +118,6 @@ public class Tile : MonoBehaviour
             matchFound = false;
             StopCoroutine(BoardManager.bm.FindNullTiles());
             StartCoroutine(BoardManager.bm.FindNullTiles());
-						BoardManager.bm.AddMultiplier();
         }
     }
 }
