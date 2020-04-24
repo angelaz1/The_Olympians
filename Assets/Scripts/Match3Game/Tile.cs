@@ -62,6 +62,7 @@ public class Tile : MonoBehaviour
 		Sprite tmp = render2.sprite;
 		render2.sprite = render.sprite;
 		render.sprite = tmp;
+		BoardManager.bm.MakeMove();
 	}
 
 	private GameObject GetAdjacent(Vector2 castDir) {
@@ -117,6 +118,7 @@ public class Tile : MonoBehaviour
             matchFound = false;
             StopCoroutine(BoardManager.bm.FindNullTiles());
             StartCoroutine(BoardManager.bm.FindNullTiles());
+						BoardManager.bm.AddMultiplier();
         }
     }
 }

@@ -10,6 +10,11 @@ public class BoardManager : MonoBehaviour
     public GameObject tile;
     public int xSize, ySize;
     public bool isShifting;
+    public int scoreReq;
+    private int score = 0;
+    public int moveLimit;
+    private int movesMade = 0;
+    private int multiplier = 1;
 
     private GameObject[,] tiles;
 
@@ -55,6 +60,7 @@ public class BoardManager : MonoBehaviour
         for (int x = 0; x < xSize; x++) {
             for (int y = 0; y < ySize; y++) {
                 if (tiles[x, y].GetComponent<SpriteRenderer>().sprite == null) {
+                    score += 100 * multiplier;
                     yield return StartCoroutine(ShiftTilesDown(x, y));
                     break;
                 }
@@ -68,7 +74,7 @@ public class BoardManager : MonoBehaviour
         }
     }
 
-    private IEnumerator ShiftTilesDown(int x, int yStart, float shiftDelay = .03f) {
+    private IEnumerator ShiftTilesDown(int x, int yStart, float shiftDelay = .1f) {
         isShifting = true;
         List<SpriteRenderer> renders = new List<SpriteRenderer>();
         int nullCount = 0;
@@ -90,6 +96,7 @@ public class BoardManager : MonoBehaviour
         }
 
         isShifting = false;
+        Debug.Log(score);
     }
 
     private Sprite GetNewSprite(int x, int y) {
@@ -107,6 +114,40 @@ public class BoardManager : MonoBehaviour
         }
 
         return possibleOrbs[Random.Range(0, possibleOrbs.Count)];
+    }
+
+    public void MakeMove()
+    {
+        movesMade++;
+        if(score >= scoreReq)
+        {
+            // Debug.Log("Victory! Checkpoint passed!");
+            backToMainGame();
+        }
+        else if (movesMade >= moveLimit && score < scoreReq)
+        {
+            // Debug.Log("Defeat! Try again?");
+            backToMainGame();
+        }
+    }
+
+    public void AddMultiplier()
+    {
+        if(multiplier < 3)
+        {
+            multiplier++;
+        }
+        StopCoroutine(ResetMultiplier());
+		StartCoroutine(ResetMultiplier());
+    }
+
+    private IEnumerator ResetMultiplier()
+    {
+        while(multiplier > 1)
+        {
+            yield return new WaitForSeconds(3.0f);
+            multiplier--;
+        }
     }
 
     public void backToMainGame() {

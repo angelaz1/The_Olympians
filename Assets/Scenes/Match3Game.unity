@@ -721,6 +721,8 @@ MonoBehaviour:
   xSize: 8
   ySize: 6
   isShifting: 0
+  scoreReq: 200
+  moveLimit: 3
 --- !u!4 &2115273355
 Transform:
   m_ObjectHideFlags: 0
