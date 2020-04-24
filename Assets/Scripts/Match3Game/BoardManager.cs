@@ -44,6 +44,11 @@ public class BoardManager : MonoBehaviour
         ComboText.GetComponent<Text>().text = "x" + multiplier;
     }
 
+    public void setVals(int scoreReq, int moveLimit) {
+        this.moveLimit = moveLimit;
+        this.scoreReq = scoreReq;
+    }
+
     private void CreateBoard (float xOffset, float yOffset) {
         tiles = new GameObject[xSize, ySize];    
 

@@ -8,4 +8,6 @@ public class CharacterVars
     public string backgroundPath;
     public int[] checkpointAffectionPts;
     public int[] checkpointFollowerCount;
+    public int[] moveLimit;
+    public int[] dateScoreReq;
 }

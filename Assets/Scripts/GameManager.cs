@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour
     private InteractUIManager interactUIManager;
     private SFXManager sfxManager;
     private PostingManager postingManager;
+    private BoardManager boardManager;
     private Dictionary<string, Character> allCharacters;
 
     private bool postedPhoto;
@@ -20,10 +21,6 @@ public class GameManager : MonoBehaviour
 
     private bool justDated;
     private bool failedDate;
-
-    // Only used for match-3 date game
-    public int dateScoreReq;
-    public int dateMoveLimit;
 
     void OnEnable() {
         SceneManager.sceneLoaded += OnSceneLoaded;
@@ -58,6 +55,14 @@ public class GameManager : MonoBehaviour
 
             postingManager.setPostImages(allCharacters[currentCharacterName].getPostImages());
             postingManager.startPostingMinigame();
+        }
+
+        else if (scene.name == "Match3Game") {
+            boardManager = GameObject.Find("BoardManager").GetComponent<BoardManager>();
+
+            int moveLimit = allCharacters[currentCharacterName].getMoveLimit();
+            int scoreReq = allCharacters[currentCharacterName].getScoreReq();
+            boardManager.setVals(moveLimit, scoreReq);
         }
     }
 
@@ -198,10 +203,10 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene("PhoneUIDemo");
     }
 
-    public void setDateCondition(bool failedDate) {
+    public void setDateCondition(bool passed) {
         this.justDated = true;
-        this.failedDate = failedDate;
-        if (!failedDate) {
+        this.failedDate = !passed;
+        if (passed) {
             this.advanceCheckpoint();
         }
     }

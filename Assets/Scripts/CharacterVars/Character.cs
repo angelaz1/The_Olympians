@@ -125,4 +125,14 @@ public class Character
         string path = vars.backgroundPath;
         return Resources.Load<Sprite>(path);
     }
+
+    // Accessor method for date moveLimit
+    public int getMoveLimit() {
+        return vars.moveLimit[this.getCurrentCheckpoint()];
+    }
+
+    // Accessor method for date scoreReq
+    public int getScoreReq() {
+        return vars.dateScoreReq[this.getCurrentCheckpoint()];
+    }
 }
