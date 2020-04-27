@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 1835993846322634171}
   m_Layer: 0
   m_Name: CancerOrb
-  m_TagString: Untagged
+  m_TagString: Cancer
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -95,7 +95,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dab4107b07c46457d99fd136d3bb11d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  swipeAngle: 0
 --- !u!58 &1835993846322634171
 CircleCollider2D:
   m_ObjectHideFlags: 0
