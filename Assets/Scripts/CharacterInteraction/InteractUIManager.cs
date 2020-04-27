@@ -225,6 +225,6 @@ public class InteractUIManager : MonoBehaviour
     }
 
     public void exitGame() {
-        Application.Quit();
+        SceneManager.LoadScene("MainMenu");
     }
 }
