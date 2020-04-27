@@ -40,4 +40,6 @@ public class CharacterDialogue
     public OtherDialogue[] badPostDialogue;
     public OtherDialogue[] okPostDialogue;
     public OtherDialogue[] goodPostDialogue;   
+    public OtherDialogue[] insufficientAffectionDialogue;   
+    public OtherDialogue[] insufficientFollowersDialogue;   
 }

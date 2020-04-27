@@ -104,14 +104,21 @@ public class Character
         this.progress.advanceCheckpoint();
     }
 
-    // Returns true if current checkpoint values have been met
-    public bool completedCheckpoint() {
+    public bool completedAffection() {
         int affection = progress.getCurrentAffection();
         int checkpointAffectionVal = vars.checkpointAffectionPts[this.getCurrentCheckpoint()];
+        return affection >= checkpointAffectionVal;
+    }
 
+    public bool completedFollowers() {
         int followers = progress.getCurrentFollowers();
         int checkpointFollowerVal = vars.checkpointFollowerCount[this.getCurrentCheckpoint()];
-        return (affection >= checkpointAffectionVal && followers >= checkpointFollowerVal);
+        return followers >= checkpointFollowerVal;
+    }
+
+    // Returns true if current checkpoint values have been met
+    public bool completedCheckpoint() {
+        return completedAffection() && completedFollowers();
     } 
 
     // Accessor method for character portrait

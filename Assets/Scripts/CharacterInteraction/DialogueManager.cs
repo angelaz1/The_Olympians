@@ -11,7 +11,7 @@ public class DialogueManager : MonoBehaviour
 
     // We will use the speakerName to find and parse the dialogue JSON
     // The dialogue for all characters should be in a JSON file named their name
-    private enum DialogueType {Checkpoint, Conversation, Greeting, Post, AfterPost, Date, FailedDate};
+    private enum DialogueType {Checkpoint, Conversation, Greeting, Post, AfterPost, Date, FailedDate, FinalCheckpoint, Insufficient};
     private CharacterDialogue dialogue;
     private Dialogue[] currDialogue;
     private int currIndex;
@@ -85,6 +85,14 @@ public class DialogueManager : MonoBehaviour
         startDialogue();
     }
 
+    public void startFinalCheckpointDialogue() {
+        // Get the final checkpoint dialogue
+        Dialogue[] selected = dialogue.checkpointDialogue[5].dialogue;
+        currDialogue = selected;
+        currType = DialogueType.FinalCheckpoint;
+        startDialogue();
+    }
+
     public void startPostDialogue() {
         // Get pre-post minigame dialogue
         Dialogue[] selected = dialogue.postDialogue[0].dialogue;
@@ -138,6 +146,26 @@ public class DialogueManager : MonoBehaviour
         Dialogue[] selected = dialogue.failDateDialogue[index].dialogue;
         currDialogue = selected;
         currType = DialogueType.FailedDate;
+        startDialogue();
+    }
+
+    public void startInsufficientAffectionDialogue() {
+        // Get insufficient affection dialogue
+        int diaLen = dialogue.insufficientAffectionDialogue.Length;
+        int index = Random.Range(0, diaLen);
+        Dialogue[] selected = dialogue.insufficientAffectionDialogue[index].dialogue;
+        currDialogue = selected;
+        currType = DialogueType.Insufficient;
+        startDialogue();
+    }
+
+    public void startInsufficientFollowersDialogue() {
+        // Get insufficient followers dialogue
+        int diaLen = dialogue.insufficientFollowersDialogue.Length;
+        int index = Random.Range(0, diaLen);
+        Dialogue[] selected = dialogue.insufficientFollowersDialogue[index].dialogue;
+        currDialogue = selected;
+        currType = DialogueType.Insufficient;
         startDialogue();
     }
 
@@ -230,8 +258,17 @@ public class DialogueManager : MonoBehaviour
                 break;
             }
             case DialogueType.Date: {
-                // Load post minigame scene
+                // Load date minigame scene
                 SceneManager.LoadScene("Match3Game");
+                break;
+            }
+            case DialogueType.FinalCheckpoint: {
+                GameObject.Find("InteractUIManager").GetComponent<InteractUIManager>().showTopBar();
+                break;
+            }
+            case DialogueType.Insufficient: {
+                GameObject.Find("InteractButtonManager").GetComponent<InteractButtonManager>().allFlyIn();
+                GameObject.Find("InteractUIManager").GetComponent<InteractUIManager>().showTopBar();
                 break;
             }
         }        

@@ -1030,5 +1030,41 @@
         }
       ]
     }
+  ],
+  "insufficientAffectionDialogue": [
+    {
+      "dialogue": [
+        {
+          "id": 0,
+          "text": "I definitely do not know you well enough for a date.",
+          "state": "Default",
+          "options": [
+            {
+              "optionText": "Next",
+              "link": -1,
+              "affectionBonus": 0
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "insufficientFollowersDialogue": [
+    {
+      "dialogue": [
+        {
+          "id": 0,
+          "text": "Hey, you're my manager, not my boyfriend! Get me more followers, then we'll talk.",
+          "state": "Default",
+          "options": [
+            {
+              "optionText": "Next",
+              "link": -1,
+              "affectionBonus": 0
+            }
+          ]
+        }
+      ]
+    }
   ]
 }

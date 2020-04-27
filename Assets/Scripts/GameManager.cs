@@ -46,7 +46,6 @@ public class GameManager : MonoBehaviour
             interactUIManager.setCharacter(allCharacters[currentCharacterName]);
             interactUIManager.setCharacterPortrait(CharacterExpression.Default);
             interactUIManager.setBackgroundImage();
-            checkDateUnlocked();
             startGreetingDialogue();
         }
 
@@ -91,7 +90,12 @@ public class GameManager : MonoBehaviour
             if (failedDate) {
                 dialogueManager.startFailDateDialogue();
             } else {
-                dialogueManager.startCheckpointDialogue(allCharacters[currentCharacterName].getCurrentCheckpoint());
+                int currCheckpoint = allCharacters[currentCharacterName].getCurrentCheckpoint();
+                if (currCheckpoint >= 5) {
+                    dialogueManager.startFinalCheckpointDialogue();
+                } else {
+                    dialogueManager.startCheckpointDialogue(currCheckpoint);
+                }
             }
         } else if (postedPhoto) {
             postedPhoto = false;
@@ -106,13 +110,19 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    void checkDateUnlocked() {
+    public void checkStartingDate() {
         Character c = allCharacters[currentCharacterName];
 
         if(c.completedCheckpoint()) {
-            interactUIManager.unlockDate();
+            dialogueManager.startDateDialogue();
         } else {
-            interactUIManager.lockDate();
+            if(!c.completedAffection()) {
+                sfxManager.playBadSound();
+                dialogueManager.startInsufficientAffectionDialogue();
+            } else {
+                sfxManager.playBadSound();
+                dialogueManager.startInsufficientFollowersDialogue();
+            }
         }
     }
 
@@ -133,16 +143,12 @@ public class GameManager : MonoBehaviour
             sfxManager.playBadSound();
         }
         interactUIManager.updateHearts();
-        
-        checkDateUnlocked();
     }
 
     public void addFollowers(int amount) {
         Character c = allCharacters[currentCharacterName];
         c.addFollowers(amount);
         interactUIManager.updateFollowers();
-        
-        checkDateUnlocked();
     }
 
     public void showFeedback() {
@@ -187,20 +193,8 @@ public class GameManager : MonoBehaviour
         nextFeedback = new Feedback(addedFollowers, feedbackText);
     }
 
-    public void moveToLocation(string location) {
-        switch(location) {
-            case "Mall": {
-                currentCharacterName = "Aphrodite";
-                break;
-            }
-            case "Gym": {
-                currentCharacterName = "Ares";
-                break;
-            }
-            default: break;
-        }
-
-        SceneManager.LoadScene("PhoneUIDemo");
+    public void setCharacter(string characterName) {
+        currentCharacterName = characterName;
     }
 
     public void setDateCondition(bool passed) {

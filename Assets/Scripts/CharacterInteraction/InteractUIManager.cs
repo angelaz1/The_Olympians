@@ -110,14 +110,6 @@ public class InteractUIManager : MonoBehaviour
         }
     }
 
-    public void unlockDate() {
-        GameObject.Find("DateButton").GetComponent<Button>().interactable = true;
-    }
-
-    public void lockDate() {
-        GameObject.Find("DateButton").GetComponent<Button>().interactable = false;
-    }
-
     public void updateHearts() {
         int currCheckpoint = currentCharacter.getCurrentCheckpoint();
         int currProgress = currentCharacter.getCurrentAffectionProgress();
@@ -138,6 +130,7 @@ public class InteractUIManager : MonoBehaviour
             heart.GetComponent<Image>().sprite = heartStates[4];
         } else {
             heart.GetComponent<Image>().sprite = heartStates[5];
+            heart.GetComponent<Image>().color = new Color32(255, 105, 163, 255);
         }
     }
 
