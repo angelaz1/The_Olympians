@@ -2,16 +2,21 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum BoardState {moving, stable};
+
 public class Board : MonoBehaviour
 {
-
+    public BoardState boardState = BoardState.stable;
     public int xSize, ySize;
+    public int offset;
     public GameObject[] orbs;
     public GameObject [,] allOrbs;
+    private FindMatches findMatches;
 
     // Start is called before the first frame update
     void Start()
     {
+        findMatches = FindObjectOfType<FindMatches>();
         allOrbs = new GameObject[xSize, ySize];
         SetUp();
     }
@@ -22,7 +27,7 @@ public class Board : MonoBehaviour
         {
             for(int j = 0; j < ySize; j++)
             {
-                Vector2 tempPosition = new Vector2(i, j);
+                Vector2 tempPosition = new Vector2(i, j + offset);
                 int orbToUse = Random.Range(0, orbs.Length);
 
                 int maxIterations = 0;
@@ -34,6 +39,8 @@ public class Board : MonoBehaviour
                 maxIterations = 0;
 
                 GameObject orb = Instantiate(orbs[orbToUse], tempPosition, Quaternion.identity);
+                orb.GetComponent<Orb>().col = i;
+                orb.GetComponent<Orb>().row = j;
                 orb.transform.parent = this.transform;
                 orb.name = "(" + i + ", " + j + ")";
                 allOrbs[i,j] = orb;
@@ -78,6 +85,7 @@ public class Board : MonoBehaviour
     {
         if(allOrbs[col, row].GetComponent<Orb>().isMatched)
         {
+            findMatches.currMatches.Remove(allOrbs[col, row]);
             Destroy(allOrbs[col, row]);
             allOrbs[col, row] = null;
         }
@@ -129,10 +137,12 @@ public class Board : MonoBehaviour
             {
                 if(allOrbs[i, j] == null)
                 {
-                    Vector2 tempPosition = new Vector2(i, j);
+                    Vector2 tempPosition = new Vector2(i, j + offset);
                     int orbToUse = Random.Range(0, orbs.Length);
                     GameObject orb = Instantiate(orbs[orbToUse], tempPosition, Quaternion.identity);
                     allOrbs[i, j] = orb;
+                    orb.GetComponent<Orb>().col = i;
+                    orb.GetComponent<Orb>().row = j;
                 }
             }
         }
@@ -165,5 +175,7 @@ public class Board : MonoBehaviour
             yield return new WaitForSeconds(0.5f);
             DestroyMatches();
         }
+        yield return new WaitForSeconds(0.5f);
+        boardState = BoardState.stable;
     }
 }

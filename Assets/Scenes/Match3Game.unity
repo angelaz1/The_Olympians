@@ -960,6 +960,50 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1756393297
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1756393299}
+  - component: {fileID: 1756393298}
+  m_Layer: 0
+  m_Name: MatchFinder
+  m_TagString: Untagged
+  m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1756393298
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1756393297}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 333736d1da344424ea5b2eefbbc72d91, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currMatches: []
+--- !u!4 &1756393299
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1756393297}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 4.29, y: 0.71, z: -10}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1827878340
 GameObject:
   m_ObjectHideFlags: 0
@@ -1352,10 +1396,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 251009ea390624fc5a2124f51d4369c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  boardState: 1
   xSize: 10
   ySize: 8
+  offset: 30
   orbs:
   - {fileID: 2497865000589462973, guid: 3f4fab3cdf6ae4494bc2646e2a801183, type: 3}
   - {fileID: 1051922098710833658, guid: 6dd8261e05910433bb4af040b9b6b0f8, type: 3}
   - {fileID: 8966503461698933139, guid: a0a3101cd025e4546ae99bca6c180f9a, type: 3}
   - {fileID: 5818072217877048751, guid: 6b6b10a1edc5341ef9ebc0234ed8afb9, type: 3}
+  - {fileID: 5818072217877048751, guid: 1cde7990fe3234b84855b83d814d9fd5, type: 3}
+  - {fileID: 5818072217877048751, guid: a3da5a0785c53412cba22416ae18f10b, type: 3}

@@ -7,6 +7,7 @@ public class Orb : MonoBehaviour
     public int col, row;
     private int targetX, targetY;
     public bool isMatched = false;
+    private FindMatches findMatches;
     private Board board;
     private GameObject otherOrb;
     private Vector2 firstTouchPos, finalTouchPos;
@@ -17,17 +18,17 @@ public class Orb : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        board = GameObject.Find("BoardManager").GetComponent<Board>();
-        targetX = (int)transform.position.x;
-        targetY = (int)transform.position.y;
-        col = targetX;
-        row = targetY;
+        board = FindObjectOfType<Board>();
+        findMatches = FindObjectOfType<FindMatches>();
+        // targetX = (int)transform.position.x;
+        // targetY = (int)transform.position.y;
+        // col = targetX;
+        // row = targetY;
     }
 
     // Update is called once per frame
     void Update()
     {
-        FindMatches();
         if(isMatched)
         {
             SpriteRenderer orbSprite = GetComponent<SpriteRenderer>();
@@ -45,6 +46,7 @@ public class Orb : MonoBehaviour
             {
                 board.allOrbs[col, row] = this.gameObject;
             }
+            findMatches.FindAllMatches();
         }
         else
         {
@@ -61,6 +63,7 @@ public class Orb : MonoBehaviour
             {
                 board.allOrbs[col, row] = this.gameObject;
             }
+            findMatches.FindAllMatches();
         }
         else
         {
@@ -71,13 +74,19 @@ public class Orb : MonoBehaviour
 
     private void OnMouseDown()
     {
-        firstTouchPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        if(board.boardState == BoardState.stable)
+        {
+            firstTouchPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        }
     }
 
     private void OnMouseUp()
     {
-        finalTouchPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        CalculateAngle();
+        if(board.boardState == BoardState.stable)
+        {
+            finalTouchPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            CalculateAngle();
+        }
     }
 
     void CalculateAngle()
@@ -86,6 +95,11 @@ public class Orb : MonoBehaviour
         {
             swipeAngle = Mathf.Atan2(finalTouchPos.y - firstTouchPos.y, finalTouchPos.x - firstTouchPos.x) * 180 / Mathf.PI;
             MoveOrbs();
+            board.boardState = BoardState.moving;
+        }
+        else
+        {
+            board.boardState = BoardState.stable;
         }
     }
 
