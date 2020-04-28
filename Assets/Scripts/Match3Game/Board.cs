@@ -31,7 +31,7 @@ public class Board : MonoBehaviour
     private int score = 0;
     public int moveLimit;
     private int movesMade = 0;
-    private int baseOrbValue = 50;
+    private int baseOrbValue = 100;
     private int multiplier = 1;
 
     // Start is called before the first frame update
