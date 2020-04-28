@@ -1001,7 +1001,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1827878340}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 7.4, y: 3.25, z: -10}
+  m_LocalPosition: {x: 6.65, y: 2.75, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1268,8 +1268,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2115273353}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.34, y: 3.16, z: 190.03772}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 4.7896104, y: 3.530042, z: 1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1288,9 +1288,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   boardState: 1
-  xSize: 10
-  ySize: 8
-  offset: 30
+  xSize: 9
+  ySize: 7
+  offset: 0
   orbs:
   - {fileID: 2497865000589462973, guid: 3f4fab3cdf6ae4494bc2646e2a801183, type: 3}
   - {fileID: 1051922098710833658, guid: 6dd8261e05910433bb4af040b9b6b0f8, type: 3}

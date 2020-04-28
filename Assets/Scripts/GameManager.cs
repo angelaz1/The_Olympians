@@ -11,7 +11,7 @@ public class GameManager : MonoBehaviour
     private InteractUIManager interactUIManager;
     private SFXManager sfxManager;
     private PostingManager postingManager;
-    private BoardManager boardManager;
+    private Board boardManager;
     private Dictionary<string, Character> allCharacters;
 
     private bool postedPhoto;
