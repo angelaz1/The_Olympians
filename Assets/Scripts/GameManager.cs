@@ -11,7 +11,7 @@ public class GameManager : MonoBehaviour
     private InteractUIManager interactUIManager;
     private SFXManager sfxManager;
     private PostingManager postingManager;
-    private BoardManager boardManager;
+    private Board boardManager;
     private Dictionary<string, Character> allCharacters;
 
     private bool postedPhoto;
@@ -57,7 +57,7 @@ public class GameManager : MonoBehaviour
         }
 
         else if (scene.name == "Match3Game") {
-            boardManager = GameObject.Find("BoardManager").GetComponent<BoardManager>();
+            boardManager = GameObject.Find("BoardManager").GetComponent<Board>();
 
             int moveLimit = allCharacters[currentCharacterName].getMoveLimit();
             int scoreReq = allCharacters[currentCharacterName].getScoreReq();
