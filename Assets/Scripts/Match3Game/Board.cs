@@ -185,7 +185,7 @@ public class Board : MonoBehaviour
             }
             nullCount = 0;
         }
-        yield return new WaitForSeconds(0.4f);
+        yield return new WaitForSeconds(0.2f);
         StartCoroutine(FillBoardCo());
     }
 
@@ -229,14 +229,15 @@ public class Board : MonoBehaviour
     private IEnumerator FillBoardCo()
     {
         RefillBoard();
-        yield return new WaitForSeconds(0.5f);
+        findMatches.FindAllMatches();
+        yield return new WaitForSeconds(0.2f);
         while(MatchesOnBoard())
         {
             multiplier++;
-            yield return new WaitForSeconds(0.5f);
             DestroyMatches();
+            findMatches.FindAllMatches();
+            yield return new WaitForSeconds(0.3f);
         }
-        yield return new WaitForSeconds(0.5f);
         boardState = BoardState.stable;
         multiplier = 1;
     }

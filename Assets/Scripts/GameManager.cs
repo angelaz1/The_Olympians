@@ -185,7 +185,7 @@ public class GameManager : MonoBehaviour
                 photoQuality = 0;
                 addedFollowers = Random.Range(50, 200);
                 if (captionEff < filterEff) feedbackText = "the filter seems aight, but yikes, was that caption bad!!";
-                else if (filterEff < captionEff) feedbackText = "ooo the " + filter.filterName + " really doesn't suit that image...";
+                else if (filterEff < captionEff) feedbackText = "ooo the " + filter.filterName + " filter is a little lacking...";
                 else feedbackText = "ehh... both the filter and the caption could use improvement";
             } 
         }

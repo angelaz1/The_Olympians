@@ -26,9 +26,7 @@ public class PhotoMaterialsManager : MonoBehaviour
 
 
     public int selectedFilter; // 0 representing original 
-
-    public string picturePath = "PostImages/Aphrodite";
-    public Sprite pic; 
+    // public Sprite pic; 
     private SpriteRenderer sr; 
     private Sprite[] pictures;
     private int picIndex; 
@@ -40,9 +38,6 @@ public class PhotoMaterialsManager : MonoBehaviour
         selectedFilter = 0;
 
         sr = GetComponent<SpriteRenderer>();
-        pictures = Resources.LoadAll<Sprite>(picturePath);
-
-        sr.sprite = pictures[0];
     }
 
     void initDict() {
@@ -56,6 +51,7 @@ public class PhotoMaterialsManager : MonoBehaviour
 
     public void setImage(Sprite image) {
         GetComponent<SpriteRenderer>().sprite = image;
+        Debug.Log(image);
     }
 
     public void SelectFilter1()

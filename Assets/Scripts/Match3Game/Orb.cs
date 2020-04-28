@@ -16,7 +16,7 @@ public class Orb : MonoBehaviour
     private Vector2 firstTouchPos, finalTouchPos;
     private Vector2 tempPosition;
     private float swipeAngle = 0.0f;
-    private float swipeResist = 1.0f;
+    private float swipeResist = 1.5f;
 
     // Start is called before the first frame update
     void Start()
@@ -79,12 +79,16 @@ public class Orb : MonoBehaviour
     {
         if(board.boardState == BoardState.stable)
         {
+            SpriteRenderer orbSprite = GetComponent<SpriteRenderer>();
+            orbSprite.color = new Color(0.8f, 0.8f, 0.8f, 1.0f);
             firstTouchPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         }
     }
 
     private void OnMouseUp()
     {
+        SpriteRenderer orbSprite = GetComponent<SpriteRenderer>();
+        orbSprite.color = new Color(1.0f, 1.0f, 1.0f, 1.0f);
         if(board.boardState == BoardState.stable)
         {
             finalTouchPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
@@ -175,7 +179,7 @@ public class Orb : MonoBehaviour
 
     public IEnumerator ClearMatches()
     {
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(0.0f);
         if(otherOrb != null)
         {
             board.DestroyMatches();

@@ -34,6 +34,40 @@
           "effectIndicator": "0"
         }
       ] 
+    },
+    {
+      "imagePath": "PostImages/Aphrodite/breakfast",
+      "filters": [
+        {
+          "filterName": "Hearts",
+          "effectIndicator": "0"
+        },
+        {
+          "filterName": "Sepia",
+          "effectIndicator": "-1"
+        },
+        {
+          "filterName": "Brighten",
+          "effectIndicator": "1"
+        }
+      ],
+      "captions": [
+        {
+          "captionButtonText": "Mondays suck",
+          "captionText": "imagine waking up on a Monday to this meal",
+          "effectIndicator": "-1"
+        }, 
+        {
+          "captionButtonText": "Delicious parfait <3",
+          "captionText": "Getting some absolutely wonderful parfait! <3",
+          "effectIndicator": "0"
+        },
+        {
+          "captionButtonText": "Breakfast at Arty's!",
+          "captionText": "Artemis made me this gorgeous breakfast! #besties",
+          "effectIndicator": "1"
+        }
+      ] 
     }
   ]
 }
