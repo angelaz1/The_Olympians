@@ -108,6 +108,7 @@ public class Orb : MonoBehaviour
 
     void MoveOrbs()
     {
+        board.AddMove();
         if(swipeAngle > -45 && swipeAngle <= 45 && col < board.xSize - 1)
         {
             // Right Swipe
