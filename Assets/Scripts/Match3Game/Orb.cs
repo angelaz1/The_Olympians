@@ -8,7 +8,7 @@ using UnityEngine;
 public class Orb : MonoBehaviour
 {
     public int col, row;
-    private int targetX, targetY;
+    private float targetX, targetY;
     public bool isMatched = false;
     private FindMatches findMatches;
     private Board board;
@@ -17,6 +17,7 @@ public class Orb : MonoBehaviour
     private Vector2 tempPosition;
     private float swipeAngle = 0.0f;
     private float swipeResist = 1.5f;
+    private float yOffset = 0.5f;
 
     // Start is called before the first frame update
     void Start()
@@ -39,7 +40,7 @@ public class Orb : MonoBehaviour
         }
 
         targetX = col;
-        targetY = row;
+        targetY = row + yOffset;
         // Horizontal Movement
         if(Mathf.Abs(targetX - transform.position.x) > 0.1f)
         {

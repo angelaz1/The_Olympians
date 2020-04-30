@@ -16,7 +16,7 @@ public class Board : MonoBehaviour
     [Header("Board Vars")]
     public BoardState boardState = BoardState.stable;
     public int xSize, ySize;
-    public int offset;
+    private float yOffset = 0.5f;
 
     public GameObject[] orbs;
     public GameObject [,] allOrbs;
@@ -42,17 +42,26 @@ public class Board : MonoBehaviour
         allOrbs = new GameObject[xSize, ySize];
 
         MovesText.GetComponent<Text>().text = movesMade + " / " + moveLimit;
-        ScoreText.GetComponent<Text>().text = "" + score;
+        ScoreText.GetComponent<Text>().text = score + " / " + scoreReq;
         // ComboText.GetComponent<Text>().text = "x" + multiplier;
-        GoalText.GetComponent<Text>().text = "" + scoreReq;
+        // GoalText.GetComponent<Text>().text = "" + scoreReq;
+    }
 
-        SetUp();
+    public void putAwayPhone() {
+        StartCoroutine(SetEverythingUp());
+        
+    }
+
+    IEnumerator SetEverythingUp() {
+        GameObject.Find("Phone").GetComponent<Animator>().SetTrigger("PutAway");
+        yield return new WaitForSeconds(1.0f);
+        StartCoroutine(SetUp());
     }
 
     void Update()
     {
         MovesText.GetComponent<Text>().text = movesMade + " / " + moveLimit;
-        ScoreText.GetComponent<Text>().text = "" + score;
+        ScoreText.GetComponent<Text>().text = score + " / " + scoreReq;
         // ComboText.GetComponent<Text>().text = "x" + multiplier;
 
         if(boardState == BoardState.stable)
@@ -70,18 +79,19 @@ public class Board : MonoBehaviour
         }
     }
 
-    public void setVals(int scoreReq, int moveLimit) {
+    public void setVals(int scoreReq, int moveLimit, Sprite characterImage) {
         this.moveLimit = moveLimit;
         this.scoreReq = scoreReq;
+        GameObject.Find("CharacterImage").GetComponent<Image>().sprite = characterImage;
     }
 
-    private void SetUp()
+    private IEnumerator SetUp()
     {
-        for(int i = 0; i < xSize; i++)
+        for(int j = 0; j < ySize; j++)
         {
-            for(int j = 0; j < ySize; j++)
+            for(int i = 0; i < xSize; i++)
             {
-                Vector2 tempPosition = new Vector2(i, j + offset);
+                Vector2 tempPosition = new Vector2(i, ySize + yOffset);
                 int orbToUse = Random.Range(0, orbs.Length);
 
                 int maxIterations = 0;
@@ -98,6 +108,7 @@ public class Board : MonoBehaviour
                 orb.transform.parent = this.transform;
                 orb.name = "(" + i + ", " + j + ")";
                 allOrbs[i,j] = orb;
+                yield return new WaitForSeconds(0.01f);
             }
         }
     }
@@ -197,7 +208,7 @@ public class Board : MonoBehaviour
             {
                 if(allOrbs[i, j] == null)
                 {
-                    Vector2 tempPosition = new Vector2(i, j + offset);
+                    Vector2 tempPosition = new Vector2(i, j + yOffset);
                     int orbToUse = Random.Range(0, orbs.Length);
                     GameObject orb = Instantiate(orbs[orbToUse], tempPosition, Quaternion.identity);
                     allOrbs[i, j] = orb;

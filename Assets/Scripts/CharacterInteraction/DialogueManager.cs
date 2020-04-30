@@ -246,7 +246,6 @@ public class DialogueManager : MonoBehaviour
                 break;
             }
             case DialogueType.AfterPost: {
-                GameObject.Find("InteractButtonManager").GetComponent<InteractButtonManager>().allFlyIn();
                 GameObject.Find("InteractUIManager").GetComponent<InteractUIManager>().showTopBar();
                 GameObject.Find("GameManager").GetComponent<GameManager>().showFeedback();
                 break;

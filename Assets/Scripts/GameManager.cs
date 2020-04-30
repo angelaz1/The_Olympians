@@ -61,7 +61,8 @@ public class GameManager : MonoBehaviour
 
             int moveLimit = allCharacters[currentCharacterName].getMoveLimit();
             int scoreReq = allCharacters[currentCharacterName].getScoreReq();
-            boardManager.setVals(scoreReq, moveLimit);
+            Sprite image = allCharacters[currentCharacterName].getCharacterPortrait("Default");
+            boardManager.setVals(scoreReq, moveLimit, image);
         }
     }
 

@@ -50,6 +50,7 @@ public class InteractUIManager : MonoBehaviour
             mouseClicked = true;
             this.feedback.GetComponent<Animator>().ResetTrigger("flyUp");
             this.feedback.GetComponent<Animator>().SetTrigger("flyOff");
+            GameObject.Find("InteractButtonManager").GetComponent<InteractButtonManager>().allFlyIn();
         }  
     }
 
