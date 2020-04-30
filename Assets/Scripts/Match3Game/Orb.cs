@@ -38,6 +38,7 @@ public class Orb : MonoBehaviour
             Animator orbAnimator = GetComponent<Animator>();
             orbAnimator.SetTrigger("Disappear");
             board.swapToHappy();
+            board.playSound();
         }
 
         targetX = col;

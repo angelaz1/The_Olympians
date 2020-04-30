@@ -39,9 +39,12 @@ public class Board : MonoBehaviour
     private bool isHappy;
     private bool isTiming;
 
+    private MatchSFXManager sfxManager;
+
     void Start()
     {
         bm = GetComponent<Board>();
+        sfxManager = FindObjectOfType<MatchSFXManager>();
         findMatches = FindObjectOfType<FindMatches>();
         allOrbs = new GameObject[xSize, ySize];
 
@@ -55,6 +58,7 @@ public class Board : MonoBehaviour
 
     IEnumerator SetEverythingUp() {
         GameObject.Find("Phone").GetComponent<Animator>().SetTrigger("PutAway");
+        sfxManager.playPhoneDown();
         yield return new WaitForSeconds(1.0f);
         StartCoroutine(SetUp());
     }
@@ -67,16 +71,16 @@ public class Board : MonoBehaviour
         if(boardState == BoardState.stable)
         {
             // TODO: UNCOMMENT
-            // if(score >= scoreReq)
-            // {
-            //     // Debug.Log("Victory! Checkpoint passed!");
-            //     backToMainGame(true);
-            // }
-            // else if (movesMade >= moveLimit && score < scoreReq)
-            // {
-            //     // Debug.Log("Defeat! Try again?");
-            //     backToMainGame(false);
-            // }
+            if(score >= scoreReq)
+            {
+                // Debug.Log("Victory! Checkpoint passed!");
+                backToMainGame(true);
+            }
+            else if (movesMade >= moveLimit && score < scoreReq)
+            {
+                // Debug.Log("Defeat! Try again?");
+                backToMainGame(false);
+            }
         }
     }
 
@@ -89,6 +93,8 @@ public class Board : MonoBehaviour
         characterImage.GetComponent<Image>().sprite = character.getCharacterPortrait("Default");
         isHappy = false;
         isTiming = false;
+        sfxManager = FindObjectOfType<MatchSFXManager>();
+        sfxManager.playPhoneUp();
     }
 
     public void swapToHappy() {
@@ -148,7 +154,8 @@ public class Board : MonoBehaviour
                 orb.transform.parent = this.transform;
                 orb.name = "(" + i + ", " + j + ")";
                 allOrbs[i,j] = orb;
-                yield return new WaitForSeconds(0.01f);
+                sfxManager.playPopSound();
+                yield return new WaitForSeconds(0.03f);
             }
         }
     }
@@ -199,6 +206,16 @@ public class Board : MonoBehaviour
             Destroy(allOrbs[col, row]);
             score += baseOrbValue * multiplier;
             allOrbs[col, row] = null;
+        }
+    }
+
+    public void playSound() {
+        if (multiplier == 1) {
+            sfxManager.playOkCombo();
+        } else if (multiplier == 2) {
+            sfxManager.playGoodCombo();
+        } else {
+            sfxManager.playGreatCombo();
         }
     }
 
