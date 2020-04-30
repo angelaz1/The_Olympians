@@ -23,7 +23,7 @@ public class FindMatches : MonoBehaviour
 
     public IEnumerator FindAllMatchesCo()
     {
-        yield return new WaitForSeconds(0.2f);
+        yield return new WaitForSeconds(0.0f);
         for(int i = 0; i < board.xSize; i++)
         {
             for(int j = 0; j < board.ySize; j++)

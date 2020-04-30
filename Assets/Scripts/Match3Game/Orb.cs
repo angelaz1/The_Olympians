@@ -35,8 +35,9 @@ public class Orb : MonoBehaviour
     {
         if(isMatched)
         {
-            SpriteRenderer orbSprite = GetComponent<SpriteRenderer>();
-            orbSprite.color = new Color(0.0f, 0.0f, 0.0f, 0.2f);
+            Animator orbAnimator = GetComponent<Animator>();
+            orbAnimator.SetTrigger("Disappear");
+            board.swapToHappy();
         }
 
         targetX = col;
@@ -181,6 +182,7 @@ public class Orb : MonoBehaviour
     public IEnumerator ClearMatches()
     {
         yield return new WaitForSeconds(0.0f);
+        
         if(otherOrb != null)
         {
             board.DestroyMatches();

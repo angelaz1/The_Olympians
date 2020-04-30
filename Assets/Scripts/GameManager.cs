@@ -58,11 +58,7 @@ public class GameManager : MonoBehaviour
 
         else if (scene.name == "Match3Game") {
             boardManager = GameObject.Find("BoardManager").GetComponent<Board>();
-
-            int moveLimit = allCharacters[currentCharacterName].getMoveLimit();
-            int scoreReq = allCharacters[currentCharacterName].getScoreReq();
-            Sprite image = allCharacters[currentCharacterName].getCharacterPortrait("Default");
-            boardManager.setVals(scoreReq, moveLimit, image);
+            boardManager.setVals(allCharacters[currentCharacterName]);
         }
     }
 

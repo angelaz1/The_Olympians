@@ -34,7 +34,11 @@ public class Board : MonoBehaviour
     private int baseOrbValue = 100;
     private int multiplier = 1;
 
-    // Start is called before the first frame update
+    private Character character;
+    private GameObject characterImage;
+    private bool isHappy;
+    private bool isTiming;
+
     void Start()
     {
         bm = GetComponent<Board>();
@@ -43,13 +47,10 @@ public class Board : MonoBehaviour
 
         MovesText.GetComponent<Text>().text = movesMade + " / " + moveLimit;
         ScoreText.GetComponent<Text>().text = score + " / " + scoreReq;
-        // ComboText.GetComponent<Text>().text = "x" + multiplier;
-        // GoalText.GetComponent<Text>().text = "" + scoreReq;
     }
 
     public void putAwayPhone() {
         StartCoroutine(SetEverythingUp());
-        
     }
 
     IEnumerator SetEverythingUp() {
@@ -62,28 +63,67 @@ public class Board : MonoBehaviour
     {
         MovesText.GetComponent<Text>().text = movesMade + " / " + moveLimit;
         ScoreText.GetComponent<Text>().text = score + " / " + scoreReq;
-        // ComboText.GetComponent<Text>().text = "x" + multiplier;
 
         if(boardState == BoardState.stable)
         {
-            if(score >= scoreReq)
-            {
-                // Debug.Log("Victory! Checkpoint passed!");
-                backToMainGame(true);
-            }
-            else if (movesMade >= moveLimit && score < scoreReq)
-            {
-                // Debug.Log("Defeat! Try again?");
-                backToMainGame(false);
-            }
+            // TODO: UNCOMMENT
+            // if(score >= scoreReq)
+            // {
+            //     // Debug.Log("Victory! Checkpoint passed!");
+            //     backToMainGame(true);
+            // }
+            // else if (movesMade >= moveLimit && score < scoreReq)
+            // {
+            //     // Debug.Log("Defeat! Try again?");
+            //     backToMainGame(false);
+            // }
         }
     }
 
-    public void setVals(int scoreReq, int moveLimit, Sprite characterImage) {
-        this.moveLimit = moveLimit;
-        this.scoreReq = scoreReq;
-        GameObject.Find("CharacterImage").GetComponent<Image>().sprite = characterImage;
+    public void setVals(Character character) {
+        this.character = character;
+        this.moveLimit = character.getMoveLimit();
+        this.scoreReq = character.getScoreReq();
+
+        this.characterImage = GameObject.Find("CharacterImage");
+        characterImage.GetComponent<Image>().sprite = character.getCharacterPortrait("Default");
+        isHappy = false;
+        isTiming = false;
     }
+
+    public void swapToHappy() {
+        if (!isHappy) {
+            characterImage.GetComponent<Image>().sprite = character.getCharacterPortrait("Happy");
+            characterImage.GetComponent<Animator>().ResetTrigger("swappedState");
+            characterImage.GetComponent<Animator>().SetTrigger("swappedState");
+            isHappy = true;
+        }
+        if (isTiming) {
+            isTiming = false;
+            characterImage.GetComponent<Animator>().ResetTrigger("swappedState");
+            characterImage.GetComponent<Animator>().SetTrigger("swappedState");
+        }
+    }
+
+    IEnumerator timerSwapDefault() {
+        yield return new WaitForSeconds(1.0f);
+        if (isTiming) {
+            characterImage.GetComponent<Image>().sprite = character.getCharacterPortrait("Default");
+            characterImage.GetComponent<Animator>().ResetTrigger("swappedState");
+            characterImage.GetComponent<Animator>().SetTrigger("swappedState");
+            isHappy = false;
+            isTiming = false;
+        }
+    }
+
+    public void swapToDefault() {
+        if (isHappy) {
+            isTiming = true;
+            StartCoroutine(timerSwapDefault());
+        }
+    }
+
+
 
     private IEnumerator SetUp()
     {
@@ -208,7 +248,7 @@ public class Board : MonoBehaviour
             {
                 if(allOrbs[i, j] == null)
                 {
-                    Vector2 tempPosition = new Vector2(i, j + yOffset);
+                    Vector2 tempPosition = new Vector2(i, ySize + yOffset);
                     int orbToUse = Random.Range(0, orbs.Length);
                     GameObject orb = Instantiate(orbs[orbToUse], tempPosition, Quaternion.identity);
                     allOrbs[i, j] = orb;
@@ -242,19 +282,17 @@ public class Board : MonoBehaviour
         RefillBoard();
         findMatches.FindAllMatches();
         yield return new WaitForSeconds(0.2f);
-        while(MatchesOnBoard())
-        {
+        if(MatchesOnBoard()) {
             multiplier++;
             DestroyMatches();
-            findMatches.FindAllMatches();
-            yield return new WaitForSeconds(0.3f);
+        } else {
+            boardState = BoardState.stable;
+            multiplier = 1;
+            swapToDefault();
         }
-        boardState = BoardState.stable;
-        multiplier = 1;
     }
 
     public void backToMainGame(bool passed) {
-        // REPLACE LATER:
         GameObject.Find("GameManager").GetComponent<GameManager>().setDateCondition(passed);
         SceneManager.LoadScene("PhoneUIDemo");
     }
