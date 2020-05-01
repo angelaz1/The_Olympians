@@ -70,15 +70,12 @@ public class Board : MonoBehaviour
 
         if(boardState == BoardState.stable)
         {
-            // TODO: UNCOMMENT
             if(score >= scoreReq)
             {
-                // Debug.Log("Victory! Checkpoint passed!");
                 backToMainGame(true);
             }
             else if (movesMade >= moveLimit && score < scoreReq)
             {
-                // Debug.Log("Defeat! Try again?");
                 backToMainGame(false);
             }
         }
@@ -102,12 +99,14 @@ public class Board : MonoBehaviour
             characterImage.GetComponent<Image>().sprite = character.getCharacterPortrait("Happy");
             characterImage.GetComponent<Animator>().ResetTrigger("swappedState");
             characterImage.GetComponent<Animator>().SetTrigger("swappedState");
+            characterImage.GetComponentInChildren<ParticleSystem>().Play();
             isHappy = true;
         }
         if (isTiming) {
             isTiming = false;
             characterImage.GetComponent<Animator>().ResetTrigger("swappedState");
             characterImage.GetComponent<Animator>().SetTrigger("swappedState");
+            characterImage.GetComponentInChildren<ParticleSystem>().Play();
         }
     }
 
@@ -309,8 +308,18 @@ public class Board : MonoBehaviour
         }
     }
 
+    IEnumerator loadPhoneScene() {
+        yield return new WaitForSeconds(0.7f);
+        SceneManager.LoadScene("PhoneUIDemo");   
+    }
+
+    public void loadPhone() {
+        GameObject.Find("BigBlackScreen").GetComponent<Animator>().SetTrigger("MoveScreenIn");
+        StartCoroutine(loadPhoneScene());
+    }
+
     public void backToMainGame(bool passed) {
         GameObject.Find("GameManager").GetComponent<GameManager>().setDateCondition(passed);
-        SceneManager.LoadScene("PhoneUIDemo");
+        loadPhone();
     }
 }

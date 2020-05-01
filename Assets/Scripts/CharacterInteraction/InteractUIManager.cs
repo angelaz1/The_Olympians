@@ -236,6 +236,36 @@ public class InteractUIManager : MonoBehaviour
         StartCoroutine(loadMapScene());
     }
 
+    IEnumerator loadWinScreenScene() {
+        yield return new WaitForSeconds(0.7f);
+        SceneManager.LoadScene("WinScreen");   
+    }
+
+    public void loadWinScreen() {
+        GameObject.Find("BigBlackScreen").GetComponent<Animator>().SetTrigger("MoveScreenIn");
+        StartCoroutine(loadWinScreenScene());
+    }
+
+    IEnumerator loadPostScene() {
+        yield return new WaitForSeconds(0.7f);
+        SceneManager.LoadScene("PostDemo");   
+    }
+
+    public void loadPost() {
+        GameObject.Find("BigBlackScreen").GetComponent<Animator>().SetTrigger("MoveScreenIn");
+        StartCoroutine(loadPostScene());
+    }
+
+    IEnumerator loadMatch3GameScene() {
+        yield return new WaitForSeconds(0.7f);
+        SceneManager.LoadScene("Match3Game");   
+    }
+
+    public void loadMatch3Game() {
+        GameObject.Find("BigBlackScreen").GetComponent<Animator>().SetTrigger("MoveScreenIn");
+        StartCoroutine(loadMatch3GameScene());
+    }
+
     public void exitGame() {
         Application.Quit();
     }

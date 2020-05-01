@@ -9508,7 +9508,7 @@ GameObject:
   - component: {fileID: 1373339617}
   - component: {fileID: 1373339619}
   m_Layer: 5
-  m_Name: BlackScreen
+  m_Name: BigBlackScreen
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

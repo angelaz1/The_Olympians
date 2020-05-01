@@ -26,18 +26,11 @@ public class PhotoMaterialsManager : MonoBehaviour
 
 
     public int selectedFilter; // 0 representing original 
-    // public Sprite pic; 
-    private SpriteRenderer sr; 
-    private Sprite[] pictures;
-    private int picIndex; 
 
-    // Start is called before the first frame update
     void Start()
     {
         if (mat_dict == null) initDict();
         selectedFilter = 0;
-
-        sr = GetComponent<SpriteRenderer>();
     }
 
     void initDict() {
@@ -125,23 +118,5 @@ public class PhotoMaterialsManager : MonoBehaviour
         filterText2.text = filters[1].filterName;  
         filter3 = mat_dict[filters[2].filterName];
         filterText3.text = filters[2].filterName;  
-    }
-
-    public void chooseNextPic()
-    {
-        if (picIndex < pictures.Length - 1)
-        {
-            picIndex++;
-            sr.sprite = pictures[picIndex];
-        }
-    }
-
-    public void choosePreviousPic()
-    {
-        if (picIndex > 0)
-        {
-            picIndex--;
-            sr.sprite = pictures[picIndex];
-        }
     }
 }
