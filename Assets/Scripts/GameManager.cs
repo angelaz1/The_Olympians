@@ -102,6 +102,8 @@ public class GameManager : MonoBehaviour
                 case 0: dialogueManager.startOkPostDialogue(); break;
                 case 1: dialogueManager.startGoodPostDialogue(); break;
             }
+        } else if (allCharacters[currentCharacterName].isHated()) {
+            dialogueManager.startHatedDialogue();
         } else {
             dialogueManager.startGreetingDialogue();
         }
@@ -149,7 +151,12 @@ public class GameManager : MonoBehaviour
     }
 
     public void showFeedback() {
-        interactUIManager.showFeedback(nextFeedback);
+        if (allCharacters[currentCharacterName].isHated()) {
+            dialogueManager.startHatedDialogue();
+        } else {
+            interactUIManager.showFeedback(nextFeedback);
+            interactUIManager.showTopBar();
+        }
     }
 
     public void postImage(Filter filter, Caption caption) {
@@ -199,6 +206,14 @@ public class GameManager : MonoBehaviour
         this.failedDate = !passed;
         if (passed) {
             this.advanceCheckpoint();
+        }
+    }
+
+    public void checkIfHated() {
+        if (allCharacters[currentCharacterName].isHated()) {
+            dialogueManager.startHatedDialogue();
+        } else {
+            GameObject.Find("InteractButtonManager").GetComponent<InteractButtonManager>().allFlyIn();
         }
     }
 }

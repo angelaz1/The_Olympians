@@ -11,7 +11,7 @@ public class DialogueManager : MonoBehaviour
 
     // We will use the speakerName to find and parse the dialogue JSON
     // The dialogue for all characters should be in a JSON file named their name
-    private enum DialogueType {Checkpoint, Conversation, Greeting, Post, AfterPost, Date, FailedDate, FinalCheckpoint, Insufficient};
+    private enum DialogueType {Checkpoint, Conversation, Greeting, Post, AfterPost, Date, FailedDate, FinalCheckpoint, Insufficient, Hated};
     private CharacterDialogue dialogue;
     private Dialogue[] currDialogue;
     private int currIndex;
@@ -169,6 +169,16 @@ public class DialogueManager : MonoBehaviour
         startDialogue();
     }
 
+    public void startHatedDialogue() {
+        // Get insufficient followers dialogue
+        int diaLen = dialogue.hatedDialogue.Length;
+        int index = Random.Range(0, diaLen);
+        Dialogue[] selected = dialogue.hatedDialogue[index].dialogue;
+        currDialogue = selected;
+        currType = DialogueType.Hated;
+        startDialogue();
+    }
+
     void reshuffle(Option[] texts)
     {
         // Knuth shuffle algorithm :: courtesy of Wikipedia :)
@@ -227,7 +237,7 @@ public class DialogueManager : MonoBehaviour
         dialogueUI.finishDialogueUI();
         switch(currType) {
             case DialogueType.Conversation: {
-                GameObject.Find("InteractButtonManager").GetComponent<InteractButtonManager>().allFlyIn();
+                GameObject.Find("GameManager").GetComponent<GameManager>().checkIfHated();
                 break;
             }
             case DialogueType.Checkpoint: {
@@ -242,11 +252,10 @@ public class DialogueManager : MonoBehaviour
             }
             case DialogueType.Post: {
                 // Load post minigame scene
-                SceneManager.LoadScene("PostDemo");
+                GameObject.Find("InteractUIManager").GetComponent<InteractUIManager>().loadPost();
                 break;
             }
             case DialogueType.AfterPost: {
-                GameObject.Find("InteractUIManager").GetComponent<InteractUIManager>().showTopBar();
                 GameObject.Find("GameManager").GetComponent<GameManager>().showFeedback();
                 break;
             }
@@ -258,17 +267,20 @@ public class DialogueManager : MonoBehaviour
             }
             case DialogueType.Date: {
                 // Load date minigame scene
-                SceneManager.LoadScene("Match3Game");
+                GameObject.Find("InteractUIManager").GetComponent<InteractUIManager>().loadMatch3Game();
                 break;
             }
             case DialogueType.FinalCheckpoint: {
-                SceneManager.LoadScene("WinScreen");
+                GameObject.Find("InteractUIManager").GetComponent<InteractUIManager>().loadWinScreen();
                 // GameObject.Find("InteractUIManager").GetComponent<InteractUIManager>().showTopBar();
                 break;
             }
             case DialogueType.Insufficient: {
                 GameObject.Find("InteractButtonManager").GetComponent<InteractButtonManager>().allFlyIn();
                 GameObject.Find("InteractUIManager").GetComponent<InteractUIManager>().showTopBar();
+                break;
+            }
+            case DialogueType.Hated: {
                 break;
             }
         }        

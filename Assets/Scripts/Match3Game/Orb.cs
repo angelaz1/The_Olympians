@@ -16,7 +16,7 @@ public class Orb : MonoBehaviour
     private Vector2 firstTouchPos, finalTouchPos;
     private Vector2 tempPosition;
     private float swipeAngle = 0.0f;
-    private float swipeResist = 1.5f;
+    private float swipeResist = 1.0f;
     private float yOffset = 0.5f;
 
     // Start is called before the first frame update
