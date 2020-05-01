@@ -158,6 +158,42 @@
           "options": [
             {
               "optionText": "Next",
+              "link": 2,
+              "affectionBonus": 0
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "text": "By the way, weren't you supposed to meet up with Ares too?",
+          "state": "Default",
+          "options": [
+            {
+              "optionText": "Next",
+              "link": 3,
+              "affectionBonus": 0
+            }
+          ]
+        },
+        {
+          "id": 3,
+          "text": "That guy's probably at the gym or something. All he talks about are his muscles.",
+          "state": "Default",
+          "options": [
+            {
+              "optionText": "Next",
+              "link": 4,
+              "affectionBonus": 0
+            }
+          ]
+        },
+        {
+          "id": 4,
+          "text": "Well, if you haven't met him yet, his contact should be in your phone.",
+          "state": "Default",
+          "options": [
+            {
+              "optionText": "Next",
               "link": -1,
               "affectionBonus": 0
             }

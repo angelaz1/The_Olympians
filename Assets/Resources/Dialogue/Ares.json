@@ -761,6 +761,85 @@
       "dialogue": [
         {
           "id": 0,
+          "text": "Weird question - do you believe in love at first sight?",
+          "state": "Default",
+          "options": [
+            {
+              "optionText": "Yes, I’ve felt it before",
+              "link": 1,
+              "affectionBonus": 0
+            },
+            {
+              "optionText": "No such thing really exists",
+              "link": 2,
+              "affectionBonus": 0
+            }
+          ]
+        },
+        {
+          "id": 1,
+          "text": "Huh, really? When was that?",
+          "state": "Surprised",
+          "options": [
+            {
+              "optionText": "First happened in high school",
+              "link": 3,
+              "affectionBonus": -5
+            },
+            {
+              "optionText": "It happened when I met you",
+              "link": 4,
+              "affectionBonus": 10
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "text": "Hm, are you sure about it?",
+          "state": "Default",
+          "options": [
+            {
+              "optionText": "100% sure about it",
+              "link": 3,
+              "affectionBonus": -5
+            },
+            {
+              "optionText": "I don’t know... want to change my mind?",
+              "link": 4,
+              "affectionBonus": 5
+            }
+          ]
+        },
+        {
+          "id": 3,
+          "text": "Oh. That's... great to hear.",
+          "state": "Default",
+          "options": [
+            {
+              "optionText": "Next",
+              "link": -1,
+              "affectionBonus": 0
+            }
+          ]
+        },
+        {
+          "id": 4,
+          "text": "Well, that's... good to hear. I was, um, just asking for a friend.",
+          "state": "Happy",
+          "options": [
+            {
+              "optionText": "Next",
+              "link": -1,
+              "affectionBonus": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "dialogue": [
+        {
+          "id": 0,
           "text": "Hm, you've got something to ask me?",
           "state": "Default",
           "options": [

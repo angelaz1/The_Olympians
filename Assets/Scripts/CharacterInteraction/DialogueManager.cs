@@ -262,7 +262,8 @@ public class DialogueManager : MonoBehaviour
                 break;
             }
             case DialogueType.FinalCheckpoint: {
-                GameObject.Find("InteractUIManager").GetComponent<InteractUIManager>().showTopBar();
+                SceneManager.LoadScene("WinScreen");
+                // GameObject.Find("InteractUIManager").GetComponent<InteractUIManager>().showTopBar();
                 break;
             }
             case DialogueType.Insufficient: {
