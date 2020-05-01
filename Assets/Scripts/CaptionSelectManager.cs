@@ -52,9 +52,21 @@ public class CaptionSelectManager : MonoBehaviour
         return captions[selectedCaption - 1];
     }
 
+    void reshuffle(Caption[] captions)
+    {
+        for (int t = 0; t < captions.Length; t++ )
+        {
+            Caption tmp = captions[t];
+            int r = Random.Range(t, captions.Length);
+            captions[t] = captions[r];
+            captions[r] = tmp;
+        }
+    }
+
     // set the captions
     public void SetCaptions(Caption[] captions)
     {
+        reshuffle(captions);
         this.captions = captions;
         caption1.text = captions[0].captionButtonText;
         caption2.text = captions[1].captionButtonText;

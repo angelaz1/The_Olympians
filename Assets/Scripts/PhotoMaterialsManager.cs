@@ -102,10 +102,22 @@ public class PhotoMaterialsManager : MonoBehaviour
         return filters[selectedFilter - 1];
     }
 
+    void reshuffle(Filter[] filters)
+    {
+        for (int t = 0; t < filters.Length; t++ )
+        {
+            Filter tmp = filters[t];
+            int r = Random.Range(t, filters.Length);
+            filters[t] = filters[r];
+            filters[r] = tmp;
+        }
+    }
+
     // set the filters
     public void SetFilters(Filter[] filters)
     {
         if (mat_dict == null) initDict();
+        reshuffle(filters);
         this.filters = filters;
         filter1 = mat_dict[filters[0].filterName]; 
         filterText1.text = filters[0].filterName; 

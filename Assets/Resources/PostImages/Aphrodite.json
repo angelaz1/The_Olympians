@@ -36,36 +36,138 @@
       ] 
     },
     {
-      "imagePath": "PostImages/Aphrodite/breakfast",
+      "imagePath": "PostImages/Aphrodite/duck_face",
       "filters": [
         {
           "filterName": "Hearts",
-          "effectIndicator": "0"
+          "effectIndicator": "1"
         },
         {
           "filterName": "Sepia",
-          "effectIndicator": "-1"
+          "effectIndicator": "0"
         },
         {
-          "filterName": "Brighten",
-          "effectIndicator": "1"
+          "filterName": "Black & White",
+          "effectIndicator": "-1"
         }
       ],
       "captions": [
         {
-          "captionButtonText": "Mondays suck",
-          "captionText": "imagine waking up on a Monday to this meal",
+          "captionButtonText": "Feeling cute",
+          "captionText": "woke up looking this adorable, had to share!",
           "effectIndicator": "-1"
         }, 
         {
-          "captionButtonText": "Delicious parfait <3",
-          "captionText": "Getting some absolutely wonderful parfait! <3",
+          "captionButtonText": "Please send luv",
+          "captionText": "ugh i'm so ugly, give me likes please",
+          "effectIndicator": "-1"
+        },
+        {
+          "captionButtonText": "New gloss",
+          "captionText": "#Daphne just came out with her newest lip gloss",
+          "effectIndicator": "1"
+        }
+      ] 
+    },
+    {
+      "imagePath": "PostImages/Aphrodite/peace_sign",
+      "filters": [
+        {
+          "filterName": "Sakura",
           "effectIndicator": "0"
         },
         {
-          "captionButtonText": "Breakfast at Arty's!",
-          "captionText": "Artemis made me this gorgeous breakfast! #besties",
+          "filterName": "Sepia",
           "effectIndicator": "1"
+        },
+        {
+          "filterName": "Brighten",
+          "effectIndicator": "-1"
+        }
+      ],
+      "captions": [
+        {
+          "captionButtonText": "Luv me :3",
+          "captionText": "aren't I just the cutest? like comment and subscribe!",
+          "effectIndicator": "-1"
+        }, 
+        {
+          "captionButtonText": "Bad day?",
+          "captionText": "if ur having a bad day, i hope this cheers you up!",
+          "effectIndicator": "0"
+        },
+        {
+          "captionButtonText": "To my fans",
+          "captionText": "here's to my beautiful fans! thanks 4 ur support <3",
+          "effectIndicator": "1"
+        }
+      ] 
+    },
+    {
+      "imagePath": "PostImages/Aphrodite/junkfood",
+      "filters": [
+        {
+          "filterName": "Black & White",
+          "effectIndicator": "1"
+        },
+        {
+          "filterName": "Hearts",
+          "effectIndicator": "-1"
+        },
+        {
+          "filterName": "Brighten",
+          "effectIndicator": "0"
+        }
+      ],
+      "captions": [
+        {
+          "captionButtonText": "Yum yum",
+          "captionText": "spent all weekend splurging on junk food *burp*",
+          "effectIndicator": "-1"
+        }, 
+        {
+          "captionButtonText": "Stay healthy!",
+          "captionText": "don't let these foods fool you! stay #healthy every1!",
+          "effectIndicator": "1"
+        },
+        {
+          "captionButtonText": "Danger",
+          "captionText": "ew, these foods are so disgusting! don't eat them, k?",
+          "effectIndicator": "0"
+        }
+      ] 
+    },
+    {
+      "imagePath": "PostImages/Aphrodite/pineapple",
+      "filters": [
+        {
+          "filterName": "Black & White",
+          "effectIndicator": "0"
+        },
+        {
+          "filterName": "Hearts",
+          "effectIndicator": "1"
+        },
+        {
+          "filterName": "Sakura",
+          "effectIndicator": "-1"
+        }
+      ],
+      "captions": [
+        {
+          "captionButtonText": "New design",
+          "captionText": "Ariadne & Co's newest design, i'm buying it now!!",
+          "effectIndicator": "1"
+        }, 
+        {
+          "captionButtonText": "Summer look",
+          "captionText": "pineapples are all the craze, get prepped for the #summer",
+          "effectIndicator": "0"
+        },
+        {
+          "captionButtonText": "Worst fruit",
+          "captionText": "who even likes pineapples? kinda disgusting imo tbh",
+          "effectIndicator": "-1"
         }
       ] 
     }
