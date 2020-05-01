@@ -121,11 +121,14 @@ public class InteractUIManager : MonoBehaviour
         }
 
         int currCheckpoint = currentCharacter.getCurrentCheckpoint();
-        int currProgress = currentCharacter.getCurrentAffectionProgress();
         for(int i = 0; i < currCheckpoint; i++) {
             //All hearts before currCheckpoint are completed
             hearts[i].GetComponent<Image>().sprite = heartStates[heartStates.Length - 1];
         }
+        if(currCheckpoint == 5) {
+            return;
+        }
+        int currProgress = currentCharacter.getCurrentAffectionProgress();
         GameObject heart = hearts[currCheckpoint];
         if(currProgress < 20) {
             heart.GetComponent<Image>().sprite = heartStates[0];
@@ -144,6 +147,10 @@ public class InteractUIManager : MonoBehaviour
     }
 
     public void updateFollowers() {
+        int currCheckpoint = currentCharacter.getCurrentCheckpoint();
+        if(currCheckpoint == 5) {
+            return;
+        }
         int currFollowerGoal = currentCharacter.getCurrentFollowerGoal();
         int currFollowerCount = currentCharacter.getCurrentFollowerCount();
         followerCount.GetComponent<TextMeshProUGUI>().text = currFollowerCount + "/" + currFollowerGoal;

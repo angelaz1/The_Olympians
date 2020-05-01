@@ -58,6 +58,9 @@ public class Character
 
     // Accessor method for current affection progress with character
     public int getCurrentAffectionProgress() {
+        if(getCurrentCheckpoint() == 5) {
+            return 0;
+        }
         int affection = progress.getCurrentAffection();
         int checkpointVal = vars.checkpointAffectionPts[this.getCurrentCheckpoint()];
         if (affection > checkpointVal) affection = checkpointVal;
@@ -66,6 +69,9 @@ public class Character
 
     // Accessor method for follower goal with character
     public int getCurrentFollowerGoal() {
+        if(getCurrentCheckpoint() == 5) {
+            return 0;
+        }
         return vars.checkpointFollowerCount[this.getCurrentCheckpoint()];
     }
 

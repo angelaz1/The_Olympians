@@ -170,6 +170,40 @@
           "effectIndicator": "-1"
         }
       ] 
+    },
+    {
+      "imagePath": "PostImages/Aphrodite/silly",
+      "filters": [
+        {
+          "filterName": "Black & White",
+          "effectIndicator": "-1"
+        },
+        {
+          "filterName": "Hearts",
+          "effectIndicator": "1"
+        },
+        {
+          "filterName": "Sepia",
+          "effectIndicator": "0"
+        }
+      ],
+      "captions": [
+        {
+          "captionButtonText": "Klutz",
+          "captionText": "oopsies left my camera on when i tripped :3",
+          "effectIndicator": "-1"
+        }, 
+        {
+          "captionButtonText": "Star",
+          "captionText": "sayin' hi to all my fans, ur all stars <3",
+          "effectIndicator": "1"
+        },
+        {
+          "captionButtonText": "Silly",
+          "captionText": "just a silly post for today, im so #random",
+          "effectIndicator": "0"
+        }
+      ] 
     }
   ]
 }

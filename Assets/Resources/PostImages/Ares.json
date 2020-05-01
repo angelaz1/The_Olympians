@@ -102,6 +102,40 @@
           "effectIndicator": "1"
         }
       ] 
+    },
+    {
+      "imagePath": "PostImages/Ares/casual",
+      "filters": [
+        {
+          "filterName": "Sakura",
+          "effectIndicator": "-1"
+        },
+        {
+          "filterName": "Black & White",
+          "effectIndicator": "1"
+        },
+        {
+          "filterName": "Sepia",
+          "effectIndicator": "0"
+        }
+      ],
+      "captions": [
+        {
+          "captionButtonText": "Thug life",
+          "captionText": "feelin like a thug, livin out that #thuglyfe",
+          "effectIndicator": "-1"
+        }, 
+        {
+          "captionButtonText": "Take a break",
+          "captionText": "taking a break from the #business of life",
+          "effectIndicator": "1"
+        },
+        {
+          "captionButtonText": "So tired",
+          "captionText": "feeling extra tired from working out",
+          "effectIndicator": "0"
+        }
+      ] 
     }
   ]
 }
