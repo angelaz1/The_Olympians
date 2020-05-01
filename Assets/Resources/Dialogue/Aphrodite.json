@@ -281,12 +281,12 @@
             {
               "optionText": "Desserts are my vice",
               "link": 2,
-              "affectionBonus": 5
+              "affectionBonus": 10
             },
             {
               "optionText": "I enjoy a good spinach smoothie",
               "link": 3,
-              "affectionBonus": 10
+              "affectionBonus": 5
             }
           ]
         },
@@ -304,8 +304,8 @@
         },
         {
           "id": 2,
-          "text": "Mmm I suppose we all have our faults.",
-          "state": "Amused",
+          "text": "Yes! I'm definitely a sucker for sweets",
+          "state": "Happy",
           "options": [
             {
               "optionText": "Next",
@@ -316,8 +316,8 @@
         },
         {
           "id": 3,
-          "text": "Really?! Glad to hear someone around here actually cares for their health.",
-          "state": "Happy",
+          "text": "Glad to hear someone around here actually cares for their health.",
+          "state": "Amused",
           "options": [
             {
               "optionText": "Next",
@@ -813,6 +813,532 @@
         {
           "id": 3,
           "text": "I... Doogle? The search engine? Do they even sell phones?",
+          "state": "Default",
+          "options": [
+            {
+              "optionText": "Next",
+              "link": -1,
+              "affectionBonus": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "dialogue": [
+        {
+          "id": 0,
+          "text": "My friends are taking me to the amusement park next week. What’s your favorite thing to do there?",
+          "state": "Default",
+          "options": [
+            {
+              "optionText": "Definitely rollercoasters",
+              "link": 1,
+              "affectionBonus": 0
+            },
+            {
+              "optionText": "Gotta be the food",
+              "link": 1,
+              "affectionBonus": 0
+            },
+            {
+              "optionText": "Going on the ferris wheel!",
+              "link": 1,
+              "affectionBonus": 0
+            }
+          ]
+        },
+        {
+          "id": 1,
+          "text": "Not a bad idea, but I feel like it’ll get boring after some time. I want to go back home, but I don’t want my friends to think I don’t like them...",
+          "state": "Default",
+          "options": [
+            {
+              "optionText": "Just suck it up",
+              "link": 2,
+              "affectionBonus": -10
+            },
+            {
+              "optionText": "Fake a stomachache",
+              "link": 3,
+              "affectionBonus": -5
+            },
+            {
+              "optionText": "Sneak away like a ninja",
+              "link": 4,
+              "affectionBonus": 5
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "text": "What? Are you even listening to me? That's the worst idea ever.",
+          "state": "Mad",
+          "options": [
+            {
+              "optionText": "Next",
+              "link": -1,
+              "affectionBonus": 0
+            }
+          ]
+        },
+        {
+          "id": 3,
+          "text": "Wouldn’t that just make a big scene? I don't want to make a big deal out of it...",
+          "state": "Default",
+          "options": [
+            {
+              "optionText": "Next",
+              "link": -1,
+              "affectionBonus": 0
+            }
+          ]
+        },
+        {
+          "id": 4,
+          "text": "Ha, like a ninja you say? Seems like a pain... but I'll give it a shot.",
+          "state": "Amused",
+          "options": [
+            {
+              "optionText": "Next",
+              "link": -1,
+              "affectionBonus": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "dialogue": [
+        {
+          "id": 0,
+          "text": "Hmm, I think I’ve recently been losing some followers. How can I get them back?",
+          "state": "Default",
+          "options": [
+            {
+              "optionText": "Make a food instagram",
+              "link": 1,
+              "affectionBonus": 0
+            },
+            {
+              "optionText": "Post some fun pictures",
+              "link": 2,
+              "affectionBonus": 0
+            },
+            {
+              "optionText": "Reply to more fans!",
+              "link": 3,
+              "affectionBonus": 0
+            }
+          ]
+        },
+        {
+          "id": 1,
+          "text": "Uh... what do you mean by that?",
+          "state": "Default",
+          "options": [
+            {
+              "optionText": "Post your home-made pasta",
+              "link": 4,
+              "affectionBonus": 5
+            },
+            {
+              "optionText": "Post the leftover pizza you ordered last night",
+              "link": 5,
+              "affectionBonus": -5
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "text": "Uh... what do you mean by that?",
+          "state": "Default",
+          "options": [
+            {
+              "optionText": "Post a selfie of yourself at a park",
+              "link": 4,
+              "affectionBonus": 5
+            },
+            {
+              "optionText": "Post a selfie with triple chin",
+              "link": 5,
+              "affectionBonus": -5
+            }
+          ]
+        },
+        {
+          "id": 3,
+          "text": "Uh... what do you mean by that?",
+          "state": "Default",
+          "options": [
+            {
+              "optionText": "Write some positive comments",
+              "link": 4,
+              "affectionBonus": 5
+            },
+            {
+              "optionText": "Write some defensive comments",
+              "link": 5,
+              "affectionBonus": -5
+            }
+          ]
+        },
+        {
+          "id": 4,
+          "text": "Hm, that might be pretty good. I’ll give it a shot! Don’t expect any credit though",
+          "state": "Amused",
+          "options": [
+            {
+              "optionText": "Next",
+              "link": -1,
+              "affectionBonus": 0
+            }
+          ]
+        },
+        {
+          "id": 5,
+          "text": "Ugh, what kind of idea is that? That’s definitely a big no from me, I’d just lose more followers.",
+          "state": "Mad",
+          "options": [
+            {
+              "optionText": "Next",
+              "link": -1,
+              "affectionBonus": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "dialogue": [
+        {
+          "id": 0,
+          "text": "Hey, random thought. If you could be me for one day, what’s the first thing you would do?",
+          "state": "Default",
+          "options": [
+            {
+              "optionText": "Buy an expensive car",
+              "link": 1,
+              "affectionBonus": 0
+            },
+            {
+              "optionText": "Hang out with your friends",
+              "link": 1,
+              "affectionBonus": 0
+            },
+            {
+              "optionText": "Troll around on Instagram",
+              "link": 1,
+              "affectionBonus": 0
+            }
+          ]
+        },
+        {
+          "id": 1,
+          "text": "Why would you do that, are you trying to mess with my life?!",
+          "state": "Default",
+          "options": [
+            {
+              "optionText": "Hell yeah I am",
+              "link": 2,
+              "affectionBonus": -10
+            },
+            {
+              "optionText": "You’re the one who asked!",
+              "link": 3,
+              "affectionBonus": -5
+            },
+            {
+              "optionText": "I'm just jesting around!",
+              "link": 4,
+              "affectionBonus": 5
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "text": "Gods, I'll keep in mind to never let you anywhere near my stuff.",
+          "state": "Mad",
+          "options": [
+            {
+              "optionText": "Next",
+              "link": -1,
+              "affectionBonus": 0
+            }
+          ]
+        },
+        {
+          "id": 3,
+          "text": "Hey, who said you could be cranky with me?",
+          "state": "Mad",
+          "options": [
+            {
+              "optionText": "Next",
+              "link": -1,
+              "affectionBonus": 0
+            }
+          ]
+        },
+        {
+          "id": 4,
+          "text": "You better be joking! Or you'll be sorry...",
+          "state": "Amused",
+          "options": [
+            {
+              "optionText": "Next",
+              "link": -1,
+              "affectionBonus": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "dialogue": [
+        {
+          "id": 0,
+          "text": "Hmmm, have you ever been in love with someone?",
+          "state": "Default",
+          "options": [
+            {
+              "optionText": "Yes",
+              "link": 1,
+              "affectionBonus": 0
+            },
+            {
+              "optionText": "No",
+              "link": 2,
+              "affectionBonus": 0
+            }
+          ]
+        },
+        {
+          "id": 1,
+          "text": "Awww really? Tell me more!",
+          "state": "Amused",
+          "options": [
+            {
+              "optionText": "I was seeing someone in college but we broke up",
+              "link": 3,
+              "affectionBonus": -5
+            },
+            {
+              "optionText": "If you're asking... I'm in love with you",
+              "link": 4,
+              "affectionBonus": 10
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "text": "Really?! That's surprising. Why not?",
+          "state": "Amused",
+          "options": [
+            {
+              "optionText": "I only love myself",
+              "link": 3,
+              "affectionBonus": -10
+            },
+            {
+              "optionText": "Well, that was before I met you",
+              "link": 4,
+              "affectionBonus": 10
+            }
+          ]
+        },
+        {
+          "id": 3,
+          "text": "Oh. That's... great.",
+          "state": "Default",
+          "options": [
+            {
+              "optionText": "Next",
+              "link": -1,
+              "affectionBonus": 0
+            }
+          ]
+        },
+        {
+          "id": 4,
+          "text": "...Hey. We've got a smooth-talker here, don't we?",
+          "state": "Happy",
+          "options": [
+            {
+              "optionText": "Next",
+              "link": -1,
+              "affectionBonus": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "dialogue": [
+        {
+          "id": 0,
+          "text": "Hm, you've got something to ask me?",
+          "state": "Default",
+          "options": [
+            {
+              "optionText": "What's your favorite beverage?",
+              "link": 1,
+              "affectionBonus": 0
+            },
+            {
+              "optionText": "What's your favorite mall activity?",
+              "link": 4,
+              "affectionBonus": 0
+            },
+            {
+              "optionText": "What's your favorite music genre?",
+              "link": 8,
+              "affectionBonus": 0
+            }
+          ]
+        },
+        {
+          "id": 1,
+          "text": "I like to drink sweet tea - it helps me relax when I’m super stressed out. What’s your favorite?",
+          "state": "Amused",
+          "options": [
+            {
+              "optionText": "Bubble milk tea",
+              "link": 2,
+              "affectionBonus": 5
+            },
+            {
+              "optionText": "Kale smoothie",
+              "link": 3,
+              "affectionBonus": -5
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "text": "Ooo, that’s also a good one. You should come get boba with Artemis and me sometime!",
+          "state": "Happy",
+          "options": [
+            {
+              "optionText": "Next",
+              "link": -1,
+              "affectionBonus": 0
+            }
+          ]
+        },
+        {
+          "id": 3,
+          "text": "Kale?! Eww, are you a cow or something?",
+          "state": "Default",
+          "options": [
+            {
+              "optionText": "Next",
+              "link": -1,
+              "affectionBonus": 0
+            }
+          ]
+        },
+        {
+          "id": 4,
+          "text": "Oh my gods, I love the mall! I go, like, three times every week!",
+          "state": "Happy",
+          "options": [
+            {
+              "optionText": "Next",
+              "link": 5,
+              "affectionBonus": 0
+            }
+          ]
+        },
+        {
+          "id": 5,
+          "text": "Buying clothes is my favorite thing to do. How about you?",
+          "state": "Amused",
+          "options": [
+            {
+              "optionText": "Browsing Lego stores",
+              "link": 6,
+              "affectionBonus": -5
+            },
+            {
+              "optionText": "Eating at food court",
+              "link": 7,
+              "affectionBonus": 5
+            }
+          ]
+        },
+        {
+          "id": 6,
+          "text": "Are those the... tiny brick things? Eh, I don't get what's so great about them.",
+          "state": "Default",
+          "options": [
+            {
+              "optionText": "Next",
+              "link": -1,
+              "affectionBonus": 0
+            }
+          ]
+        },
+        {
+          "id": 7,
+          "text": "Same! Their food is sooo delicious - and most importantly, I can get all the desserts I want!",
+          "state": "Happy",
+          "options": [
+            {
+              "optionText": "Next",
+              "link": -1,
+              "affectionBonus": 0
+            }
+          ]
+        },
+        {
+          "id": 8,
+          "text": "I just like the mainstream R&B or Pop. What kind do you listen to?",
+          "state": "Amused",
+          "options": [
+            {
+              "optionText": "I also like pop!",
+              "link": 9,
+              "affectionBonus": 10
+            },
+            {
+              "optionText": "I only listen to obscure OST",
+              "link": 10,
+              "affectionBonus": 5
+            },
+            {
+              "optionText": "It's gotta be screamo",
+              "link": 11,
+              "affectionBonus": -5
+            }
+          ]
+        },
+        {
+          "id": 9,
+          "text": "Really? You should send me some recs later! I've been totally hooked on Muses 5.",
+          "state": "Happy",
+          "options": [
+            {
+              "optionText": "Next",
+              "link": -1,
+              "affectionBonus": 0
+            }
+          ]
+        },
+        {
+          "id": 10,
+          "text": "Haha! That’s kind of weird, but okay",
+          "state": "Amused",
+          "options": [
+            {
+              "optionText": "Next",
+              "link": -1,
+              "affectionBonus": 0
+            }
+          ]
+        },
+        {
+          "id": 11,
+          "text": "Is that the weird emo screaming thing? I feel like only Hades would listen to something as weird as that...",
           "state": "Default",
           "options": [
             {

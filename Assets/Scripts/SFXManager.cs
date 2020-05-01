@@ -14,7 +14,7 @@ public class SFXManager : MonoBehaviour
     private AudioSource source;
 
     void setSource() {
-        source = this.GetComponent<AudioSource>();
+        source = GetComponent<AudioSource>();
     }
 
     public IEnumerator playSound() {

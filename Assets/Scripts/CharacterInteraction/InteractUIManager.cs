@@ -35,6 +35,10 @@ public class InteractUIManager : MonoBehaviour
 
     void Start()
     {
+       setEverything();
+    }
+
+    void setEverything() {
         phone = GameObject.Find("Phone");
         phoneDown = true;
         buttons = GameObject.Find("Buttons");
@@ -112,6 +116,10 @@ public class InteractUIManager : MonoBehaviour
     }
 
     public void updateHearts() {
+        if (topBar == null) {
+            setEverything();
+        }
+
         int currCheckpoint = currentCharacter.getCurrentCheckpoint();
         int currProgress = currentCharacter.getCurrentAffectionProgress();
         for(int i = 0; i < currCheckpoint; i++) {
@@ -191,6 +199,9 @@ public class InteractUIManager : MonoBehaviour
     }
 
     public void playAffectionParticles() {
+        if (characterImage == null) {
+            setEverything();
+        }
         characterImage.GetComponentInChildren<ParticleSystem>().Play();
     }
 
@@ -219,6 +230,6 @@ public class InteractUIManager : MonoBehaviour
     }
 
     public void exitGame() {
-        SceneManager.LoadScene("MainMenu");
+        Application.Quit();
     }
 }
