@@ -1213,23 +1213,5 @@
         }
       ]
     }
-  ],
-  "hatedDialogue": [
-    {
-      "dialogue": [
-        {
-          "id": 0,
-          "text": "I feel like we really don't vibe. Please don't talk to me.",
-          "state": "Default",
-          "options": [
-            {
-              "optionText": "Next",
-              "link": -1,
-              "affectionBonus": 0
-            }
-          ]
-        }
-      ]
-    }
   ]
 }

@@ -42,5 +42,4 @@ public class CharacterDialogue
     public OtherDialogue[] goodPostDialogue;   
     public OtherDialogue[] insufficientAffectionDialogue;   
     public OtherDialogue[] insufficientFollowersDialogue;   
-    public OtherDialogue[] hatedDialogue; 
 }

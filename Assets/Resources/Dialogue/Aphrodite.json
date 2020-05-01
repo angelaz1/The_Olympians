@@ -1546,7 +1546,7 @@
       "dialogue": [
         {
           "id": 0,
-          "text": "Not bad... for someone like you, I mean.",
+          "text": "Not bad for a peasant mortal",
           "state": "Default",
           "options": [
             {
@@ -1617,24 +1617,6 @@
         {
           "id": 0,
           "text": "Hey, you're my manager, not my boyfriend! Get me more followers, then we'll talk.",
-          "state": "Default",
-          "options": [
-            {
-              "optionText": "Next",
-              "link": -1,
-              "affectionBonus": 0
-            }
-          ]
-        }
-      ]
-    }
-  ],
-  "hatedDialogue": [
-    {
-      "dialogue": [
-        {
-          "id": 0,
-          "text": "Ugh, you're literally the worst person I've ever met. Never talk to me. Ever. Again.",
           "state": "Default",
           "options": [
             {

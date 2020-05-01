@@ -10,8 +10,6 @@ public class Character
     private CharacterVars vars;
     private string name;
     private bool hasntMet;
-    private int badOptions;
-    private int badOptionThreshold;
 
     // Constructor for a character
     public Character(string characterName) {
@@ -24,9 +22,6 @@ public class Character
         readPostImages(vars.postImagePath);
 
         this.hasntMet = true;
-
-        this.badOptions = 0;
-        this.badOptionThreshold = 5;
     }
 
     // Reads the dialogue from the path
@@ -96,12 +91,6 @@ public class Character
 
     // Mutator method that adds affection
     public void addAffection(int amount) {
-        if (amount < 0) {
-            badOptions++;
-        } else if (amount > 0) {
-            badOptions = 0;
-        }
-
         if (progress.getCurrentAffection() < vars.checkpointAffectionPts[this.getCurrentCheckpoint()]
             && amount > 0) {
             this.progress.addAffection(amount);
@@ -113,12 +102,6 @@ public class Character
 
     // Mutator method that adds followers
     public void addFollowers(int amount) {
-        if (amount < 0) {
-            badOptions++;
-        } else if (amount > 0) {
-            badOptions = 0;
-        }
-
         this.progress.addFollowers(amount);
     }
 
@@ -164,9 +147,5 @@ public class Character
     // Accessor method for date scoreReq
     public int getScoreReq() {
         return vars.dateScoreReq[this.getCurrentCheckpoint()];
-    }
-
-    public bool isHated() {
-        return badOptions >= badOptionThreshold;
     }
 }
