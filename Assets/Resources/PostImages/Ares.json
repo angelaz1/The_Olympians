@@ -2,35 +2,137 @@
   "name": "Ares",
   "images": [
     {
-      "imagePath": "PostImages/Aphrodite/dog_and_icecream",
+      "imagePath": "PostImages/Ares/junkfood",
       "filters": [
         {
+          "filterName": "Black & White",
+          "effectIndicator": "1"
+        },
+        {
+          "filterName": "Hearts",
+          "effectIndicator": "-1"
+        },
+        {
+          "filterName": "Brighten",
+          "effectIndicator": "0"
+        }
+      ],
+      "captions": [
+        {
+          "captionButtonText": "DIE-et?",
+          "captionText": "keep eating junk like this and you'll DIE",
+          "effectIndicator": "-1"
+        }, 
+        {
+          "captionButtonText": "After workout snack",
+          "captionText": "ok if i eat this after i work out... it's ok right?",
+          "effectIndicator": "0"
+        },
+        {
+          "captionButtonText": "Stay strong",
+          "captionText": "stay strong fellas, say #no to junk food!",
+          "effectIndicator": "1"
+        }
+      ] 
+    },
+    {
+      "imagePath": "PostImages/Ares/selfie",
+      "filters": [
+        {
+          "filterName": "Sepia",
+          "effectIndicator": "1"
+        },
+        {
           "filterName": "Sakura",
+          "effectIndicator": "-1"
+        },
+        {
+          "filterName": "Black & White",
+          "effectIndicator": "0"
+        }
+      ],
+      "captions": [
+        {
+          "captionButtonText": "Kinda hot?",
+          "captionText": "all y'all single ladies, hit me up tonight ;)",
+          "effectIndicator": "-1"
+        }, 
+        {
+          "captionButtonText": "Finished workout",
+          "captionText": "just finished my daily workout, i'm #beat",
+          "effectIndicator": "1"
+        },
+        {
+          "captionButtonText": "Chillin",
+          "captionText": "lazing around the house, kinda bored tbh",
+          "effectIndicator": "0"
+        }
+      ] 
+    },
+    {
+      "imagePath": "PostImages/Ares/abs",
+      "filters": [
+        {
+          "filterName": "Hearts",
+          "effectIndicator": "-1"
+        },
+        {
+          "filterName": "Sepia",
           "effectIndicator": "1"
         },
         {
           "filterName": "Brighten",
           "effectIndicator": "0"
-        },
-        {
-          "filterName": "Black & White",
-          "effectIndicator": "-1"
         }
       ],
       "captions": [
         {
-          "captionButtonText": "Boring...",
-          "captionText": "another boring day...",
+          "captionButtonText": "Gainzzzz",
+          "captionText": "check out these gainzzz #mrstealyogirl",
           "effectIndicator": "-1"
         }, 
         {
-          "captionButtonText": "Fun day!!",
-          "captionText": "Having some #Kirby 'n #Cream!! Amazing day <3",
+          "captionButtonText": "You wish",
+          "captionText": "yall wish you got gains like these :)",
+          "effectIndicator": "0"
+        },
+        {
+          "captionButtonText": "Feeling good",
+          "captionText": "finished workout, lookin' good & feelin' good",
+          "effectIndicator": "1"
+        }
+      ] 
+    },
+    {
+      "imagePath": "PostImages/Ares/casual",
+      "filters": [
+        {
+          "filterName": "Sakura",
+          "effectIndicator": "-1"
+        },
+        {
+          "filterName": "Black & White",
           "effectIndicator": "1"
         },
         {
-          "captionButtonText": "Time with #dog",
-          "captionText": "Spending the day with my #dog",
+          "filterName": "Sepia",
+          "effectIndicator": "0"
+        }
+      ],
+      "captions": [
+        {
+          "captionButtonText": "Thug life",
+          "captionText": "feelin like a thug, livin out that #thuglyfe",
+          "effectIndicator": "-1"
+        }, 
+        {
+          "captionButtonText": "Take a break",
+          "captionText": "taking a break from the #business of life",
+          "effectIndicator": "1"
+        },
+        {
+          "captionButtonText": "So tired",
+          "captionText": "feeling extra tired from working out",
           "effectIndicator": "0"
         }
       ] 

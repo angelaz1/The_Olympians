@@ -49,16 +49,26 @@ public class PostingManager : MonoBehaviour
         return Resources.Load<Sprite>(path);
     } 
 
+    IEnumerator loadPhoneScene() {
+        yield return new WaitForSeconds(0.7f);
+        SceneManager.LoadScene("PhoneUIDemo");   
+    }
+
+    public void loadPhone() {
+        GameObject.Find("BigBlackScreen").GetComponent<Animator>().SetTrigger("MoveScreenIn");
+        StartCoroutine(loadPhoneScene());
+    }
+
     public void PostPhoto()
     {
         Filter filter = photoManager.getSelectedFilter();
         Caption caption = captionManager.getSelectedCaption();
         gameManager.postImage(filter, caption);
-        SceneManager.LoadScene("PhoneUIDemo");
+        loadPhone();
     }
 
     public void ReturnToMainScreen()
     {
-        SceneManager.LoadScene("PhoneUIDemo");
+        loadPhone();
     }
 }

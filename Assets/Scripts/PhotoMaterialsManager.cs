@@ -24,13 +24,13 @@ public class PhotoMaterialsManager : MonoBehaviour
     private Dictionary<string, Material> mat_dict;
     private Filter[] filters;
 
+
     public int selectedFilter; // 0 representing original 
 
-    // Start is called before the first frame update
     void Start()
     {
         if (mat_dict == null) initDict();
-        selectedFilter = 0; 
+        selectedFilter = 0;
     }
 
     void initDict() {
@@ -44,6 +44,7 @@ public class PhotoMaterialsManager : MonoBehaviour
 
     public void setImage(Sprite image) {
         GetComponent<SpriteRenderer>().sprite = image;
+        Debug.Log(image);
     }
 
     public void SelectFilter1()
@@ -94,10 +95,22 @@ public class PhotoMaterialsManager : MonoBehaviour
         return filters[selectedFilter - 1];
     }
 
+    void reshuffle(Filter[] filters)
+    {
+        for (int t = 0; t < filters.Length; t++ )
+        {
+            Filter tmp = filters[t];
+            int r = Random.Range(t, filters.Length);
+            filters[t] = filters[r];
+            filters[r] = tmp;
+        }
+    }
+
     // set the filters
     public void SetFilters(Filter[] filters)
     {
         if (mat_dict == null) initDict();
+        reshuffle(filters);
         this.filters = filters;
         filter1 = mat_dict[filters[0].filterName]; 
         filterText1.text = filters[0].filterName; 

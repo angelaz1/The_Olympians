@@ -20,7 +20,6 @@ public class DateButtonListener : ButtonListener
 
     public override void onClick() {
         GameObject.Find("InteractButtonManager").GetComponent<InteractButtonManager>().allFlyOff();
-        // START DATE
-        GameObject.Find("DialogueManager").GetComponent<DialogueManager>().startDateDialogue();
+        GameObject.Find("GameManager").GetComponent<GameManager>().checkStartingDate();
     }
 }

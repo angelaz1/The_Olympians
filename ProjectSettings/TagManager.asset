@@ -5,6 +5,12 @@ TagManager:
   serializedVersion: 2
   tags:
   - Fire
+  - Aquarius
+  - Leo
+  - Cancer
+  - Aries
+  - Saggitarius
+  - Virgo
   layers:
   - Default
   - TransparentFX

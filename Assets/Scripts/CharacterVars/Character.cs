@@ -10,6 +10,8 @@ public class Character
     private CharacterVars vars;
     private string name;
     private bool hasntMet;
+    private int badOptions;
+    private int badOptionThreshold;
 
     // Constructor for a character
     public Character(string characterName) {
@@ -22,6 +24,9 @@ public class Character
         readPostImages(vars.postImagePath);
 
         this.hasntMet = true;
+
+        this.badOptions = 0;
+        this.badOptionThreshold = 5;
     }
 
     // Reads the dialogue from the path
@@ -58,6 +63,9 @@ public class Character
 
     // Accessor method for current affection progress with character
     public int getCurrentAffectionProgress() {
+        if(getCurrentCheckpoint() == 5) {
+            return 0;
+        }
         int affection = progress.getCurrentAffection();
         int checkpointVal = vars.checkpointAffectionPts[this.getCurrentCheckpoint()];
         if (affection > checkpointVal) affection = checkpointVal;
@@ -66,6 +74,9 @@ public class Character
 
     // Accessor method for follower goal with character
     public int getCurrentFollowerGoal() {
+        if(getCurrentCheckpoint() == 5) {
+            return 0;
+        }
         return vars.checkpointFollowerCount[this.getCurrentCheckpoint()];
     }
 
@@ -85,6 +96,12 @@ public class Character
 
     // Mutator method that adds affection
     public void addAffection(int amount) {
+        if (amount < 0) {
+            badOptions++;
+        } else if (amount > 0) {
+            badOptions = 0;
+        }
+
         if (progress.getCurrentAffection() < vars.checkpointAffectionPts[this.getCurrentCheckpoint()]
             && amount > 0) {
             this.progress.addAffection(amount);
@@ -96,6 +113,12 @@ public class Character
 
     // Mutator method that adds followers
     public void addFollowers(int amount) {
+        if (amount < 0) {
+            badOptions++;
+        } else if (amount > 0) {
+            badOptions = 0;
+        }
+
         this.progress.addFollowers(amount);
     }
 
@@ -104,14 +127,21 @@ public class Character
         this.progress.advanceCheckpoint();
     }
 
-    // Returns true if current checkpoint values have been met
-    public bool completedCheckpoint() {
+    public bool completedAffection() {
         int affection = progress.getCurrentAffection();
         int checkpointAffectionVal = vars.checkpointAffectionPts[this.getCurrentCheckpoint()];
+        return affection >= checkpointAffectionVal;
+    }
 
+    public bool completedFollowers() {
         int followers = progress.getCurrentFollowers();
         int checkpointFollowerVal = vars.checkpointFollowerCount[this.getCurrentCheckpoint()];
-        return (affection >= checkpointAffectionVal && followers >= checkpointFollowerVal);
+        return followers >= checkpointFollowerVal;
+    }
+
+    // Returns true if current checkpoint values have been met
+    public bool completedCheckpoint() {
+        return completedAffection() && completedFollowers();
     } 
 
     // Accessor method for character portrait
@@ -134,5 +164,9 @@ public class Character
     // Accessor method for date scoreReq
     public int getScoreReq() {
         return vars.dateScoreReq[this.getCurrentCheckpoint()];
+    }
+
+    public bool isHated() {
+        return badOptions >= badOptionThreshold;
     }
 }

@@ -11,7 +11,7 @@ public class GameManager : MonoBehaviour
     private InteractUIManager interactUIManager;
     private SFXManager sfxManager;
     private PostingManager postingManager;
-    private BoardManager boardManager;
+    private Board boardManager;
     private Dictionary<string, Character> allCharacters;
 
     private bool postedPhoto;
@@ -46,7 +46,6 @@ public class GameManager : MonoBehaviour
             interactUIManager.setCharacter(allCharacters[currentCharacterName]);
             interactUIManager.setCharacterPortrait(CharacterExpression.Default);
             interactUIManager.setBackgroundImage();
-            checkDateUnlocked();
             startGreetingDialogue();
         }
 
@@ -58,11 +57,8 @@ public class GameManager : MonoBehaviour
         }
 
         else if (scene.name == "Match3Game") {
-            boardManager = GameObject.Find("BoardManager").GetComponent<BoardManager>();
-
-            int moveLimit = allCharacters[currentCharacterName].getMoveLimit();
-            int scoreReq = allCharacters[currentCharacterName].getScoreReq();
-            boardManager.setVals(scoreReq, moveLimit);
+            boardManager = GameObject.Find("BoardManager").GetComponent<Board>();
+            boardManager.setVals(allCharacters[currentCharacterName]);
         }
     }
 
@@ -91,7 +87,12 @@ public class GameManager : MonoBehaviour
             if (failedDate) {
                 dialogueManager.startFailDateDialogue();
             } else {
-                dialogueManager.startCheckpointDialogue(allCharacters[currentCharacterName].getCurrentCheckpoint());
+                int currCheckpoint = allCharacters[currentCharacterName].getCurrentCheckpoint();
+                if (currCheckpoint >= 5) {
+                    dialogueManager.startFinalCheckpointDialogue();
+                } else {
+                    dialogueManager.startCheckpointDialogue(currCheckpoint);
+                }
             }
         } else if (postedPhoto) {
             postedPhoto = false;
@@ -101,18 +102,26 @@ public class GameManager : MonoBehaviour
                 case 0: dialogueManager.startOkPostDialogue(); break;
                 case 1: dialogueManager.startGoodPostDialogue(); break;
             }
+        } else if (allCharacters[currentCharacterName].isHated()) {
+            dialogueManager.startHatedDialogue();
         } else {
             dialogueManager.startGreetingDialogue();
         }
     }
 
-    void checkDateUnlocked() {
+    public void checkStartingDate() {
         Character c = allCharacters[currentCharacterName];
 
         if(c.completedCheckpoint()) {
-            interactUIManager.unlockDate();
+            dialogueManager.startDateDialogue();
         } else {
-            interactUIManager.lockDate();
+            if(!c.completedAffection()) {
+                sfxManager.playBadSound();
+                dialogueManager.startInsufficientAffectionDialogue();
+            } else {
+                sfxManager.playBadSound();
+                dialogueManager.startInsufficientFollowersDialogue();
+            }
         }
     }
 
@@ -133,20 +142,21 @@ public class GameManager : MonoBehaviour
             sfxManager.playBadSound();
         }
         interactUIManager.updateHearts();
-        
-        checkDateUnlocked();
     }
 
     public void addFollowers(int amount) {
         Character c = allCharacters[currentCharacterName];
         c.addFollowers(amount);
         interactUIManager.updateFollowers();
-        
-        checkDateUnlocked();
     }
 
     public void showFeedback() {
-        interactUIManager.showFeedback(nextFeedback);
+        if (allCharacters[currentCharacterName].isHated()) {
+            dialogueManager.startHatedDialogue();
+        } else {
+            interactUIManager.showFeedback(nextFeedback);
+            interactUIManager.showTopBar();
+        }
     }
 
     public void postImage(Filter filter, Caption caption) {
@@ -178,29 +188,17 @@ public class GameManager : MonoBehaviour
                 // Ok combination
                 photoQuality = 0;
                 addedFollowers = Random.Range(50, 200);
-                if (captionEff < 0) feedbackText = "the filter seems aight, but yikes, was that caption bad!!";
-                else if (filterEff < 0) feedbackText = "ooo the " + filter.filterName + " really doesn't suit that image...";
-                else feedbackText = "ehh not much of an impact... this gets a 5/10 from me";
+                if (captionEff < filterEff) feedbackText = "the filter seems aight, but yikes, was that caption bad!!";
+                else if (filterEff < captionEff) feedbackText = "ooo the " + filter.filterName + " filter is a little lacking...";
+                else feedbackText = "ehh... both the filter and the caption could use improvement";
             } 
         }
 
         nextFeedback = new Feedback(addedFollowers, feedbackText);
     }
 
-    public void moveToLocation(string location) {
-        switch(location) {
-            case "Mall": {
-                currentCharacterName = "Aphrodite";
-                break;
-            }
-            case "Gym": {
-                currentCharacterName = "Ares";
-                break;
-            }
-            default: break;
-        }
-
-        SceneManager.LoadScene("PhoneUIDemo");
+    public void setCharacter(string characterName) {
+        currentCharacterName = characterName;
     }
 
     public void setDateCondition(bool passed) {
@@ -208,6 +206,14 @@ public class GameManager : MonoBehaviour
         this.failedDate = !passed;
         if (passed) {
             this.advanceCheckpoint();
+        }
+    }
+
+    public void checkIfHated() {
+        if (allCharacters[currentCharacterName].isHated()) {
+            dialogueManager.startHatedDialogue();
+        } else {
+            GameObject.Find("InteractButtonManager").GetComponent<InteractButtonManager>().allFlyIn();
         }
     }
 }

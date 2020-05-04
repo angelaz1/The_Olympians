@@ -35,6 +35,10 @@ public class InteractUIManager : MonoBehaviour
 
     void Start()
     {
+       setEverything();
+    }
+
+    void setEverything() {
         phone = GameObject.Find("Phone");
         phoneDown = true;
         buttons = GameObject.Find("Buttons");
@@ -50,6 +54,7 @@ public class InteractUIManager : MonoBehaviour
             mouseClicked = true;
             this.feedback.GetComponent<Animator>().ResetTrigger("flyUp");
             this.feedback.GetComponent<Animator>().SetTrigger("flyOff");
+            GameObject.Find("InteractButtonManager").GetComponent<InteractButtonManager>().allFlyIn();
         }  
     }
 
@@ -110,21 +115,20 @@ public class InteractUIManager : MonoBehaviour
         }
     }
 
-    public void unlockDate() {
-        GameObject.Find("DateButton").GetComponent<Button>().interactable = true;
-    }
-
-    public void lockDate() {
-        GameObject.Find("DateButton").GetComponent<Button>().interactable = false;
-    }
-
     public void updateHearts() {
+        if (topBar == null) {
+            setEverything();
+        }
+
         int currCheckpoint = currentCharacter.getCurrentCheckpoint();
-        int currProgress = currentCharacter.getCurrentAffectionProgress();
         for(int i = 0; i < currCheckpoint; i++) {
             //All hearts before currCheckpoint are completed
             hearts[i].GetComponent<Image>().sprite = heartStates[heartStates.Length - 1];
         }
+        if(currCheckpoint == 5) {
+            return;
+        }
+        int currProgress = currentCharacter.getCurrentAffectionProgress();
         GameObject heart = hearts[currCheckpoint];
         if(currProgress < 20) {
             heart.GetComponent<Image>().sprite = heartStates[0];
@@ -138,10 +142,15 @@ public class InteractUIManager : MonoBehaviour
             heart.GetComponent<Image>().sprite = heartStates[4];
         } else {
             heart.GetComponent<Image>().sprite = heartStates[5];
+            heart.GetComponent<Image>().color = new Color32(255, 105, 163, 255);
         }
     }
 
     public void updateFollowers() {
+        int currCheckpoint = currentCharacter.getCurrentCheckpoint();
+        if(currCheckpoint == 5) {
+            return;
+        }
         int currFollowerGoal = currentCharacter.getCurrentFollowerGoal();
         int currFollowerCount = currentCharacter.getCurrentFollowerCount();
         followerCount.GetComponent<TextMeshProUGUI>().text = currFollowerCount + "/" + currFollowerGoal;
@@ -197,6 +206,9 @@ public class InteractUIManager : MonoBehaviour
     }
 
     public void playAffectionParticles() {
+        if (characterImage == null) {
+            setEverything();
+        }
         characterImage.GetComponentInChildren<ParticleSystem>().Play();
     }
 
@@ -222,6 +234,36 @@ public class InteractUIManager : MonoBehaviour
     public void loadMap() {
         phone.GetComponent<Animator>().SetTrigger("OpenApp");
         StartCoroutine(loadMapScene());
+    }
+
+    IEnumerator loadWinScreenScene() {
+        yield return new WaitForSeconds(0.7f);
+        SceneManager.LoadScene("WinScreen");   
+    }
+
+    public void loadWinScreen() {
+        GameObject.Find("BigBlackScreen").GetComponent<Animator>().SetTrigger("MoveScreenIn");
+        StartCoroutine(loadWinScreenScene());
+    }
+
+    IEnumerator loadPostScene() {
+        yield return new WaitForSeconds(0.7f);
+        SceneManager.LoadScene("PostDemo");   
+    }
+
+    public void loadPost() {
+        GameObject.Find("BigBlackScreen").GetComponent<Animator>().SetTrigger("MoveScreenIn");
+        StartCoroutine(loadPostScene());
+    }
+
+    IEnumerator loadMatch3GameScene() {
+        yield return new WaitForSeconds(0.7f);
+        SceneManager.LoadScene("Match3Game");   
+    }
+
+    public void loadMatch3Game() {
+        GameObject.Find("BigBlackScreen").GetComponent<Animator>().SetTrigger("MoveScreenIn");
+        StartCoroutine(loadMatch3GameScene());
     }
 
     public void exitGame() {
